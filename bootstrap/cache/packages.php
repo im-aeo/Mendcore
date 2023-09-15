@@ -50,6 +50,17 @@
       'PackageManager' => 'Butschster\\Head\\Facades\\PackageManager',
     ),
   ),
+  'darkaonline/l5-swagger' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'L5Swagger\\L5SwaggerServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'L5Swagger' => 'L5Swagger\\L5SwaggerFacade',
+    ),
+  ),
   'inertiajs/inertia-laravel' => 
   array (
     'providers' => 
@@ -131,6 +142,13 @@
       0 => 'Mariuzzo\\LaravelJsLocalization\\LaravelJsLocalizationServiceProvider',
     ),
   ),
+  'martinbean/socialite-discord-provider' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'MartinBean\\Laravel\\Socialite\\DiscordServiceProvider',
+    ),
+  ),
   'nesbot/carbon' => 
   array (
     'providers' => 
@@ -150,6 +168,18 @@
     'providers' => 
     array (
       0 => 'Termwind\\Laravel\\TermwindServiceProvider',
+    ),
+  ),
+  'php-open-source-saver/jwt-auth' => 
+  array (
+    'aliases' => 
+    array (
+      'JWTAuth' => 'PHPOpenSourceSaver\\JWTAuth\\Facades\\JWTAuth',
+      'JWTFactory' => 'PHPOpenSourceSaver\\JWTAuth\\Facades\\JWTFactory',
+    ),
+    'providers' => 
+    array (
+      0 => 'PHPOpenSourceSaver\\JWTAuth\\Providers\\LaravelServiceProvider',
     ),
   ),
   'spatie/laravel-data' => 

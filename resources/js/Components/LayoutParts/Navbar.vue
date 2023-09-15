@@ -4,6 +4,7 @@ import { Head, router, Link, usePage } from '@inertiajs/vue3';
 import axios from 'axios';
 import { route, current } from "momentum-trail";
 import LanguageModal from "../Modal/LanguageModal.vue";
+
 defineProps({
     isActive: { type: Boolean, default: false },
     chat_toggle: { type: Boolean, default: false },
@@ -49,39 +50,32 @@ watch(
 const topbar = [
     {
         url: "#",
-        active_link: "/games",
+        active_link: "games.*",
         en: { title: "Games" },
-        es: { title: "juegos" },
-        th: { title: "เกม" },
-        jp: { title: "ゲーム" },
-        ka: { title: "თამაშები" },
+        ru: { title: "Игры" },
+        jp: { title: "ゲーム" }
+
     },
     {
         url: route(`store.page`),
-        active_link: "/market",
+        active_link: "store.*",
         en: { title: "Market" },
-        es: { title: "mercado" },
-        th: { title: "ตลาด" },
+        ru: { title: "Рынок" },
         jp: { title: "市場" },
-        ka: { title: "ბაზარი" },
     },
     {
         url: route(`forum.page`, { id: 1 }),
-        active_link: "/discuss",
+        active_link: "forum.*",
         en: { title: "Discuss" },
-        es: { title: "discutir" },
-        th: { title: "สนทนา" },
+        ru: { title: "Обсуждать" },
         jp: { title: "議論" },
-        ka: { title: "ბაზარი" },
     },
     {
         url: "#",
-        active_link: "/develop",
+        active_link: "develop.*",
         en: { title: "Develop" },
-        es: { title: "Desarrollar" },
-        th: { title: "พัฒนา" },
-        jp: { title: "発展" },
-        ka: { title: "ბაზარი" },
+        ru: { title: "Развивать" },
+        jp: { title: "発展" }
     },
 
 ];
@@ -103,13 +97,15 @@ const { props } = usePage<any>();
                 </Link>
             </li>
             <li class="nav-item cell shrink show-for-large" v-for="topbarlinks in topbar">
-                <Link :href="topbarlinks.url" class="nav-link"
-                    :class="{ 'active': $page.url.startsWith(topbarlinks.active_link) }">{{ topbarlinks[lang].title }}
-                </Link>
+                <li class="side-item">
+                  <Link class="nav-link" :href="topbarlinks.url" :class="[current(topbarlinks.active_link) ? 'active' : '']">
+			<span>{{ topbarlinks[lang].title }}</span>
+		  </Link>
+                </li>
             </li>
 
             <li class="mx-1 align-middle nav-item cell auto nav-search mx-md-3">
-                <input v-model="search" type="text" class="form" id="global-search-bar" placeholder="Search..."
+                <input v-model="search" type="text" class="form" id="global-search-bar" autocomplete="nope" placeholder="Search..."
                     @input="performSearch">
                 <ul :class="['dropdown-menu', { 'hide': search === '' }]" id="global-search-results">
                     <li class="dropdown-title">Quick Results</li>
@@ -150,12 +146,12 @@ const { props } = usePage<any>();
             <li v-if="!$page.props.auth.user" class="nav-item cell shrink ms-1">
                 <Link :href="route('auth.login.page')" class="btn btn-info">Log In</Link>
             </li>
-            <li v-if="$page.props.auth.user" class="position-relative nav-item cell shrink">
+            <li v-if="$page.props.auth.user" @click="addActiveClass(`notification_dropdown`)" class="position-relative nav-item cell shrink">
                 <div class="show-for-small-only position-relative">
                     <a href="#" class="px-2 btn-circle squish text-body"><span class="notification-circle"></span><i
                             class="text-xl fas fa-bell"></i></a>
                 </div>
-                <div class="dropdown show-for-medium position-relative">
+                <div class="dropdown show-for-medium position-relative" id="notification_dropdown" @click="addActiveClass(`notification_dropdown`)">
                     <div class="btn-circle squish">
                         <button class="px-2 text-body" data-tooltip-title="Notifications" data-tooltip-placement="bottom">
                             <span class="notification-circle"></span><i class="text-xl fas fa-bell"></i>
@@ -369,11 +365,11 @@ const { props } = usePage<any>();
                         </div>
                         <li class="dropdown-item">
                             <a href="#" class="dropdown-link dropdown-link-has-icon text-warning"><i
-                                    class="fas fa-coins text-warning dropdown-icon"></i>{{ $page.props.auth.user.coins }} Coins</a>
+                                    class="fas fa-coins text-warning dropdown-icon"></i>{{ usePage().props.auth.user.coins }} Coins</a>
                         </li>
                         <li class="dropdown-item">
                             <a href="#" class="dropdown-link dropdown-link-has-icon text-success"><i
-                                    class="fas fa-money-bill-1-wave text-success dropdown-icon"></i>{{ $page.props.auth.user.cash }} Cash</a>
+                                    class="fas fa-money-bill-1-wave text-success dropdown-icon"></i>{{ usePage().props.auth.user.cash }} Cash</a>
                         </li>
                     </div>
                     <div class="align-middle flex-container">
@@ -399,11 +395,6 @@ const { props } = usePage<any>();
                     </li>
                 </ul>
             </li>
-
-
-
-
-
         </ul>
     </nav>
 

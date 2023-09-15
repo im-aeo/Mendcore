@@ -1,27 +1,4 @@
 <!-- resources/js/Pages/MaintenancePage.vue -->
-<style scoped>
-.col-md-3{
-  flex:0 0 25%;
-  max-width:25%;
-  }
-  .row{
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    }
-    
-  .col-md-9,.col-md-3, {
-    position: relative;
-    width:100;
-    padding-right:15px;
-    padding-left:15px;
-    }
-  .col-md-9{
-  flex:0 0 75%;
-  max-width:75%;
-  }
-</style>
 <template>
   <div class="justify-center w-40 grid-x maint-body align-center">
     <div class="mt-5 cell large-5 medium-5">
@@ -50,7 +27,30 @@
   </div>
   <AppFooter />
 </template>
+<style scoped>
+.col-md-3 {
+  flex:0 0 25%;
+  max-width:25%;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    }
 
+  .col-md-9, .col-md-3 {
+    position: relative;
+    width:100;
+    padding-right:15px;
+    padding-left:15px;
+ }
+
+  .col-md-9 {
+  flex:0 0 75%;
+  max-width:75%;
+  }
+</style>
 <script lang="ts">
 import AppFooter from '@/Components/LayoutParts/Footer.vue';
 import axios from 'axios'; // Import Axios

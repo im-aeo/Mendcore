@@ -8,11 +8,13 @@ import { ethers } from "ethers";
 import FlashMessages from '@/Components/Messages/FlashMessages.vue'
 import AppHead from '@/Components/AppHead.vue';
 import Login from '@/Components/PageProps/Login.vue'
+import Sidebar from '@/Components/LayoutParts/Sidebar.vue';
 </script>
 
 <template>
     <AppHead pageTitle="Login" description="Login to Vestora." :url="route('auth.login.page')" />
-    <Navbar>
+    <Navbar />
+    <Sidebar>
         <Login />
-    </Navbar>
+    </Sidebar>
 </template>

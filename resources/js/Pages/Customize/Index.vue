@@ -2,9 +2,10 @@
 import Navbar from "@/Components/LayoutParts/Navbar.vue";
 import Sidebar from "@/Components/LayoutParts/Sidebar.vue";
 import Footer from "@/Components/LayoutParts/Footer.vue";
-import { ref } from "vue";
+import { ref, onMounted, nextTick, computed } from "vue";
 import axios from "axios"; // Import Axios
 import { route } from "momentum-trail";
+import { usePage } from "@inertiajs/vue3";
 
 const selectedPart = ref<string | null>(null);
 const selectedColor = ref<string | null>(null); // Initialize with a default color, e.g., white
@@ -52,6 +53,32 @@ function VRCReset(): Promise<void> {
   console.log(`Resetting`);
 }
 
+let thumbnail = "";
+
+async function getAvatar() {
+  VrcRequest.value = true;
+
+  try {
+    const response = await axios.get(route(`api.thumbnails`, { type: 2, id: usePage().props.auth.user.id }), { maxRedirects: 0 });
+
+    // Check if there's a 'location' header in the response headers
+    const redirectURL = response.headers['location'];
+
+    if (redirectURL) {
+      // The 'location' header contains the final CDN link
+      thumbnail = redirectURL;
+      console.log(thumbnail);
+    } else {
+      console.error("No redirection URL found in the response headers.");
+    }
+
+    VrcRequest.value = false;
+  } catch (error) {
+    VrcRequest.value = false;
+    console.error(error);
+  }
+}
+
 // Function to change the color of a body part
 function changeColor(
   color: string,
@@ -70,9 +97,9 @@ function changeColor(
       console.log(response.data);
       imageRefreshKey.value += 1;
       VrcRequest.value = false;
-     location.reload();
     })
     .catch((error) => {
+      VrcRequest.value = false;
       // Handle any errors
       console.error(error);
     });
@@ -91,6 +118,9 @@ function handlePartSelection(part: string): void {
   showModal("PartsModal");
   selectPart(part);
 }
+onMounted(() => {
+getAvatar();
+});
 </script>
 
 <template>
@@ -159,7 +189,7 @@ function handlePartSelection(part: string): void {
       <div class="mb-3 card card-body">
         <img
           v-if="!VrcRequest"
-          :src="`${userAvatar.image}?refresh=${imageRefreshKey}`"
+          :src="`${thumbnail}?refresh=${imageRefreshKey}`"
         />
         <img v-else width="512" height="512" src="assets/spinner/pulse.svg" />
 

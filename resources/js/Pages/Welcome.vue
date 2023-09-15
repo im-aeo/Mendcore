@@ -5,9 +5,12 @@ import Welcome from '@/Components/PageProps/Welcome.vue';
 import Footer from '@/Components/LayoutParts/Footer.vue';
 import AppHead from '@/Components/AppHead.vue';
 import { route, current } from "momentum-trail";
+import "@/Pages/landing.css";
+
 defineProps({
     UserCount: {type: Number, required: true},
 })
+
 </script>
 <template>
     <AppHead pageTitle="Welcome" description="Welcome to Vestora." :url="route('auth.login.page')" />

@@ -19,9 +19,9 @@ class ItemController extends Controller
         return response()->json($items);
     }
 
-    public fn () => purchaseItem($item, Request   $request)
+    public function purchaseItem($id)
     {
-
+	//
     }
     /**
      * Show the form for creating a new resource.

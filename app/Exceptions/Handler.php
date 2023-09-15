@@ -24,10 +24,10 @@ class Handler extends ExceptionHandler
      * @var array<int, string>
      */
     protected $messages = [
-        500 => 'Something went wrong',
-        503 => 'Service unavailable',
-        404 => 'Not found',
-        403 => 'Not authorized',
+        500 => 'Sorry, we are doing some maintenance. Please check back soon.',
+        503 => 'Whoops, something went wrong on our servers.',
+        404 => 'The page you are looking for could not be found.',
+        403 => 'You are not authorized to access this page.',
     ];
     /**
      * A list of backend development helpers
@@ -35,10 +35,17 @@ class Handler extends ExceptionHandler
      * @var array<int, string>
      */
     protected $routes = [
-        500 => 'Something went wrong',
-        503 => 'Service unavailable',
+        500 => 'E_GENERIC_EXCEPTION',
+        503 => 'E_SERVICE_UNAVAILABLE',
         404 => 'E_ROUTE_NOT_FOUND',
         403 => 'E_FORBIDDEN',
+    ];
+
+    protected $icons = [
+        500 => 'fa-duotone fa-bomb text-danger',
+        503 => 'E_SERVICE_UNAVAILABLE',
+        404 => 'fa-duotone fa-exclamation text-warning',
+        403 => 'fa-duotone fa-shield-keyhole text-danger',
     ];
     /**
      * Render an exception into an HTTP response.
@@ -58,20 +65,28 @@ class Handler extends ExceptionHandler
             return $response;
         }
 
-        if (! array_key_exists($status, $this->messages)) {
+        if (!array_key_exists($status, $this->messages)) {
             return $response;
         }
 
-        if (! $request->isMethod('GET')) {
+	if ($exception instanceof ModelNotFoundException && $request->wantsJson())
+        {
+           return response()->json([
+              'data' => 'Resource not found'
+           ], 404);
+        }
+
+        if (!$request->isMethod('GET')) {
             return back()
                 ->setStatusCode($status)
                 ->with('error', $this->messages[$status]);
         }
 
-        return inertia('Error/Index', [
+        return inertia('App/Error', [
             'status' => $status,
             'message' => $this->messages[$status],
-	    'route' => $this->routes[$status],
+	    'adonis_error' => $this->routes[$status],
+	    'icon' => $this->icons[$status]
         ])
             ->toResponse($request)
             ->setStatusCode($status);

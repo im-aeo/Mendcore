@@ -86,7 +86,7 @@
   <Footer />
 </template>
 
-<script>
+<script lang="ts">
 import Footer from '@/Components/LayoutParts/Footer.vue';
 import { route, current } from 'momentum-trail'
 export default {

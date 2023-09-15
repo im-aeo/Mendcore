@@ -55,7 +55,6 @@ class GrabController extends Controller
             return [
                 'name' => $status->creator->username,
                 'dname' => $status->creator->display_name,
-                'online' => $status->online,
                 'timecreated' => $status->created_at,
                 'message' => $status->message,
                 'DateHum' => $status->DateHum,
@@ -112,13 +111,13 @@ class GrabController extends Controller
     {
         $user = User::where('username', '=', $username);
 
-        if (!$user->exists()) {
-            $usernameHistory = DiffUsername::where('username', '=', $username);
+        //if (!$user->exists()) {
+          //  $usernameHistory = DiffUsername::where('username', '=', $username);
 
-            if (!$usernameHistory->exists()) abort(404);
+            //if (!$usernameHistory->exists()) abort(404);
 
-            return redirect()->route('user.profile', $usernameHistory->first()->user->username);
-        }
+            //return redirect()->route('user.profile', $usernameHistory->first()->user->username);
+        //}
 
         $user = $user->first();
        //  $spaces = $user->spaces()->take(6);
@@ -176,11 +175,10 @@ class GrabController extends Controller
 
 public function customizeIndex()
 {
-    $avatar = Avatar::where('id', Auth::user()->id)->firstOrFail();
     $colors = config('avatar_colors'); // Assuming you've defined the colors in a config file.
 
     return inertia('Customize/Index', [
-        'avatar' => $avatar,
+        'avatar' => Auth::user()->avatar(),
         'avatar.thumbnail' => Auth::user()->thumbnail(),
         'colors' => $colors,
     ]);
@@ -300,7 +298,7 @@ return $this->regenerate($request);
         // Posting
         $topic = ForumTopic::where('id', '=', $id)->firstOrFail();
 
-        if (!Auth::check() || !Auth::user()->staff == 1 && $topic->is_staff_only_viewing) abort(404);
+        if (!Auth::check() || !Auth::user()->staff == 1 && $topic->is_staff_only_viewing) abort(403);
 
         $posts = $topic->threads()->through(function ($post) {
             return [

@@ -31,7 +31,6 @@ const ConfirmUserAuth = () => {
 };
 </script>
 <template>
-<main class="container grid-x w-50 align-center">
             <FlashMessages/>
         <div class="cell medium-4">
             <div class="mb-2">
@@ -83,5 +82,4 @@ const ConfirmUserAuth = () => {
                 </button>
             </div>
         </div>
-        </main>
 </template>

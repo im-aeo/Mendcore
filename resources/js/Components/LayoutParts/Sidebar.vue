@@ -1,32 +1,45 @@
 <script setup lang="ts">
-import { ref, onMounted, reactive, watch, watchEffect, computed } from 'vue';
+import { ref, beforeMount, onMounted, reactive, watch, watchEffect, computed } from 'vue';
 import { Head, router, Link, usePage } from '@inertiajs/vue3';
 import axios from 'axios';
 import { route, current } from "momentum-trail";
-defineProps({
-    chat_toggle: { type: Boolean, default: false },
-    messages: { type: Object, required: false },
+
+const chatopen = ref(false);
+
+const googleAdUrl = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+const adblock = ref(false);
+
+async function detectAdBlock() {
+  try {
+    await fetch(new Request(googleAdUrl)).catch(() => adblock.value = true);
+  } catch (e) {
+    adblock.value = true;
+  }
+}
+
+onMounted(() => {
+    detectAdBlock(); // Call the function only if adblock status is not already set
 });
 const sidebarsections = [
     {
         en: { name: "NAVIGATION" },
-        th: { title: "เกม" },
-        jp: { title: "ゲーム" }
+        ru: { name: "НАВИГАЦИЯ" },
+        jp: { name: "ナビゲーション" }
     },
     {
         en: { name: "SOCIAL" },
-        th: { title: "เกม" },
-        jp: { title: "ゲーム" }
+        ru: { name: "СОЦИАЛЬНОЕ" },
+        jp: { name: "ソーシャル" }
     },
     {
         en: { name: "MY SPACES" },
-        th: { title: "เกม" },
-        jp: { title: "ゲーム" }
+        ru: { name: "МОИ ПРОСТРАНСТВА" },
+        jp: { title: "私のスペース" }
     },
     {
         en: { name: "BOOST YOUR ACCOUNT" },
-        th: { title: "เกม" },
-        jp: { title: "ゲーム" } 
+        ru: { name: "เกม" },
+        jp: { name: "ゲーム" } 
     }
 ]
 const sidebar = [
@@ -36,17 +49,17 @@ const sidebar = [
         section: "NAVIGATION",
         icon: "fas fa-gamepad-modern",
         en: { title: "Games" },
-        th: { title: "เกม" },
+        ru: { title: "Игры" },
         jp: { title: "ゲーム" }
         
     },
     {
         url: route(`store.page`),
         section: "NAVIGATION",
-        active_link: "store.page.*",
+        active_link: "store.*",
         icon: "fas fa-store",
         en: { title: "Market" },
-        th: { title: "ตลาด" },
+        ru: { title: "Рынок" },
         jp: { title: "市場" },
     },
     {
@@ -55,7 +68,7 @@ const sidebar = [
         icon: "fas fa-messages",
         section: "NAVIGATION",
         en: { title: "Discuss" },
-        th: { title: "สนทนา" },
+        ru: { title: "Обсуждать" },
         jp: { title: "議論" },
     },
     {
@@ -64,16 +77,16 @@ const sidebar = [
         active_link: "develop.*",
         icon: "fas fa-code",
         en: { title: "Develop" },
-        th: { title: "พัฒนา" },
+        ru: { title: "Развивать" },
         jp: { title: "発展" }
     },
     {
-        url: "#",
-        active_link: "users.page.*",
+        url: route(`user.page`),
+        active_link: "user.*",
         section: "SOCIAL",
         icon: "fas fa-users",
         en: { title: "Players" },
-        th: { title: "ผู้เล่น" },
+        ru: { title: "Игроки" },
         jp: { title: "発展" }
     },
     {
@@ -82,15 +95,16 @@ const sidebar = [
         active_link: "spaces.*",
         icon: "fas fa-planet-ringed",
         en: { title: "Spaces" },
-        th: { title: "ช่องว่าง" },
+        ru: { title: "Пространства" },
         jp: { title: "スペース" }
     },
     {
         url: "#",
         section: "SOCIAL",
-        icon: "fas fa-list-ol",
+        active_link: "leaderboard.*",
+	icon: "fas fa-list-ol",
         en: { title: "Leaderboard" },
-        th: { title: "กระดานผู้นำ" },
+        ru: { title: "Таблица лидеров" },
         jp: { title: "リーダーボード" }
     },
     {
@@ -99,7 +113,7 @@ const sidebar = [
         active_link: "upgade.*",
         section: "BOOST YOUR ACCOUNT",
         en: { title: "Upgrade" },
-        th: { title: "อัปเกรด" },
+        ru: { title: "модернизировать" },
         jp: { title: "アップグレード" }
     },
 
@@ -155,14 +169,12 @@ const { props } = usePage<any>();
                    --> 
         </ul>
     </nav>
-    <main class="container-site">
         <main class="container">
-            
-	    <div v-if="usePage().props.site_config.announcement" class="py-2 mb-4 text-center alert alert-info fw-semibold">
+	    <div v-if="adblock" class="py-2 mb-4 text-center alert alert-danger fw-semibold">
                 <div class="gap-2 align-middle flex-container align-justify">
-                    <i class="text-lg far fa-exclamation-circle pe-2"></i>
-                    <div>{{ usePage().props.site_config.announcement_message }}</div>
-                    <i class="text-lg far fa-exclamation-circle pe-2"></i>
+                    <i class="text-lg far fa-triangle-exclamation pe-2"></i>
+                    <div>It looks like you use an ad blocker (so do we). You can support {{ usePage().props.site.name }} by telling your friends about us!</div>
+                    <i class="text-lg far fa-triangle-exclamation pe-2"></i>
                 </div>
             </div>
             <div v-if="usePage().props.site_config.in_maintenance" class="py-2 mb-2 text-center text-white alert alert-warning">
@@ -175,20 +187,20 @@ const { props } = usePage<any>();
             </div>
             <div class="grid-x grid-margin-x align-center">
                 <slot />
-                <div v-show="chat_toggle" id="chat-container" class="chat-container chat-vis focused" style="right: 66px; z-index: 1060;">
-			<div class="chat-windows-header chat-header bg-info hover" @click='chat_toggle = !chat_toggle'>
-                            <div class="chat-header-label">
-                                <span class="chat-caption-header text-overflow chat-header-title">
-                                    Aeo
-                                </span>
-                            </div>
+                <div v-if="usePage().props.auth.user" id="chat-container" class="chat-container chat-vis focused" style="right: 66px; z-index: 1060;">
+			<div @click="chatopen = !chatopen" style="cursor:pointer;" class="chat-windows-header chat-header bg-info hover">
                             <div class="chat-header-action">
                                 <i class="chat-icon fas fa-message-xmark chat-link-icon"></i>
                                 <i class="chat-icon fas fa-cog chat-link-icon"></i>
                                 <i class="chat-icon fas fa-gamepad-modern chat-link-icon"></i>
                             </div>
+			    <div class="chat-header-label">
+                                <span class="chat-caption-header text-overflow chat-header-title">
+                                    Chats
+                                </span>
+                            </div>
                         </div>
-                    <div class="chat-main">
+                    <div v-if="chatopen" class="chat-main">
                         <div class="chat-body card-chat card-chat-body no-corners">
 			       <ul>
       <li v-for="message in messages">
@@ -200,12 +212,36 @@ const { props } = usePage<any>();
                 </div>
             </div>
         </main><!-- End #main -->
-    </main><!-- End #main -->
 </template>
 
 <script lang="ts">
 export default {
+    data() {
+        return { messages: [] }
+    },
+    created() {
+        this.fetchMessages();
+	window.Echo.private('chat')
+  .listen('MessageSent', (e) => {
+    this.messages.push({
+      message: e.message.message,
+      user: e.user
+    });
+  });
+
+    },
     methods: {
+        fetchMessages() {
+            axios.get(route(`api.messages`)).then(response => {
+                this.messages = response.data;
+            });
+        },
+        addMessage(message) {
+            this.messages.push(message);
+            axios.post(route(`api.messages.new`, { message: message })).then(response => {
+                console.log(response.data);
+            });
+        },
         showModal(modalId: string): void {
             const modal = document.getElementById(modalId);
             if (modal) {

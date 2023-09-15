@@ -77,6 +77,11 @@ class User extends AeoAuthenticatable
         return $this->hasMany(ForumThread::class, 'creator_id');
     }
 
+    public function messages()
+    {
+        return $this->hasMany(Message::class, 'receiving_id');
+    }
+
     public function following()
     {
         return $this->belongsToMany(User::class, 'followers', 'follower_id', 'following_id');
@@ -89,6 +94,11 @@ class User extends AeoAuthenticatable
 
         // Check if the expiration time is greater than the current time
         return $expirationTime > time();
+    }
+
+    public function settings()
+    {
+    	return $this->hasOne(UserSetting::class);
     }
 
     public function staffTeam()

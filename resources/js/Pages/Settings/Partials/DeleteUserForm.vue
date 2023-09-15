@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3';
 import { nextTick, ref } from 'vue';
-//import { route, current } from "momentum-trail";
+import { route, current } from "momentum-trail";
 
 const confirmingUserDeletion = ref(false);
 const passwordInput = ref(null);

@@ -35,10 +35,10 @@ class RssController extends Controller
                 $content = $item->content_encoded;
                 preg_match($rgx, $content, $match);
                 $node['image'] = isset($match[1]) ? $match[1] : '';
-                $feed[] = $node;
+                $feed = $node;
             }
 
-            return response()->json($feed);
+        return response()->json($feed);
         } else {
             return response()->json(['error' => 'Failed to retrieve RSS feed.']);
         }

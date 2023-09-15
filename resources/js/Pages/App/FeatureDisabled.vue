@@ -2,7 +2,6 @@
 <Navbar/>
 <Sidebar>
 <div class="cell medium-7">
-<div class="row">
             <div class="card text-center">
                 <div class="card-body">
                     <i class="fas fa-exclamation-triangle text-warning mb-3" style="font-size:80px;"></i>
@@ -10,7 +9,6 @@
                     <p>This feature is currently disabled.</p>
                 </div>
             </div>
-    </div>
 </div>
 </Sidebar>
 <Footer/>

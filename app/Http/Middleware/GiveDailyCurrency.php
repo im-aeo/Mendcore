@@ -18,6 +18,18 @@ class GiveDailyCurrency
      */
     public function handle(Request $request, Closure $next)
     {
+        // Check if the user agent contains known adblock keywords
+        $userAgent = $request->header('User-Agent');
+        $adblockKeywords = ['adblock', 'ublock', 'ad blocker', 'uBlockOrigin', 'adguard'];
+        
+        foreach ($adblockKeywords as $keyword) {
+            if (stripos($userAgent, $keyword) !== false) {
+                // Adblock keyword found in user agent, take appropriate action
+                return response()->json(['error' => 'Adblock detected. Please disable it to receive daily currency.']);
+            }
+        }
+
+        // Continue with the regular logic if no adblock keyword is detected
         if (Auth::check() && strtotime(Auth::user()->next_currency_payout) < time()) {
             $user = Auth::user();
 

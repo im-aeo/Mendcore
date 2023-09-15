@@ -3,11 +3,12 @@
 return [
     'name' => 'Netisu',
     'logo' => '/assets/img/logo.png',
-    'icon' => '/assets/img/icon.png',
+    'icon' => '/assets/img/logo.svg',
     'in_event' => true,
+    'system_account_id' => 1,
     'render' => [
         'main' => 'Avatar/Renders/',
-        'root' => '/var/www/renderer', // For linux put /var/www/polytoria/Avatar/requests/user
+        'root' => '/var/www/renderer', // Location = /var/www/renderer
         'cmd_avatar' => 'init.go',
 	'cmd_headshot' => 'headshot.go',
         'item' => 'Avatar/requests/items',
@@ -17,8 +18,15 @@ return [
         'username' => '250',
     ],
     'storage' => [
-    'root' => '/var/www/cdn',
-    'url' => 'https://cdn.netisu.com', // If your developing locally put localhost or your current server ip, If you using windows and laragon the put your .test domain example: (https://polytoria.test)
+    	'root' => '/var/www/cdn',
+    	'url' => 'https://cdn.netisu.com', // If your developing locally put localhost or your current server ip
+    ],
+    'production' => [
+    	'domains' => [
+	    'main' => 'https://netisu.com',
+	    'api' => 'https://api.netisu.com',
+	    'careers' => 'https://careers.netisu.com',
+	],
     ],
     'shop' => [
         'previews_enabled' => true

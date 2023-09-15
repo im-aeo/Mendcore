@@ -7,6 +7,8 @@ import { watch } from "vite-plugin-watch";
 import { splitVendorChunkPlugin } from 'vite';
 import { obfuscator } from 'rollup-obfuscator';
 //import basicSsl from '@vitejs/plugin-basic-ssl'
+import {viteObfuscateFile} from 'vite-plugin-obfuscator'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
     root: "", // Specify the root directory for development
@@ -17,6 +19,11 @@ export default defineConfig({
             host: "localhost",
             protocol: "ws",
         },
+    },
+    css: {
+    modules: {
+      generateScopedName: '[hash:base64:5]',
+    },
     },
     plugins: [
         splitVendorChunkPlugin(),
@@ -92,6 +99,7 @@ export default defineConfig({
                 'resources/views/**',
             ],
         }),
+	vueJsx({}),
         vue({
             template: {
                 transformAssetUrls: {
@@ -110,6 +118,7 @@ export default defineConfig({
                 },
             },
         }),
+	viteObfuscateFile({})
 	//basicSsl(),
     ],
     resolve: {

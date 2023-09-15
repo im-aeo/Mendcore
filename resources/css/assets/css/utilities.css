@@ -1,21 +1,11 @@
 .container {
     padding-top: 100px;
     padding-left: 240px;
-    padding-right: 240px;
+    padding-right: 20px;
     max-width: 1400px;
     margin: 0 auto;
-    padding-bottom: 2.5rem;    /* Footer height */
-
 }
-.container:dir(rtl) {
-    padding-top: 100px;
-    padding-left: 140px;
-    padding-right: 140px;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding-bottom: 2.5rem;    /* Footer height */
 
-}
 @media screen and (max-width: 63.99875em) {
     .flex-container-lg {
         display: block !important;

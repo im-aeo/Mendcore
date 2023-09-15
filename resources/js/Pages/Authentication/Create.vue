@@ -89,7 +89,7 @@ const formError = ref('');
 const post_data = ref('');
 
 const submit = () => {
-    if (!form.username || !form.displayname || !form.email || !form.password || !form.confirm_password || !form.birthdate.month || !form.birthdate.day || !form.birthdate.year || !post_data) {
+    if (!form.username || !form.displayname || !form.email || !form.password || !form.confirm_password || !form.birthdate.month || !form.birthdate.day || !form.birthdate.year || currentStep.value != 6) {
         formError.value = 'Please fill in all the fields.';
         return;
     }
@@ -171,7 +171,6 @@ watch(() => form.birthdate.month, updateDays);
                                         {{ getStepSdesc() }}
                                     </div>
                                 </div>
-                                <form @submit.prevent="submit">
                                     <div v-if="currentStep === 1">
                                         <!-- First section content -->
                                         <div class="text-xs fw-bold text-muted text-uppercase">
@@ -380,13 +379,12 @@ watch(() => form.birthdate.month, updateDays);
                                             @click="nextStep">
                                             Next
                                         </button>
-
-                                        <button v-else class="px-4 btn btn-success" @click="post_data" :disabled="form.processing">
+					<form @submit.prevent="submit" v-else>
+                                        <button class="px-4 btn btn-success" @click="post_data" :disabled="form.processing">
                                             Sign Me Up!
                                         </button>
-
+					</form>
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </div>

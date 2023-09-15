@@ -14,9 +14,9 @@ use App\Http\Controllers\Endpoints\UserController;
 use App\Http\Controllers\GoogleSocialiteController;
 use App\Http\Controllers\Endpoints\RenderController;
 use App\Http\Controllers\Endpoints\ItemApiController;
+use App\Http\Controllers\Endpoints\ThumbnailController;
 // use \Spatie\ResponseCache\Middlewares\CacheResponse; Broken :/
 use App\Http\Controllers\Endpoints\SearchSiteController;
-
 
 
 /*
@@ -37,19 +37,6 @@ Route::get('/', [MaintenanceController::class, 'show'])->name('page');
 Route::post('/password', [MaintenanceController::class, 'authenticate'])->name('authenticate.password');
 Route::get('/exit', [MaintenanceController::class, 'Exit'])->name('exit');
 });
-Route::group(['as' => 'api.', 'prefix' => 'vite/AeoApiEndpoints'], function () {
-    Route::get('/search', [SearchSiteController::class, 'all'])->name('search');
-    Route::get('/render/validate/{id}', [RenderController::class, 'userRender'])->name('avatar');
-    Route::get('/user/online/{id}', [UserController::class, 'getStatus'])->name('user.online');
-    Route::get('/user/follow/{user}', [UserController::class, 'follow'])->name('user.follow');
-    Route::post('/user/unfollow/{user}', [UserController::class, 'unfollow'])->name('user.unfollow');
-    Route::get('/items/{category}', [ItemApiController::class, 'getItemsByCategory'])->name('store.items');
-    Route::get('/items/event/{eventId}', [ItemApiController::class, 'getEventItems'])->name('store.event.items');
-    Route::get('/inventory/{category}', [AvatarController::class, 'getItemsByCategory'])->name('avatar.items');
-    Route::get('/rss-feed', [RssController::class, 'index'])->name('rss');
-    Route::get('/user/img/{id}', [UserController::class, 'getAvatar'])->name('avatar');
-
-});
 Route::group(['as' => 'my.', 'prefix' => 'my', 'middleware' => 'auth'], function () {
 
     Route::group(['Middleware' => 'auth'], function () {
@@ -67,7 +54,7 @@ Route::group(['as' => 'user.', 'prefix' => 'users'], function () {
         Route::group(['as' => 'settings.', 'prefix' => 'settings'], function () {
             Route::get('/{category}', [USController::class, 'edit'])->name('page');
             Route::patch('/update', [USController::class, 'update'])->name('update');
-            Route::get('/delete-account', [USController::class, 'destroy'])->name('destroy');
+            Route::post('/delete-account', [USController::class, 'destroy'])->name('destroy');
         });
     });
 });
@@ -128,16 +115,20 @@ Route::group(['as' => 'auth.', 'prefix' => 'auth'], function () {
 });
 Route::get('/', [GrabController::class, 'WelcomeIndex'])->Middleware(['guest'])->name('Welcome');
 
-Route::get('/games', function () {
+Route::group(['as' => 'games.', 'prefix' => 'games'], function () {
+Route::get('/', function () {
     return Inertia::render('Games/Index');
 })->name('Game');
 
+});
 Route::get('/deletion', function () {
     return Inertia::render('AccountDeleted');
 })->name('removed');
+
 Route::group(['as' => 'store.', 'prefix' => 'market'], function () {
     Route::get('/', [GrabController::class, 'StoreIndex'])->name('page');
     Route::get('/item/{id}', [GrabController::class, 'StoreItem'])->name('item');
 });
+
 Route::get('/discord', [TestCon::class, 'index'])->name('test');
-Route::get('/csrf-token', \App\Http\Controllers\RefreshCsrfTokenController::class);
+//Route::get('/csrf-token', \App\Http\Controllers\RefreshCsrfTokenController::class);

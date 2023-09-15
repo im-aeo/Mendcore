@@ -11,6 +11,7 @@ import { route, current } from 'momentum-trail'
 defineProps({
     mustVerifyEmail: Boolean,
     status: String,
+    categories: Array,
 });
 
 function showModal(modalId: string): void {
@@ -211,27 +212,15 @@ function showModal(modalId: string): void {
                 <div class="cell medium-3">
                     <div class="mb-2 text-xl fw-semibold">Account Settings</div>
                     <ul class="tabs flex-dir-column">
-                        <li class="tab-item">
-                            <a href="#" class="tab-link active squish"
-                                >General</a
-                            >
-                        </li>
-                        <li class="tab-item">
-                            <a href="#" class="tab-link squish"
-                                >Security & Privacy</a
-                            >
-                        </li>
-                        <li class="tab-item">
-                            <a href="#" class="tab-link squish">Billing</a>
+                        <li class="tab-item" v-for="category in categories">
+                            <Link :href="route(`user.settings.page`, { category: category })" :class="[current(`settings.page`, { category: category }) ? 'acive' : '']" class="tab-link active squish">
+			     {{ capitalized(category) }}
+			    </Link>
                         </li>
                     </ul>
                 </div>
-                <div class="cell medium-8">
-                    <div
-                        class="mb-3 text-center alert alert-success fw-semibold"
-                    >
-                        Username Successfully Changed
-                    </div>
+                <div class="cell medium-8" v-for="category in categories" :key="category">
+		  <div v-if="category === 'general'">
                     <div class="mb-1 text-xl fw-semibold">General</div>
                     <div class="section-borderless">
                         <div class="card card-body">
@@ -605,7 +594,403 @@ function showModal(modalId: string): void {
                             </div>
                         </div>
                     </div>
+		</div>
+                <div v-if="category === 'account'">
+		   <div class="text-xl fw-semibold mb-1">
+                        Security & Privacy
+                    </div>
+                    <div class="section-borderless">
+                        <div class="card card-body">
+                            <div class="text-xl fw-semibold mb-2">Security</div>
+                            <div class="grid-x grid-margin-x grid-padding-y">
+                                <div class="cell medium-12">
+                                    <div class="card card-inner card-body">
+                                        <div class="mb-2">
+                                            <div
+                                                class="text-xl fw-semibold mb-2"
+                                            >
+                                                Change Password
+                                            </div>
+                                            <div class="mb-2">
+                                                <div
+                                                    class="text-xs fw-bold text-muted text-uppercase"
+                                                >
+                                                    Current Password
+                                                </div>
+                                                <input
+                                                    type="password"
+                                                    class="form form-has-section-color"
+                                                    placeholder="Current Password..."
+                                                />
+                                            </div>
+                                            <div class="mb-2">
+                                                <div
+                                                    class="text-xs fw-bold text-muted text-uppercase"
+                                                >
+                                                    New Password
+                                                </div>
+                                                <input
+                                                    type="password"
+                                                    class="form form-has-section-color"
+                                                    placeholder="Current Password..."
+                                                />
+                                            </div>
+                                            <div class="mb-2">
+                                                <div
+                                                    class="text-xs fw-bold text-muted text-uppercase"
+                                                >
+                                                    Confirm Password
+                                                </div>
+                                                <input
+                                                    type="password"
+                                                    class="form form-has-section-color"
+                                                    placeholder="Current Password..."
+                                                />
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-success">
+                                            Change Password
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-borderless">
+                        <div class="card card-body">
+                            <div class="text-xl fw-semibold mb-2">Other</div>
+                            <div class="card card-inner card-body mb-3">
+                                <div class="text-xl fw-semibold mb-2">
+                                    Privacy
+                                </div>
+                                <div class="mb-2">
+                                    <div
+                                        class="text-xs fw-bold text-muted text-uppercase"
+                                    >
+                                        Who Can Follow Me
+                                    </div>
+                                    <select
+                                        class="form form-select form-has-section-color"
+                                    >
+                                        <option value="1">Everyone</option>
+                                        <option value="2">No One</option>
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+                                    <div
+                                        class="text-xs fw-bold text-muted text-uppercase"
+                                    >
+                                        Who Can See My Posts?
+                                    </div>
+                                    <select
+                                        class="form form-select form-has-section-color"
+                                    >
+                                        <option value="1">Everyone</option>
+                                        <option value="2">
+                                            Followers Only
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+                                    <div
+                                        class="text-xs fw-bold text-muted text-uppercase"
+                                    >
+                                        Who Can Send Me Messages
+                                    </div>
+                                    <select
+                                        class="form form-select form-has-section-color"
+                                    >
+                                        <option value="1">Everyone</option>
+                                        <option value="2">
+                                            Followers Only
+                                        </option>
+                                        <option value="3">No One</option>
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+                                    <div
+                                        class="text-xs fw-bold text-muted text-uppercase"
+                                    >
+                                        Who Can Send Me Trade Requests
+                                    </div>
+                                    <select
+                                        class="form form-select form-has-section-color"
+                                    >
+                                        <option value="1">Everyone</option>
+                                        <option value="2">
+                                            Followers Only
+                                        </option>
+                                        <option value="3">No One</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-success">
+                                    Save Settings
+                                </button>
+                            </div>
+                            <div class="card card-inner card-body">
+                                <div class="text-xl fw-semibold mb-2">
+                                    Blocked Players
+                                </div>
+                                <div
+                                    class="text-xs fw-bold text-muted text-uppercase"
+                                >
+                                    Player Username
+                                </div>
+                                <div class="flex-container gap-2 mb-2">
+                                    <input
+                                        type="text"
+                                        class="form form-has-section-color"
+                                        placeholder="Player Username..."
+                                    />
+                                    <button class="btn btn-danger">
+                                        Block
+                                    </button>
+                                </div>
+                                <div class="card card-body">
+                                    <div
+                                        class="flex-container flex-dir-column text-center gap-3"
+                                    >
+                                        <i
+                                            class="fas fa-user-slash text-5xl text-muted"
+                                        ></i>
+                                        <div style="line-height: 16px">
+                                            <div
+                                                class="fw-bold text-xs text-muted text-uppercase"
+                                            >
+                                                No Blocked Players
+                                            </div>
+                                            <div
+                                                class="text-xs text-muted fw-semibold"
+                                            >
+                                                Yahoo! You have not blocked any
+                                                players.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--
+                    <div class="section">
+                    <div class="flex-container align-middle align-justify">
+                      <a href="#" class="flex-container align-middle gap-2">
+                        <img
+                          src="/assets/img/dummy_headshot.png"
+                          class="headshot"
+                          width="50"
+                        />
+                        <div style="line-height: 18px">
+                          <div class="text-body fw-semibold">Nabrious</div>
+                          <div class="text-xs fw-semibold text-muted">
+                            @Nabrious
+                          </div>
+                        </div>
+                      </a>
+                      <button class="btn btn-info btn-sm">Unblock</button>
+                    </div>
+                  </div>
+                  <div class="section">
+                    <div class="flex-container align-middle align-justify">
+                      <a href="#" class="flex-container align-middle gap-2">
+                        <img
+                          src="/assets/img/dummy_headshot.png"
+                          class="headshot"
+                          width="50"
+                        />
+                        <div style="line-height: 18px">
+                          <div class="text-body fw-semibold">Nabrious</div>
+                          <div class="text-xs fw-semibold text-muted">
+                            @Nabrious
+                          </div>
+                        </div>
+                      </a>
+                      <button class="btn btn-info btn-sm">Unblock</button>
+                    </div>
+                  </div>
+                  <div class="section">
+                    <div class="flex-container align-middle align-justify">
+                      <a href="#" class="flex-container align-middle gap-2">
+                        <img
+                          src="/assets/img/dummy_headshot.png"
+                          class="headshot"
+                          width="50"
+                        />
+                        <div style="line-height: 18px">
+                          <div class="text-body fw-semibold">Nabrious</div>
+                          <div class="text-xs fw-semibold text-muted">
+                            @Nabrious
+                          </div>
+                        </div>
+                      </a>
+                      <button class="btn btn-info btn-sm">Unblock</button>
+                    </div>
+                  </div>
+                  -->
+                                </div>
+                            </div>
+                        </div>
+		    </div>
+		</div>
+		<div v-if="category === 'billing'">
+                  <div class="flex-container align-middle align-justify mb-2">
+                        <div class="text-xl fw-semibold">Billing</div>
+                        <a href="#" class="btn btn-upgrade btn-sm"
+                            ><i class="fas fa-rocket-launch me-2"></i>Upgrade</a
+                        >
+                    </div>
+                    <div class="card card-body mb-3">
+                        <div class="text-xl fw-semibold mb-2">
+                            Active Membership
+                        </div>
+                        <div class="card card-inner card-body">
+                            <div
+                                class="flex-container flex-dir-column text-center gap-3"
+                            >
+                                <i
+                                    class="fas fa-rocket-launch text-5xl text-muted"
+                                ></i>
+                                <div style="line-height: 16px">
+                                    <div
+                                        class="fw-bold text-xs text-muted text-uppercase"
+                                    >
+                                        No Active Membership
+                                    </div>
+                                    <div class="text-xs text-muted fw-semibold">
+                                        You currently do not have any active
+                                        membership to manage.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-body">
+                        <div class="text-xl fw-semibold mb-2">
+                            Previous Purchases
+                        </div>
+                        <!--
+              <div class="table">
+              <div class="table-header">
+                <div class="grid-x align-middle flex-nowrap">
+                  <div class="cell medium-4">Product</div>
+                  <div class="cell medium-4">Price</div>
+                  <div class="cell medium-4">Payment Method</div>
                 </div>
+              </div>
+              <div class="table-body">
+                <div class="grid-x align-middle flex-nowrap">
+                  <div class="cell medium-4">
+                    <div class="flex-container align-middle text-warning gap-2">
+                      <i
+                        class="fas fa-coins text-xl text-center"
+                        style="width: 30px"
+                      ></i>
+                      <div class="fw-semibold">5000 Coins</div>
+                    </div>
+                  </div>
+                  <div class="cell medium-4">
+                    <div class="fw-semibold">
+                      <span class="text-muted">$</span> 4.99
+                    </div>
+                  </div>
+                  <div class="cell medium-4">
+                    <div class="fw-semibold">
+                      <i class="fab fa-paypal text-muted me-2"></i>PayPal
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="table-body table-body-darker">
+                <div class="grid-x align-middle flex-nowrap">
+                  <div class="cell medium-4">
+                    <div class="flex-container align-middle text-success gap-2">
+                      <i
+                        class="fas fa-money-bill-1-wave text-xl text-center"
+                        style="width: 30px"
+                      ></i>
+                      <div class="fw-semibold">1000 Bucks</div>
+                    </div>
+                  </div>
+                  <div class="cell medium-4">
+                    <div class="fw-semibold">
+                      <span class="text-muted">$</span> 9.99
+                    </div>
+                  </div>
+                  <div class="cell medium-4">
+                    <div class="fw-semibold">
+                      <i class="fas fa-credit-card text-muted me-2"></i>Credit
+                      Card
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="table-body">
+                <div class="grid-x align-middle flex-nowrap">
+                  <div class="cell medium-4">
+                    <div
+                      class="flex-container align-middle text-membership gap-2"
+                    >
+                      <img src="/assets/img/membership_dummy.png" width="30" />
+                      <div class="fw-semibold">Membership</div>
+                    </div>
+                  </div>
+                  <div class="cell medium-4">
+                    <div class="flex-container align-middle text-success gap-2">
+                      <i class="fas fa-money-bill-1-wave text-center"></i>
+                      <div class="fw-semibold">500 Bucks</div>
+                    </div>
+                  </div>
+                  <div class="cell medium-4">
+                    <div class="fw-semibold">
+                      <i class="fas fa-money-bill-1-wave text-muted me-2"></i
+                      >Bucks
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="table-body table-body-darker">
+                <div class="grid-x align-middle flex-nowrap">
+                  <div class="cell medium-4">
+                    <div
+                      class="flex-container align-middle text-membership gap-2"
+                    >
+                      <img src="/assets/img/membership_dummy.png" width="30" />
+                      <div class="fw-semibold">Membership</div>
+                    </div>
+                  </div>
+                  <div class="cell medium-4">
+                    <div class="fw-semibold">
+                      <span class="text-muted">$</span> 9.99
+                    </div>
+                  </div>
+                  <div class="cell medium-4">
+                    <div class="fw-semibold">
+                      <i class="fab fa-bitcoin text-muted me-2"></i>Crypto
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            -->
+
+                        <div class="card card-inner card-body">
+                            <div
+                                class="flex-container flex-dir-column text-center gap-3"
+                            >
+                                <i
+                                    class="fas fa-envelope-open-text text-5xl text-muted"
+                                ></i>
+                                <div style="line-height: 16px">
+                                    <div
+                                        class="fw-bold text-xs text-muted text-uppercase"
+                                    >
+                                        No Previous Purchases
+                                    </div>
+                                    <div class="text-xs text-muted fw-semibold">
+                                        You have not made any purchases.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+		</div>
+	</div>
     </Sidebar>
     <Footer/>
 </template>
@@ -645,6 +1030,12 @@ export default {
     }
   },
   methods: {
+    capitalized(name: string) {
+      const capitalizedFirst = name[0].toUpperCase();
+      const rest = name.slice(1);
+
+      return capitalizedFirst + rest;
+    },
     applyTheme(theme) {
       let style = document.getElementById('theme-style');
 
