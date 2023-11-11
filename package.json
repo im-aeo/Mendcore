@@ -27,7 +27,7 @@
         "@vitejs/plugin-basic-ssl": "^1.0.1",
         "@vue/tsconfig": "^0.4.0",
         "autoprefixer": "^10.4.13",
-        "axios": "^1.1.2",
+        "axios": "^1.6.0",
         "daisyui": "^3.5.0",
         "laravel-vite-plugin": "^0.7.2",
         "lightningcss": "^1.21.7",
