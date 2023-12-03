@@ -7,7 +7,10 @@ import { route, current } from "momentum-trail";
 import axios from 'axios';
 import { ref } from 'vue';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
+<<<<<<< HEAD
 import NewPaginator from '@/components/NewPaginator.vue';
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
 defineProps({
   users: { type: Object },
@@ -47,11 +50,15 @@ defineProps({
                 </div>
             </div>
             <div class="mx-3 my-3 divider"></div>
+<<<<<<< HEAD
             <NewPaginator
             :current-page="currentPage"
             :total-pages="totalPages"
             @page-change="getUserList"
           ></NewPaginator>
+=======
+            <AeoPagination v-bind:pagedata="users" @page-clicked="getUserList"></AeoPagination>
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         </div>
 
     </Sidebar>
@@ -60,6 +67,7 @@ defineProps({
 
 <script lang="ts">
 export default {
+<<<<<<< HEAD
     data() {
     return {
       currentPage: slist.current_page,
@@ -67,6 +75,8 @@ export default {
       // Your data here
     };
   },
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     methods: {
         getUserList(page: number | undefined): void {
             var vm = this;
@@ -102,7 +112,11 @@ export default {
         return {
             userstat: { // Replace this with your actual user object
                 online: false,
+<<<<<<< HEAD
                 id: this.users.id,
+=======
+                id: this.users.data.id,
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                 fetchingStatus: false,
             },
         };

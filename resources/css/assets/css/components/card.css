@@ -3,7 +3,10 @@
     border: 1px solid var(--section-border-color);
     box-shadow: 0 1px 2px rgb(var(--section-shadow), 0.1);
     border-radius: var(--rounded-lg);
+<<<<<<< HEAD
     position: relative;
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 }
 .card-body {
     padding: 18px;

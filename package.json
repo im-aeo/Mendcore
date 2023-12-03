@@ -3,7 +3,11 @@
     "proxy": "http://localhost:4000",
     "scripts": {
         "dev": "run-s vite:dev artisan:serve",
+<<<<<<< HEAD
         "vite:dev": "vite",
+=======
+        "vite:dev": "vite --https --host 206.189.195.33",
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         "artisan:serve": "php artisan serve",
         "build": "vite build && vite build --ssr",
         "type-check": "vue-tsc --noEmit"
@@ -27,6 +31,7 @@
         "@vitejs/plugin-basic-ssl": "^1.0.1",
         "@vue/tsconfig": "^0.4.0",
         "autoprefixer": "^10.4.13",
+<<<<<<< HEAD
         "axios": "^1.1.2",
         "daisyui": "^3.5.0",
         "laravel-vite-plugin": "^0.7.2",
@@ -34,6 +39,16 @@
         "node-sass": "^9.0.0",
         "npm-run-all": "^4.1.5",
         "postcss": "^8.4.20",
+=======
+        "axios": "^1.6.0",
+        "daisyui": "^3.5.0",
+        "laravel-vite-plugin": "^0.7.2",
+        "lightningcss": "^1.21.7",
+        "lodash": "^4.17.19",
+        "node-sass": "^9.0.0",
+        "npm-run-all": "^4.1.5",
+        "postcss": "^8.4.31",
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         "postcss-obfuscator": "^1.6.0",
         "rollup-obfuscator": "^3.0.2",
         "sass": "^1.57.1",
@@ -54,7 +69,10 @@
         "@lottiefiles/vue-lottie-player": "^1.1.0",
         "@popperjs/core": "^2.11.8",
         "@rollup/plugin-alias": "^5.0.0",
+<<<<<<< HEAD
         "@rollup/plugin-node-resolve": "^15.2.3",
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         "@vitejs/plugin-vue": "^4.0.0",
         "@vitejs/plugin-vue-jsx": "^3.0.2",
         "@vue/server-renderer": "^3.3.4",
@@ -72,7 +90,10 @@
         "laravel-echo": "^1.15.3",
         "laravel-vue-bulma-pagination": "^1.0.1",
         "logrocket": "^5.0.0",
+<<<<<<< HEAD
         "lunchboxjs": "^0.2.1020",
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         "moment": "^2.29.4",
         "momentum-modal": "^0.2.1",
         "momentum-paginator": "^1.0.6",
@@ -82,6 +103,7 @@
         "npm-check": "^6.0.1",
         "nprogress": "^0.2.0",
         "portal-vue": "^3.0.0",
+<<<<<<< HEAD
         "primevue": "^3.35.0",
         "pusher-js": "^8.3.0",
         "simplegrid": "^1.0.2",
@@ -95,6 +117,15 @@
         "vue-loading-overlay": "^6.0.3",
         "vue-router": "^4.2.4",
         "vue-skeletor": "^1.0.6",
+=======
+        "pusher-js": "^8.3.0",
+        "simplegrid": "^1.0.2",
+        "three": "^0.155.0",
+        "tippy.js": "^6.3.7",
+        "vue": "^3.3.4",
+        "vue-adblock-detector": "^1.2.4",
+        "vue-router": "^4.2.4",
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         "vue-threejs": "^0.2.0-alpha.1",
         "vue-tippy": "^6.2.0",
         "vue3-google-login": "^2.0.18",

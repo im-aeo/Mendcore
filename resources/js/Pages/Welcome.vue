@@ -1,4 +1,5 @@
 <script setup lang="ts">
+<<<<<<< HEAD
 import AppHead from '@/Components/AppHead.vue';
 import Navbar from '@/Components/LayoutParts/Navbar.vue';
 import Footer from '@/Components/LayoutParts/Footer.vue';
@@ -126,4 +127,25 @@ defineProps({
     </div>
     <Footer/>
 </Navbar>
+=======
+import Navbar from '@/Components/LayoutParts/Navbar.vue';
+import Sidebar from '@/Components/LayoutParts/Sidebar.vue';
+import Welcome from '@/Components/PageProps/Welcome.vue';
+import Footer from '@/Components/LayoutParts/Footer.vue';
+import AppHead from '@/Components/AppHead.vue';
+import { route, current } from "momentum-trail";
+import "@/Pages/landing.css";
+
+defineProps({
+    UserCount: {type: Number, required: true},
+})
+
+</script>
+<template>
+    <AppHead pageTitle="Welcome" description="Welcome to Vestora." :url="route('auth.login.page')" />
+    <Navbar>
+        <Welcome  :UserCount="UserCount"/>
+        </Navbar>
+    <Footer />
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 </template>

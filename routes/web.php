@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 use Inertia\Inertia;
 use GuzzleHttp\Middleware;
 use App\Http\Controllers\TestCon;
@@ -19,6 +22,10 @@ use App\Http\Controllers\Endpoints\ThumbnailController;
 // use \Spatie\ResponseCache\Middlewares\CacheResponse; Broken :/
 use App\Http\Controllers\Endpoints\SearchSiteController;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,9 +40,15 @@ use App\Http\Controllers\Endpoints\SearchSiteController;
 
 
 Route::group(['as' => 'maintenance.', 'prefix' => 'maintenance'], function () {
+<<<<<<< HEAD
     Route::get('/', [MaintenanceController::class, 'show'])->name('page');
     Route::post('/password', [MaintenanceController::class, 'authenticate'])->name('authenticate.password');
     Route::get('/exit', [MaintenanceController::class, 'Exit'])->name('exit');
+=======
+Route::get('/', [MaintenanceController::class, 'show'])->name('page');
+Route::post('/password', [MaintenanceController::class, 'authenticate'])->name('authenticate.password');
+Route::get('/exit', [MaintenanceController::class, 'Exit'])->name('exit');
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 });
 Route::group(['as' => 'my.', 'prefix' => 'my', 'middleware' => 'auth'], function () {
 
@@ -111,21 +124,36 @@ Route::group(['as' => 'auth.', 'prefix' => 'auth'], function () {
         Route::group(['as' => 'forgot.', 'prefix' => 'forgot'], function () {
             Route::get('/', [AuthController::class, 'ForgotIndex'])->name('page');
         });
+<<<<<<< HEAD
     });
+=======
+});
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 });
 Route::get('/', [GrabController::class, 'WelcomeIndex'])->Middleware(['guest'])->name('Welcome');
 
 Route::group(['as' => 'games.', 'prefix' => 'games'], function () {
+<<<<<<< HEAD
     Route::get('/', function () {
         return inertia('Games/Index');
     })->name('page');
 });
 Route::get('/deletion', function () {
     return inertia('AccountDeleted');
+=======
+Route::get('/', function () {
+    return Inertia::render('Games/Index');
+})->name('Game');
+
+});
+Route::get('/deletion', function () {
+    return Inertia::render('AccountDeleted');
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 })->name('removed');
 
 Route::group(['as' => 'store.', 'prefix' => 'market'], function () {
     Route::get('/', [GrabController::class, 'StoreIndex'])->name('page');
+<<<<<<< HEAD
     Route::group(['as' => 'create.', 'prefix' => 'create'], function () {
         Route::get('/', [GrabController::class, 'CreateIndex'])->name('page');
         Route::get('/', [GrabController::class, 'CreateItem'])->name('validate');
@@ -139,3 +167,10 @@ Route::group(['as' => 'spaces.', 'prefix' => 'spaces'], function () {
     Route::get('/{id}/{slug}', [GrabController::class, 'spacesView'])->name('view');
     
 });
+=======
+    Route::get('/item/{id}', [GrabController::class, 'StoreItem'])->name('item');
+});
+
+Route::get('/discord', [TestCon::class, 'index'])->name('test');
+//Route::get('/csrf-token', \App\Http\Controllers\RefreshCsrfTokenController::class);
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018

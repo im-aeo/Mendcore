@@ -1,7 +1,10 @@
 <?php
 use App\Models\SiteSettings;
+<<<<<<< HEAD
 use App\Models\CrateItem;
 use App\Models\Item;
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
 function translations($json)
 {
@@ -11,6 +14,7 @@ function translations($json)
 
     return json_decode(file_get_contents($json), true);
 }
+<<<<<<< HEAD
 
 function crateRarity($data, $rarity)
 {
@@ -34,6 +38,8 @@ function customRaritySort($a, $b)
     return 0;
 }
 
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 function site_setting($key)
 {
     // Check if the app is in production environment
@@ -57,6 +63,7 @@ function site_setting($key)
     // Use optional chaining to access the property safely
     return optional($settings)->$key;
 }
+<<<<<<< HEAD
 function getItemHash($id)
 {
 
@@ -65,3 +72,5 @@ function getItemHash($id)
         ])->count();
     return $item->hash;
 }
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018

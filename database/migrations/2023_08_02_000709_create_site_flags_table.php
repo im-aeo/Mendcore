@@ -18,7 +18,10 @@ return new class extends Migration
             $table->boolean('announcement_enabled')->default(false);
             $table->text('announcement_message')->nullable();
             $table->boolean('market_purchases_enabled')->default(true);
+<<<<<<< HEAD
             $table->boolean('market_enabled')->default(true);
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
             $table->boolean('discussion_enabled')->default(true);
             $table->boolean('verification_program_enabled')->default(false);
             $table->boolean('item_creation_enabled')->default(true);

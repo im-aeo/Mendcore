@@ -6,6 +6,7 @@ import Footer from '@/Components/LayoutParts/Footer.vue';
 import AppHead from '@/Components/AppHead.vue';
 
 import { route } from 'momentum-trail'; // If you're using the 'route' function from 'momentum-trail'
+<<<<<<< HEAD
 import { usePage, useForm } from '@inertiajs/vue3';
 import axios from 'axios';
 
@@ -93,6 +94,25 @@ const addText = (text) => {
                 :section_three="section_three" />
         </div>
         <div class="cell medium-8">
+=======
+
+function getCurrentpath(id) {
+    if (route('forum.page', { id }) === window.location.href) {
+        return window.location.pathname;
+    }
+}
+</script>
+
+<template>
+    <AppHead pageTitle="Discuss" description="Here, You can discuss with the community surrounding several topics on Vestora."
+        :url="route('forum.page', {id: topic.id })" />
+    <Navbar />
+    <Sidebar>
+        <div class="cell medium-3">
+            <ForumSidebar :topic="topic" :section_one="section_one" :section_two="section_two" :section_three="section_three" />
+        </div>
+        <div class="cell medium-9">
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
             <div class="mb-2 text-sm fw-semibold">{{ topic.name }} &bullet; {{ topic.description }}</div>
             <div class="card">
                 <div class="pb-0 card-body">
@@ -111,7 +131,12 @@ const addText = (text) => {
                         <div class="mx-1 my-3 divider"></div>
                         <div class="gap-2 align-middle flex-container">
                             <a :href="route('user.profile', { username: post.username })">
+<<<<<<< HEAD
                                 <img :src="post.headshot" style="max-width:65px"
+=======
+                                <img :src="post.headshot"
+                                    style="max-width:65px"
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                     class="border img-fluid headshot rounded-circle border-secondary bg-dark"
                                     alt="2oddMacs1">
                             </a>

@@ -1,10 +1,18 @@
 .container {
     padding-top: 100px;
+<<<<<<< HEAD
     padding-left: 60px;
+=======
+    padding-left: 240px;
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     padding-right: 20px;
     max-width: 1400px;
     margin: 0 auto;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 @media screen and (max-width: 63.99875em) {
     .flex-container-lg {
         display: block !important;
@@ -55,7 +63,11 @@
     color: #ffffff !important;
 }
 .alert-warning {
+<<<<<<< HEAD
     background: var(--warning-500);
+=======
+    background: var(--warning-600);
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     color: #ffffff !important;
 }
 .alert-secondary {
@@ -207,21 +219,36 @@
     background: #f5f5f5;
     border: 1px solid #cbcbcb;
 }
+<<<<<<< HEAD
 
 .theme-circle.Light {
     background: #f5f5f5;
     border: 1px solid #cbcbcb;
 }
 
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 .theme-circle.dark {
     background: #3b3b3b;
     border: 1px solid #626262;
 }
 
+<<<<<<< HEAD
 .theme-circle.Dark {
     background: #f5f5f5;
     border: 1px solid #cbcbcb;
 }
+=======
+.theme-circle.amoled {
+    background: #000000;
+    border: 1px solid #ffffff;
+}
+.theme-circle.discord {
+    background: #7289da;
+    border: 1px solid #282b30;
+}
+
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 .theme-selection {
     height: 160px;
     display: flex;
@@ -283,7 +310,25 @@ a:hover {
 .squish:active {
     transform: scale(0.94);
 }
+<<<<<<< HEAD
 
+=======
+@media (min-width: 1400px) {
+main.container-site {
+    padding-left: 220px;
+}
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    --bs-gutter-x: 1.47rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5),;
+    margin-right: auto;
+    padding: 70px 0;
+    margin-left: auto;
+}
+}
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 .flex-container-lg {
     display: -webkit-box;
     display: -webkit-flex;
@@ -3409,4 +3454,8 @@ a:hover {
     .text-xl-center {
         text-align: center !important;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018

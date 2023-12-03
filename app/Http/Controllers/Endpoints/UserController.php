@@ -8,7 +8,10 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Followers;
 use App\Models\Avatar;
+<<<<<<< HEAD
 use App\Models\Status;
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
 class UserController extends Controller
 {
@@ -23,6 +26,7 @@ class UserController extends Controller
         }
     }
 
+<<<<<<< HEAD
     public function getUserStatus(Request $request)
     {
         $statuses = Status::where([
@@ -43,13 +47,19 @@ class UserController extends Controller
 
 
 
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     public function getAvatar($userID)
     {
         $GetUser = Avatar::where('id', '=', $userID)->first();
         $url = config('Values.storage.url');
         $image = ($GetUser->image === 'default') ? config('Values.render.default_avatar') : $GetUser->image;
         $image =  "{$url}/{$image}.png";
+<<<<<<< HEAD
         echo ($image);
+=======
+        echo($image);
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     }
 
     public function getFollowingStatus($userID)

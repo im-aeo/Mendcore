@@ -1,8 +1,17 @@
 <script setup lang="ts">
+<<<<<<< HEAD
+=======
+import Profile from '@/Components/PageProps/Profile.vue';
+import Navbar from '@/Components/LayoutParts/Navbar.vue';
+import Sidebar from '@/Components/LayoutParts/Sidebar.vue';
+import Footer from '@/Components/LayoutParts/Footer.vue';
+
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 import axios from 'axios';
 import { ref } from 'vue';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
 import { route, current } from "momentum-trail";
+<<<<<<< HEAD
 import VLazyImage from "v-lazy-image";
 import Footer from '@/Components/LayoutParts/Footer.vue';
 import Navbar from '@/Components/LayoutParts/Navbar.vue';
@@ -461,13 +470,43 @@ const unfollowUser = (id) => {
     </Sidebar>
     <Footer />
 </template>
+=======
+import AppHead from '@/Components/AppHead.vue';
+
+defineProps({
+    user: { type: Object, required: true },
+});
+</script>
+
+<style scoped>
+.modal .modal.active {
+    z-index: 500;
+}
+
+.modal-card .modal-card-body {
+    z-index: 1000;
+}
+</style>
+<template>
+        <AppHead :pageTitle="user.username" :description="user.description" :cover="user.avatar" :url="route(`user.profile`,{ username: user.username })" />
+        <Navbar/>
+            <Sidebar>
+            <Profile  :user="user"/>
+            </Sidebar>
+        <Footer />
+</template>
+
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 <script lang="ts">
 export default {
     data() {
         return {
             userstat: { // Replace this with your actual user object
                 online: false,
+<<<<<<< HEAD
                 following: false,
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                 id: this.user.id,
                 fetchingStatus: false,
             },
@@ -498,6 +537,7 @@ export default {
                 this.userstat.fetchingStatus = false;
             }
         },
+<<<<<<< HEAD
         async fetchFollowStatus() {
             this.userstat.fetchingStatus = true;
             const cachedFollowStatus = this.userstat.follow;
@@ -511,6 +551,8 @@ export default {
                 this.userstat.fetchingStatus = false;
             }
         },
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         showModal(modalId: string): void {
             const modal = document.getElementById(modalId);
             if (modal) {

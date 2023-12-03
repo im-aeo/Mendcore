@@ -32,6 +32,7 @@ class RssController extends Controller
                 $formattedDate = date("d M, Y", $timestamp);
                 $node['date'] = (string) $formattedDate;
 
+<<<<<<< HEAD
                 // Extract the creator's name if available
                 $creatorElement = $item->xpath('//dc:creator'); // Assuming dc:creator is the XML element for the creator's name
                 $node['creator'] = isset($creatorElement[0]) ? (string) $creatorElement[0] : '';
@@ -45,6 +46,15 @@ class RssController extends Controller
             }
 
             return response()->json($feed);
+=======
+                $content = $item->content_encoded;
+                preg_match($rgx, $content, $match);
+                $node['image'] = isset($match[1]) ? $match[1] : '';
+                $feed = $node;
+            }
+
+        return response()->json($feed);
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         } else {
             return response()->json(['error' => 'Failed to retrieve RSS feed.']);
         }

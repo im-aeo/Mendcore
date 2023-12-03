@@ -24,6 +24,10 @@
 
     --warning-600: #ffaa43;
     --warning-700: #fea538;
+<<<<<<< HEAD
+=======
+    --warning-gold: #FCAF3C;
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     --warning-700-rgb: 254, 165, 56;
     --warning-800: #fe9c25;
 
@@ -50,7 +54,10 @@
     --body-color: #dadada;
 
     --section-bg: #252525;
+<<<<<<< HEAD
     --section-bg-rgb: 37, 37, 37;
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     --section-border-color: #474747;
     --section-shadow: 0, 0, 0;
 

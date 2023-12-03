@@ -26,7 +26,11 @@ class FeatureFlags
         return $next($request);
     }
 
+<<<<<<< HEAD
     private function isMaintenanceEnabled($route)
+=======
+    private function isMaintenanceEnabled($route, $isPost)
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     {
         $maintenancePasswords = config('Values.maintenance_passwords');
         $maintenancePassword = session('maintenance_password');
@@ -61,7 +65,11 @@ class FeatureFlags
     private function isFeatureDisabled($route)
     {
         $featureMap = [
+<<<<<<< HEAD
             'store.' => 'market_enabled',
+=======
+            'store.' => 'store_enabled',
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
             'forum.' => 'discussion_enabled',
             'creator_area.' => 'item_creation_enabled',
             'avatar.' => 'customization_enabled',
@@ -108,7 +116,11 @@ class FeatureFlags
     private function getFeatureForRoute($route)
     {
         $featureMap = [
+<<<<<<< HEAD
             'store.' => 'market_enabled',
+=======
+            'store.' => 'store_enabled',
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
             'forum.' => 'discussion_enabled',
             'creator_area.' => 'item_creation_enabled',
             'avatar.' => 'customization_enabled',
@@ -131,7 +143,11 @@ class FeatureFlags
     private function getFeatureAlias($feature)
     {
         $featureAliasMap = [
+<<<<<<< HEAD
             'market_enabled' => 'Market',
+=======
+            'store_enabled' => 'Market',
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
             'discussion_enabled' => 'Forum',
             'item_creation_enabled' => 'Creator Area',
             'customization_enabled' => 'Avatar',

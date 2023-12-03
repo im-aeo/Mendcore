@@ -15,7 +15,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'paths' => ['api/*', '/*', 'sanctum/csrf-cookie', '*'],
+=======
+    'paths' => ['api/*', 'vite/AeoApiEndpoints/*', '/*', 'sanctum/csrf-cookie', '*'],
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
     'allowed_methods' => ['*'],
 

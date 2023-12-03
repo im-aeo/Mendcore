@@ -2,11 +2,16 @@
 import Navbar from '@/Components/LayoutParts/Navbar.vue';
 import Sidebar from '@/Components/LayoutParts/Sidebar.vue';
 import Footer from '@/Components/LayoutParts/Footer.vue';
+<<<<<<< HEAD
+=======
+import ForumSidebar from '@/Components/LayoutParts/ForumSidebar.vue'
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 import { route, current } from "momentum-trail";
 import { ref } from 'vue';
 import axios from 'axios';
 import { useForm, usePage } from '@inertiajs/vue3';
 
+<<<<<<< HEAD
 defineProps<{
     topic?: object,
     post?: Array<any>,
@@ -26,6 +31,29 @@ const submit = () => {
 };
 const addText = (text) => {
     form.body += text;
+=======
+defineProps({
+    topic: Object,
+    post: Object,
+    section_one: Object,
+    section_two: Object,
+    section_three: Object,
+})
+
+const form = useForm({
+  body: '',
+});
+
+const submit = () => {
+axios.get(`/sanctum/csrf-cookie`).then(response => {
+    form.post(route(`forum.reply.validate`, {id: usePage().props.post.id}), {
+        onFinish: () => form.reset('body'),
+    });
+});
+};
+const addText = (text) => {
+  form.body += text;
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 };
 
 const isHidden = ref(true);
@@ -42,6 +70,7 @@ const isHidden = ref(true);
 }
 </style>
 <template>
+<<<<<<< HEAD
     <Navbar />
     <Sidebar>
         <div class="cell medium-9">
@@ -59,6 +88,24 @@ const isHidden = ref(true);
                             <div class="fw-semibold">{{ post.creator.display_name }} <i
                                     class="ml-1 fas fa-shield-check text-success" style="font-size:13px;"
                                     title="This user is verified." data-toggle="tooltip"></i>
+=======
+    <Navbar/>
+	<Sidebar>
+	 <div class="cell medium-9">
+            <div class="mb-2">
+                    <div class="mb-2 text-xl fw-semibold">{{ post.title }} </div><div class="mb-2 text-xs text-muted fw-semibold">A post by: {{ post.creator.username }}</div>
+                </div>
+            <div class="card-body">
+                <div class="gap-2 align-middle flex-container">
+                    <div class="gap-2 mb-3 align-middle flex-container flex-dir-column">
+                        <a :href="route('user.profile', { username: post.creator.username })">
+                            <img src="/assets/img/dummy.png"
+                                style="max-width:136px"
+                                class="border img-fluid" alt="2oddMacs1">
+                        </a>
+                        <div class="text-center" style="line-height: 16px">
+                            <div class="fw-semibold">{{ post.creator.display_name }} <i class="ml-1 fas fa-shield-check text-success" style="font-size:13px;" title="This user is verified." data-toggle="tooltip"></i>
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             </div>
                             <div class="text-xs fw-semibold text-muted">
                                 {{ '@' + post.creator.username }}
@@ -68,9 +115,14 @@ const isHidden = ref(true);
                     <div class="divider verticalDivider"></div>
                     <div class="card card-body w-100">
                         <div class="gap-1 flex-container flex-dir-column">
+<<<<<<< HEAD
                             <div class="mb-2 text-sm text-muted fw-semibold"><i class="fas fa-clock"></i>&nbsp; Post by: {{
                                 post.creator.username }}, <b>{{ post.DateHum }}</b></div>
                             <div class="mb-2" v-html="post.body" style="white-space: pre-wrap;"></div>
+=======
+                        <div class="mb-2 text-sm text-muted fw-semibold"><i class="fas fa-clock"></i>&nbsp; Post by: {{ post.creator.username }}, <b>{{ post.DateHum }}</b></div>
+                        <div class="mb-2" v-html="post.body" style="white-space: pre-wrap;"></div>
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                         </div>
                     </div>
                 </div>
@@ -89,6 +141,7 @@ const isHidden = ref(true);
                     </ul>
                 </div>
             </div>
+<<<<<<< HEAD
             <div v-if="replies">
                 <div v-for="reply in replies" class="card-body">
                     <div class="gap-2 align-middle flex-container">
@@ -136,3 +189,23 @@ const isHidden = ref(true);
         </div>
     </Sidebar>
     <Footer /></template>
+=======
+            <div v-if="!isHidden" class="cell medium-9">
+                <div  class="card card-body">
+                    <div class="text-xl text-danger bg-primary">Reply to {{ post.title }}</div>
+                    <div class="mx-1 my-3 divider"></div>
+                    <form @submit.prevent="submit">
+                    <label for="post-body" class="mb-2 text-xs fw-bold text-uppercase">Reply Body</label>
+                    <textarea id="post-body" class="form" name="body" placeholder="Body" maxlength="4096"></textarea>
+                    <button class="btn btn-success btn-block" type="submit" :disabled="form.processing">Create</button>
+                </form>
+                </div>
+            </div>
+            <div class="section flex-container align-center">
+            <a v-on:click="isHidden = !isHidden"  class="btn btn-success"><i class="fas fa-reply"></i>&nbsp;Reply</a>
+        </div>
+    </div>
+    </Sidebar>
+   <Footer/>
+</template>
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018

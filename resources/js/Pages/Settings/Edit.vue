@@ -5,14 +5,21 @@ import Footer from '@/Components/LayoutParts/Footer.vue';
 import DeleteUserForm from './Partials/DeleteUserForm.vue';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
+<<<<<<< HEAD
 import { Head, usePage } from '@inertiajs/vue3';
+=======
+import { Head } from '@inertiajs/vue3';
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 import { route, current } from 'momentum-trail'
 
 defineProps({
     mustVerifyEmail: Boolean,
     status: String,
     categories: Array,
+<<<<<<< HEAD
     themes: Array,
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 });
 
 function showModal(modalId: string): void {
@@ -24,6 +31,7 @@ function showModal(modalId: string): void {
 </script>
 
 <template>
+<<<<<<< HEAD
     <Navbar />
     <Sidebar>
         <div class="modal" id="email-modal">
@@ -33,6 +41,23 @@ function showModal(modalId: string): void {
                         <div class="text-lg fw-semibold">Change Email</div>
                         <button @click="showModal('email-modal')" class="btn-circle" data-toggle-modal="#email-modal"
                             style="margin-right: -10px">
+=======
+   <Navbar/>
+	<Sidebar>
+        <div class="modal" id="email-modal">
+            <div class="modal-card modal-card-body modal-card-sm">
+                <div class="section-borderless">
+                    <div
+                        class="gap-2 align-middle flex-container align-justify"
+                    >
+                        <div class="text-lg fw-semibold">Change Email</div>
+                        <button
+                        @click="showModal('email-modal')"
+                            class="btn-circle"
+                            data-toggle-modal="#email-modal"
+                            style="margin-right: -10px"
+                        >
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -42,34 +67,80 @@ function showModal(modalId: string): void {
                         <div class="text-xs fw-bold text-muted text-uppercase">
                             New Email
                         </div>
+<<<<<<< HEAD
                         <input type="text" class="form" placeholder="New Email..." />
+=======
+                        <input
+                            type="text"
+                            class="form"
+                            placeholder="New Email..."
+                        />
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                     </div>
                     <div class="mb-2">
                         <div class="text-xs fw-bold text-muted text-uppercase">
                             Password
                         </div>
+<<<<<<< HEAD
                         <input type="password" class="form" placeholder="Password..." />
+=======
+                        <input
+                            type="password"
+                            class="form"
+                            placeholder="Password..."
+                        />
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                     </div>
                     <div class="text-xs text-muted fw-semibold">
                         After changing your email address, a confirmation email
                         will be sent to your inbox to confirm your identity.
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="flex-wrap gap-2 flex-container justify-content-end section-borderless">
                     <button class="btn btn-secondary" @click="showModal('email-modal')">
                         Cancel
                     </button>
                     <input type="submit" class="btn btn-success" value="Change Email" />
+=======
+                <div
+                    class="flex-wrap gap-2 flex-container justify-content-end section-borderless"
+                >
+                    <button
+                        class="btn btn-secondary"
+                        @click="showModal('email-modal')"
+                    >
+                        Cancel
+                    </button>
+                    <input
+                        type="submit"
+                        class="btn btn-success"
+                        value="Change Email"
+                    />
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                 </div>
             </div>
         </div>
         <div class="modal" id="username-modal">
             <div class="modal-card modal-card-body modal-card-sm">
                 <div class="section-borderless">
+<<<<<<< HEAD
                     <div class="gap-2 align-middle flex-container align-justify">
                         <div class="text-lg fw-semibold">Change Username</div>
                         <button @click="showModal('username-modal')" class="btn-circle" data-toggle-modal="#username-modal"
                             style="margin-right: -10px">
+=======
+                    <div
+                        class="gap-2 align-middle flex-container align-justify"
+                    >
+                        <div class="text-lg fw-semibold">Change Username</div>
+                        <button
+                        @click="showModal('username-modal')"
+                            class="btn-circle"
+                            data-toggle-modal="#username-modal"
+                            style="margin-right: -10px"
+                        >
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -79,7 +150,15 @@ function showModal(modalId: string): void {
                         <div class="text-xs fw-bold text-danger text-uppercase">
                             Username
                         </div>
+<<<<<<< HEAD
                         <input type="text" class="form" placeholder="New Username..." />
+=======
+                        <input
+                            type="text"
+                            class="form"
+                            placeholder="New Username..."
+                        />
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                         <div class="text-xs text-danger fw-semibold">
                             This username is already taken. Try @Nabrious123
                             instead.
@@ -89,6 +168,7 @@ function showModal(modalId: string): void {
                         <div class="text-xs fw-bold text-muted text-uppercase">
                             Password
                         </div>
+<<<<<<< HEAD
                         <input type="password" class="form" placeholder="Password..." />
                     </div>
                     <div class="text-xs text-muted fw-semibold">
@@ -101,17 +181,60 @@ function showModal(modalId: string): void {
                         Cancel
                     </button>
                     <input type="submit" class="btn btn-success" value="Change Username" />
+=======
+                        <input
+                            type="password"
+                            class="form"
+                            placeholder="Password..."
+                        />
+                    </div>
+                    <div class="text-xs text-muted fw-semibold">
+                        Changing your username costs<span
+                            class="mx-1 text-success"
+                            ><i class="fas fa-money-bill-1-wave"></i> {{$page.props.site.price.username}}</span
+                        >.
+                    </div>
+                </div>
+                <div
+                    class="flex-wrap gap-2 flex-container justify-content-end section-borderless"
+                >
+                    <button
+                        class="btn btn-secondary"
+                        @click="showModal('username-modal')"
+                    >
+                        Cancel
+                    </button>
+                    <input
+                        type="submit"
+                        class="btn btn-success"
+                        value="Change Username"
+                    />
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                 </div>
             </div>
         </div>
         <div class="modal" id="displayname-modal">
             <div class="modal-card modal-card-body modal-card-sm">
                 <div class="section-borderless">
+<<<<<<< HEAD
                     <div class="gap-2 align-middle flex-container align-justify">
                         <div class="text-lg fw-semibold">
                             Change Display Name
                         </div>
                         <button class="btn-circle" @click="showModal('displayname-modal')" style="margin-right: -10px">
+=======
+                    <div
+                        class="gap-2 align-middle flex-container align-justify"
+                    >
+                        <div class="text-lg fw-semibold">
+                            Change Display Name
+                        </div>
+                        <button
+                            class="btn-circle"
+                            @click="showModal('displayname-modal')"
+                            style="margin-right: -10px"
+                        >
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -120,25 +243,59 @@ function showModal(modalId: string): void {
                     <div class="text-xs fw-bold text-muted text-uppercase">
                         New Display Name
                     </div>
+<<<<<<< HEAD
                     <input type="text" class="mb-2 form" placeholder="New Display Name..." />
                     <div class="text-xs fw-bold text-muted text-uppercase">
                         Password
                     </div>
                     <input type="password" class="mb-2 form" placeholder="Password..." />
+=======
+                    <input
+                        type="text"
+                        class="mb-2 form"
+                        placeholder="New Display Name..."
+                    />
+                    <div class="text-xs fw-bold text-muted text-uppercase">
+                        Password
+                    </div>
+                    <input
+                        type="password"
+                        class="mb-2 form"
+                        placeholder="Password..."
+                    />
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                     <div class="text-xs text-muted fw-semibold">
                         Changing your your display name is free but can only be
                         done once every two weeks.
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="flex-wrap gap-2 flex-container justify-content-end section-borderless">
                     <button class="btn btn-secondary" @click="showModal('displayname-modal')">
                         Cancel
                     </button>
                     <input type="submit" class="btn btn-success" value="Change Display Name" />
+=======
+                <div
+                    class="flex-wrap gap-2 flex-container justify-content-end section-borderless"
+                >
+                    <button
+                        class="btn btn-secondary"
+                        @click="showModal('displayname-modal')"
+                    >
+                        Cancel
+                    </button>
+                    <input
+                        type="submit"
+                        class="btn btn-success"
+                        value="Change Display Name"
+                    />
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                 </div>
             </div>
         </div>
 
+<<<<<<< HEAD
         <div class="cell medium-3">
             <div class="mb-2 text-xl fw-semibold">Account Settings</div>
             <ul class="tabs flex-dir-column">
@@ -154,6 +311,20 @@ function showModal(modalId: string): void {
 
             <div v-for="category in categories" :key="category">
                 <div v-if="category === 'general'">
+=======
+                <div class="cell medium-3">
+                    <div class="mb-2 text-xl fw-semibold">Account Settings</div>
+                    <ul class="tabs flex-dir-column">
+                        <li class="tab-item" v-for="category in categories">
+                            <Link :href="route(`user.settings.page`, { category: category })" :class="[current(`settings.page`, { category: category }) ? 'acive' : '']" class="tab-link active squish">
+			     {{ capitalized(category) }}
+			    </Link>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cell medium-8" v-for="category in categories" :key="category">
+		  <div v-if="category === 'general'">
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                     <div class="mb-1 text-xl fw-semibold">General</div>
                     <div class="section-borderless">
                         <div class="card card-body">
@@ -164,6 +335,7 @@ function showModal(modalId: string): void {
                                 <div class="grid-x grid-margin-x">
                                     <div class="mb-3 cell medium-6">
                                         <div
+<<<<<<< HEAD
                                             class="gap-2 align-middle card card-body card-inner flex-container align-justify h-100">
                                             <div class="min-w-0">
                                                 <div class="text-xs text-truncate fw-bold text-muted text-uppercase">
@@ -174,10 +346,28 @@ function showModal(modalId: string): void {
                                                 </div>
                                             </div>
                                             <DeleteUserForm />
+=======
+                                            class="gap-2 align-middle card card-body card-inner flex-container align-justify h-100"
+                                        >
+                                            <div class="min-w-0">
+                                                <div
+                                                    class="text-xs text-truncate fw-bold text-muted text-uppercase"
+                                                >
+                                                    User ID
+                                                </div>
+                                                <div
+                                                    class="text-truncate fw-semibold"
+                                                >
+                                                    {{ $page.props.auth.user.id }}
+                                                </div>
+                                            </div>
+                                            <DeleteUserForm/>
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                         </div>
                                     </div>
                                     <div class="mb-3 cell medium-6">
                                         <div
+<<<<<<< HEAD
                                             class="gap-2 align-middle card card-body card-inner flex-container align-justify">
                                             <div class="min-w-0">
                                                 <div class="text-xs text-truncate fw-bold text-muted text-uppercase">
@@ -188,12 +378,33 @@ function showModal(modalId: string): void {
                                                 </div>
                                             </div>
                                             <button class="btn btn-info btn-circle" @click="showModal('username-modal')">
+=======
+                                            class="gap-2 align-middle card card-body card-inner flex-container align-justify"
+                                        >
+                                            <div class="min-w-0">
+                                                <div
+                                                    class="text-xs text-truncate fw-bold text-muted text-uppercase"
+                                                >
+                                                    Username
+                                                </div>
+                                                <div
+                                                    class="text-truncate fw-semibold"
+                                                >
+                                                {{ '@' + $page.props.auth.user.username }}
+                                                </div>
+                                            </div>
+                                            <button
+                                                class="btn btn-info btn-circle"
+                                                @click="showModal('username-modal')"
+                                            >
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                                 <i class="fas fa-pencil"></i>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="mb-3 cell medium-6">
                                         <div
+<<<<<<< HEAD
                                             class="gap-2 align-middle card card-body card-inner flex-container align-justify">
                                             <div class="min-w-0">
                                                 <div class="text-xs text-truncate fw-bold text-muted text-uppercase">
@@ -204,12 +415,33 @@ function showModal(modalId: string): void {
                                                 </div>
                                             </div>
                                             <button class="btn btn-info btn-circle" @click="showModal('displayname-modal')">
+=======
+                                            class="gap-2 align-middle card card-body card-inner flex-container align-justify"
+                                        >
+                                            <div class="min-w-0">
+                                                <div
+                                                    class="text-xs text-truncate fw-bold text-muted text-uppercase"
+                                                >
+                                                    Display Name
+                                                </div>
+                                                <div
+                                                    class="text-truncate fw-semibold"
+                                                >
+                                                {{ $page.props.auth.user.display_name }}
+                                                </div>
+                                            </div>
+                                            <button
+                                                class="btn btn-info btn-circle"
+                                                @click="showModal('displayname-modal')"
+                                            >
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                                 <i class="fas fa-pencil"></i>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="mb-3 cell medium-6">
                                         <div
+<<<<<<< HEAD
                                             class="gap-2 align-middle card card-body card-inner flex-container align-justify">
                                             <div class="min-w-0">
                                                 <div class="text-xs text-truncate fw-bold text-muted text-uppercase">
@@ -222,12 +454,41 @@ function showModal(modalId: string): void {
                                                 </div>
                                             </div>
                                             <button class="btn btn-info btn-circle" @click="showModal('email-modal')">
+=======
+                                            class="gap-2 align-middle card card-body card-inner flex-container align-justify"
+                                        >
+                                            <div class="min-w-0">
+                                                <div
+                                                    class="text-xs text-truncate fw-bold text-muted text-uppercase"
+                                                >
+                                                    Email Address<span
+                                                        style="font-size: 10px"
+                                                        class="text-success ms-2"
+                                                        ><i
+                                                            class="fas fa-check me-1"
+                                                        ></i
+                                                        >Verified</span
+                                                    >
+                                                    <!-- <span style="font-size: 10px;" class="text-danger ms-2"><i class="fas fa-times me-1"></i>Unverified</span> -->
+                                                </div>
+                                                <div
+                                                    class="text-truncate fw-semibold"
+                                                >
+                                                {{ $page.props.auth.user.email }}
+                                                </div>
+                                            </div>
+                                            <button
+                                                class="btn btn-info btn-circle"
+                                                @click="showModal('email-modal')"
+                                            >
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                                 <i class="fas fa-pencil"></i>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="mb-3 cell medium-6">
                                         <div
+<<<<<<< HEAD
                                             class="gap-2 align-middle card card-body card-inner flex-container align-justify">
                                             <div class="min-w-0">
                                                 <div class="text-xs text-truncate fw-bold text-muted text-uppercase">
@@ -240,11 +501,35 @@ function showModal(modalId: string): void {
                                                     If you want to change your
                                                     date of birth,
                                                     <a href="#">contact support</a>.
+=======
+                                            class="gap-2 align-middle card card-body card-inner flex-container align-justify"
+                                        >
+                                            <div class="min-w-0">
+                                                <div
+                                                    class="text-xs text-truncate fw-bold text-muted text-uppercase"
+                                                >
+                                                    Date of Birth
+                                                </div>
+                                                <div
+                                                    class="text-truncate fw-semibold"
+                                                >
+                                                {{ $page.props.auth.user.birthdate }}
+                                                </div>
+                                                <div
+                                                    class="text-xs fw-semibold text-muted"
+                                                >
+                                                    If you want to change your
+                                                    date of birth,
+                                                    <a href="#"
+                                                        >contact support</a
+                                                    >.
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <div class="text-xs fw-bold text-muted text-uppercase">
                                     About You
                                 </div>
@@ -264,6 +549,46 @@ function showModal(modalId: string): void {
                                     <input type="text" class="form form-sm btn-sm"
                                         :value="$page.props.auth.user.Signature" />
                                     <input type="submit" class="btn btn-success btn-sm" value="Update" />
+=======
+                                <div
+                                    class="text-xs fw-bold text-muted text-uppercase"
+                                >
+                                    About You
+                                </div>
+                                <div class="mb-3 position-relative">
+                                    <textarea
+                                        class="form form-has-button pe-5"
+                                        rows="5"
+                                    >{{ $page.props.auth.user.about_me }}</textarea
+                                    >
+                                    <input
+                                        type="button"
+                                        class="btn btn-success btn-sm"
+                                        value="Update"
+                                        style="
+                                            position: absolute;
+                                            bottom: 10px;
+                                            right: 10px;
+                                        "
+                                    />
+                                </div>
+                                <div
+                                    class="text-xs fw-bold text-muted text-uppercase"
+                                >
+                                    Forum Signature
+                                </div>
+                                <div class="gap-2 align-middle flex-container">
+                                    <input
+                                        type="text"
+                                        class="form form-sm btn-sm"
+                                        :value="$page.props.auth.user.Signature"
+                                    />
+                                    <input
+                                        type="submit"
+                                        class="btn btn-success btn-sm"
+                                        value="Update"
+                                    />
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                 </div>
                             </div>
                         </div>
@@ -273,6 +598,7 @@ function showModal(modalId: string): void {
                             <div class="mb-2 text-xl fw-semibold">
                                 Website Theme
                             </div>
+<<<<<<< HEAD
 
                             <div id="theme-switcher-container" class="grid-x grid-margin-x grid-padding-y">
                                 <div class="cell large-6" v-for="(theme, index) in themes" :key="index">
@@ -287,11 +613,198 @@ function showModal(modalId: string): void {
                                                     {{ theme.name }} Theme
                                                 </div>
                                                 <div class="selection-circle flex-child-grow show-for-small hide-for-large"></div>
+=======
+                            <div  id="theme-switcher-container" class="grid-x grid-margin-x grid-padding-y">
+                                <div class="cell large-6">
+                                    <div
+                                        class="mb-2 theme-selection squish card card-body card-inner mb-lg-0"
+                                        id="light-theme-btn"
+                                        @click="setTheme('light')"
+                                    >
+                                        <div
+                                            class="gap-4 align-middle flex-container"
+                                        >
+                                            <div
+                                                class="selection-circle flex-child-grow show-for-large"
+                                            ></div>
+                                            <div
+                                                class="gap-1 align-middle flex-container flex-dir-column"
+                                                style="min-width: 0"
+                                            >
+                                                <div
+                                                    class="theme-circle light"
+                                                ></div>
+                                                <div
+                                                    class="text-lg fw-semibold text-truncate"
+                                                >
+                                                    Light Theme
+                                                </div>
+                                                <div
+                                                    class="selection-circle flex-child-grow show-for-small hide-for-large"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell large-6">
+                                    <div
+                                        class="theme-selection squish card card-body card-inner"
+                                        id="dark-theme-btn"
+                                        @click="setTheme('dark')"
+                                    >
+                                        <div
+                                            class="gap-4 align-middle flex-container"
+                                        >
+                                            <div
+                                                class="selection-circle flex-child-grow show-for-large"
+                                            ></div>
+                                            <div
+                                                class="gap-1 align-middle flex-container flex-dir-column"
+                                            >
+                                                <div
+                                                    class="theme-circle dark"
+                                                ></div>
+                                                <div
+                                                    class="text-lg fw-semibold text-truncate"
+                                                >
+                                                    Dark Theme
+                                                </div>
+                                                <div
+                                                    class="selection-circle flex-child-grow show-for-small hide-for-large"
+                                                ></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div  id="theme-switcher-container" class="grid-x grid-margin-x grid-padding-y">
+                                <div class="cell large-6">
+                                    <div
+                                        class="mb-2 theme-selection squish card card-body card-inner mb-lg-0"
+                                        id="amoled-theme-btn"
+                                        @click="setTheme('amoled')"
+                                    >
+                                        <div
+                                            class="gap-4 align-middle flex-container"
+                                        >
+                                            <div
+                                                class="selection-circle flex-child-grow show-for-large"
+                                            ></div>
+                                            <div
+                                                class="gap-1 align-middle flex-container flex-dir-column"
+                                                style="min-width: 0"
+                                            >
+                                                <div
+                                                    class="theme-circle amoled"
+                                                ></div>
+                                                <div
+                                                    class="text-lg fw-semibold text-truncate"
+                                                >
+                                                Amoled Theme
+                                                </div>
+                                                <div
+                                                    class="selection-circle flex-child-grow show-for-small hide-for-large"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell large-6">
+                                    <div
+                                        class="theme-selection squish card card-body card-inner"
+                                        id="discord-theme-btn"
+                                        @click="setTheme('discord')"
+                                    >
+                                        <div
+                                            class="gap-4 align-middle flex-container"
+                                        >
+                                            <div
+                                                class="selection-circle flex-child-grow show-for-large"
+                                            ></div>
+                                            <div
+                                                class="gap-1 align-middle flex-container flex-dir-column"
+                                            >
+                                                <div
+                                                    class="theme-circle discord"
+                                                ></div>
+                                                <div
+                                                    class="text-lg fw-semibold text-truncate"
+                                                >
+                                                Discord Theme
+                                                </div>
+                                                <div
+                                                    class="selection-circle flex-child-grow show-for-small hide-for-large"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div  id="theme-switcher-container" class="grid-x grid-margin-x grid-padding-y">
+                                <div class="cell large-6">
+                                    <div
+                                        class="mb-2 theme-selection squish card card-body card-inner mb-lg-0"
+                                        id="amoled-theme-btn"
+                                        @click="setTheme('halloween')"
+                                    >
+                                        <div
+                                            class="gap-4 align-middle flex-container"
+                                        >
+                                            <div
+                                                class="selection-circle flex-child-grow show-for-large"
+                                            ></div>
+                                            <div
+                                                class="gap-1 align-middle flex-container flex-dir-column"
+                                                style="min-width: 0"
+                                            >
+                                                <div
+                                                    class="theme-circle amoled"
+                                                ></div>
+                                                <div
+                                                    class="text-lg fw-semibold text-truncate"
+                                                >
+                                                Halloween Theme
+                                                </div>
+                                                <div
+                                                    class="selection-circle flex-child-grow show-for-small hide-for-large"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell large-6">
+                                    <div
+                                        class="theme-selection squish card card-body card-inner"
+                                        id="discord-theme-btn"
+                                        @click="setTheme('xmas')"
+                                    >
+                                        <div
+                                            class="gap-4 align-middle flex-container"
+                                        >
+                                            <div
+                                                class="selection-circle flex-child-grow show-for-large"
+                                            ></div>
+                                            <div
+                                                class="gap-1 align-middle flex-container flex-dir-column"
+                                            >
+                                                <div
+                                                    class="theme-circle discord"
+                                                ></div>
+                                                <div
+                                                    class="text-lg fw-semibold text-truncate"
+                                                >
+                                                Xmas Theme
+                                                </div>
+                                                <div
+                                                    class="selection-circle flex-child-grow show-for-small hide-for-large"
+                                                ></div>
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+<<<<<<< HEAD
                             
 
                         </div>
@@ -299,6 +812,13 @@ function showModal(modalId: string): void {
                 </div>
                 <div v-if="category === 'account'">
                     <div class="text-xl fw-semibold mb-1">
+=======
+                        </div>
+                    </div>
+		</div>
+                <div v-if="category === 'account'">
+		   <div class="text-xl fw-semibold mb-1">
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                         Security & Privacy
                     </div>
                     <div class="section-borderless">
@@ -308,6 +828,7 @@ function showModal(modalId: string): void {
                                 <div class="cell medium-12">
                                     <div class="card card-inner card-body">
                                         <div class="mb-2">
+<<<<<<< HEAD
                                             <div class="text-xl fw-semibold mb-2">
                                                 Change Password
                                             </div>
@@ -331,6 +852,48 @@ function showModal(modalId: string): void {
                                                 </div>
                                                 <input type="password" class="form form-has-section-color"
                                                     placeholder="Current Password..." />
+=======
+                                            <div
+                                                class="text-xl fw-semibold mb-2"
+                                            >
+                                                Change Password
+                                            </div>
+                                            <div class="mb-2">
+                                                <div
+                                                    class="text-xs fw-bold text-muted text-uppercase"
+                                                >
+                                                    Current Password
+                                                </div>
+                                                <input
+                                                    type="password"
+                                                    class="form form-has-section-color"
+                                                    placeholder="Current Password..."
+                                                />
+                                            </div>
+                                            <div class="mb-2">
+                                                <div
+                                                    class="text-xs fw-bold text-muted text-uppercase"
+                                                >
+                                                    New Password
+                                                </div>
+                                                <input
+                                                    type="password"
+                                                    class="form form-has-section-color"
+                                                    placeholder="Current Password..."
+                                                />
+                                            </div>
+                                            <div class="mb-2">
+                                                <div
+                                                    class="text-xs fw-bold text-muted text-uppercase"
+                                                >
+                                                    Confirm Password
+                                                </div>
+                                                <input
+                                                    type="password"
+                                                    class="form form-has-section-color"
+                                                    placeholder="Current Password..."
+                                                />
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                             </div>
                                         </div>
                                         <button class="btn btn-success">
@@ -349,19 +912,41 @@ function showModal(modalId: string): void {
                                     Privacy
                                 </div>
                                 <div class="mb-2">
+<<<<<<< HEAD
                                     <div class="text-xs fw-bold text-muted text-uppercase">
                                         Who Can Follow Me
                                     </div>
                                     <select class="form form-select form-has-section-color">
+=======
+                                    <div
+                                        class="text-xs fw-bold text-muted text-uppercase"
+                                    >
+                                        Who Can Follow Me
+                                    </div>
+                                    <select
+                                        class="form form-select form-has-section-color"
+                                    >
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                         <option value="1">Everyone</option>
                                         <option value="2">No One</option>
                                     </select>
                                 </div>
                                 <div class="mb-2">
+<<<<<<< HEAD
                                     <div class="text-xs fw-bold text-muted text-uppercase">
                                         Who Can See My Posts?
                                     </div>
                                     <select class="form form-select form-has-section-color">
+=======
+                                    <div
+                                        class="text-xs fw-bold text-muted text-uppercase"
+                                    >
+                                        Who Can See My Posts?
+                                    </div>
+                                    <select
+                                        class="form form-select form-has-section-color"
+                                    >
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                         <option value="1">Everyone</option>
                                         <option value="2">
                                             Followers Only
@@ -369,10 +954,21 @@ function showModal(modalId: string): void {
                                     </select>
                                 </div>
                                 <div class="mb-2">
+<<<<<<< HEAD
                                     <div class="text-xs fw-bold text-muted text-uppercase">
                                         Who Can Send Me Messages
                                     </div>
                                     <select class="form form-select form-has-section-color">
+=======
+                                    <div
+                                        class="text-xs fw-bold text-muted text-uppercase"
+                                    >
+                                        Who Can Send Me Messages
+                                    </div>
+                                    <select
+                                        class="form form-select form-has-section-color"
+                                    >
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                         <option value="1">Everyone</option>
                                         <option value="2">
                                             Followers Only
@@ -381,10 +977,21 @@ function showModal(modalId: string): void {
                                     </select>
                                 </div>
                                 <div class="mb-2">
+<<<<<<< HEAD
                                     <div class="text-xs fw-bold text-muted text-uppercase">
                                         Who Can Send Me Trade Requests
                                     </div>
                                     <select class="form form-select form-has-section-color">
+=======
+                                    <div
+                                        class="text-xs fw-bold text-muted text-uppercase"
+                                    >
+                                        Who Can Send Me Trade Requests
+                                    </div>
+                                    <select
+                                        class="form form-select form-has-section-color"
+                                    >
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                         <option value="1">Everyone</option>
                                         <option value="2">
                                             Followers Only
@@ -400,17 +1007,32 @@ function showModal(modalId: string): void {
                                 <div class="text-xl fw-semibold mb-2">
                                     Blocked Players
                                 </div>
+<<<<<<< HEAD
                                 <div class="text-xs fw-bold text-muted text-uppercase">
                                     Player Username
                                 </div>
                                 <div class="flex-container gap-2 mb-2">
                                     <input type="text" class="form form-has-section-color"
                                         placeholder="Player Username..." />
+=======
+                                <div
+                                    class="text-xs fw-bold text-muted text-uppercase"
+                                >
+                                    Player Username
+                                </div>
+                                <div class="flex-container gap-2 mb-2">
+                                    <input
+                                        type="text"
+                                        class="form form-has-section-color"
+                                        placeholder="Player Username..."
+                                    />
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                     <button class="btn btn-danger">
                                         Block
                                     </button>
                                 </div>
                                 <div class="card card-body">
+<<<<<<< HEAD
                                     <div class="flex-container flex-dir-column text-center gap-3">
                                         <i class="fas fa-user-slash text-5xl text-muted"></i>
                                         <div style="line-height: 16px">
@@ -418,6 +1040,23 @@ function showModal(modalId: string): void {
                                                 No Blocked Players
                                             </div>
                                             <div class="text-xs text-muted fw-semibold">
+=======
+                                    <div
+                                        class="flex-container flex-dir-column text-center gap-3"
+                                    >
+                                        <i
+                                            class="fas fa-user-slash text-5xl text-muted"
+                                        ></i>
+                                        <div style="line-height: 16px">
+                                            <div
+                                                class="fw-bold text-xs text-muted text-uppercase"
+                                            >
+                                                No Blocked Players
+                                            </div>
+                                            <div
+                                                class="text-xs text-muted fw-semibold"
+                                            >
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                                 Yahoo! You have not blocked any
                                                 players.
                                             </div>
@@ -482,22 +1121,46 @@ function showModal(modalId: string): void {
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
                     </div>
                 </div>
                 <div v-if="category === 'billing'">
                     <div class="flex-container align-middle align-justify mb-2">
                         <div class="text-xl fw-semibold">Billing</div>
                         <a href="#" class="btn btn-upgrade btn-sm"><i class="fas fa-rocket-launch me-2"></i>Upgrade</a>
+=======
+		    </div>
+		</div>
+		<div v-if="category === 'billing'">
+                  <div class="flex-container align-middle align-justify mb-2">
+                        <div class="text-xl fw-semibold">Billing</div>
+                        <a href="#" class="btn btn-upgrade btn-sm"
+                            ><i class="fas fa-rocket-launch me-2"></i>Upgrade</a
+                        >
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                     </div>
                     <div class="card card-body mb-3">
                         <div class="text-xl fw-semibold mb-2">
                             Active Membership
                         </div>
                         <div class="card card-inner card-body">
+<<<<<<< HEAD
                             <div class="flex-container flex-dir-column text-center gap-3">
                                 <i class="fas fa-rocket-launch text-5xl text-muted"></i>
                                 <div style="line-height: 16px">
                                     <div class="fw-bold text-xs text-muted text-uppercase">
+=======
+                            <div
+                                class="flex-container flex-dir-column text-center gap-3"
+                            >
+                                <i
+                                    class="fas fa-rocket-launch text-5xl text-muted"
+                                ></i>
+                                <div style="line-height: 16px">
+                                    <div
+                                        class="fw-bold text-xs text-muted text-uppercase"
+                                    >
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                         No Active Membership
                                     </div>
                                     <div class="text-xs text-muted fw-semibold">
@@ -618,10 +1281,23 @@ function showModal(modalId: string): void {
             -->
 
                         <div class="card card-inner card-body">
+<<<<<<< HEAD
                             <div class="flex-container flex-dir-column text-center gap-3">
                                 <i class="fas fa-envelope-open-text text-5xl text-muted"></i>
                                 <div style="line-height: 16px">
                                     <div class="fw-bold text-xs text-muted text-uppercase">
+=======
+                            <div
+                                class="flex-container flex-dir-column text-center gap-3"
+                            >
+                                <i
+                                    class="fas fa-envelope-open-text text-5xl text-muted"
+                                ></i>
+                                <div style="line-height: 16px">
+                                    <div
+                                        class="fw-bold text-xs text-muted text-uppercase"
+                                    >
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                         No Previous Purchases
                                     </div>
                                     <div class="text-xs text-muted fw-semibold">
@@ -631,15 +1307,23 @@ function showModal(modalId: string): void {
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </div>
             </div>
         </div>
     </Sidebar>
     <Footer />
+=======
+		</div>
+	</div>
+    </Sidebar>
+    <Footer/>
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 </template>
 
 <script lang="ts">
 export default {
+<<<<<<< HEAD
     data() {
         return {
             activeTheme: '',
@@ -704,5 +1388,88 @@ export default {
             }
         },
     },
+=======
+  data() {
+    return {
+      activeTheme: '',
+    };
+  },
+  mounted() {
+    const theme = localStorage.getItem('theme') || 'light';
+    this.activeTheme = theme;
+    this.applyTheme(theme);
+
+    const lightThemeBtn = document.getElementById('light-theme-btn');
+    const darkThemeBtn = document.getElementById('dark-theme-btn');
+    const amoledThemeBtn = document.getElementById('amoled-theme-btn');
+    const discordThemeBtn = document.getElementById('discord-theme-btn');
+
+    if (lightThemeBtn && darkThemeBtn && amoledThemeBtn && discordThemeBtn) {
+      lightThemeBtn.classList.remove('active');
+      darkThemeBtn.classList.remove('active');
+      amoledThemeBtn.classList.remove('active');
+      discordThemeBtn.classList.remove('active');
+
+      if (theme === 'light') {
+        lightThemeBtn.classList.add('active');
+      } else if (theme === 'dark') {
+        darkThemeBtn.classList.add('active');
+      }else if (theme === 'amoled') {
+        amoledThemeBtn.classList.add('active');
+      }else if (theme === 'discord') {
+        discordThemeBtn.classList.add('active');
+      }
+    }
+  },
+  methods: {
+    capitalized(name: string) {
+      const capitalizedFirst = name[0].toUpperCase();
+      const rest = name.slice(1);
+
+      return capitalizedFirst + rest;
+    },
+    applyTheme(theme) {
+      let style = document.getElementById('theme-style');
+
+      if (!style) {
+        style = document.createElement('link');
+        style.id = 'theme-style';
+        style.rel = 'stylesheet';
+        document.head.appendChild(style);
+      }
+
+      style.href = `/assets/css/themes/variables-${theme}.css`;
+
+      // Save the selected theme in localStorage
+      localStorage.setItem('theme', theme);
+    },
+    setTheme(theme) {
+      this.activeTheme = theme;
+      this.applyTheme(theme);
+
+      const lightThemeBtn = document.getElementById('light-theme-btn');
+      const darkThemeBtn = document.getElementById('dark-theme-btn');
+      const amoledThemeBtn = document.getElementById('amoled-theme-btn');
+      const discordThemeBtn = document.getElementById('discord-theme-btn');
+
+      if (lightThemeBtn && darkThemeBtn && amoledThemeBtn && discordThemeBtn) {
+      lightThemeBtn.classList.remove('active');
+      darkThemeBtn.classList.remove('active');
+      amoledThemeBtn.classList.remove('active');
+      discordThemeBtn.classList.remove('active');
+
+      if (theme === 'light') {
+        lightThemeBtn.classList.add('active');
+      } else if (theme === 'dark') {
+        darkThemeBtn.classList.add('active');
+      }else if (theme === 'amoled') {
+        amoledThemeBtn.classList.add('active');
+      }else if (theme === 'discord') {
+        discordThemeBtn.classList.add('active');
+      }
+      }
+    },
+  },
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 };
 </script>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { defineConfig } from '@vue/cli-service';
 module.exports = defineConfig({
   transpileDependencies: true,
@@ -17,3 +18,15 @@ module.exports = defineConfig({
     }
   }
 })
+=======
+const { defineConfig } = require('@vue/cli-service')
+module.exports = defineConfig({
+    transpileDependencies: true,
+    devServer: {
+        watchOptions: {
+            poll: true
+        },
+        port: 8080,
+    },
+})
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018

@@ -37,6 +37,7 @@ class ForumThread extends Model
         return $this->belongsTo('App\Models\ForumTopic', 'topic_id');
     }
 
+<<<<<<< HEAD
     public function replies()
     {
         // Validate and check if the thread exists
@@ -60,6 +61,19 @@ class ForumThread extends Model
         $replies->load('creator'); // Load creator relationship on the replies collection
     
         return $replies;
+=======
+    public function replies($hasPagination = true)
+    {
+        if (Auth::check() && Auth::user()->staff == 1)
+            $replies = ForumReply::where('in_topic_id', '=', $this->id)->orderBy('created_at', 'ASC');
+        else
+            $replies = ForumReply::where([
+                ['thread_id', '=', $this->id],
+                ['is_deleted', '=', false]
+            ])->orderBy('created_at', 'ASC');
+
+        return ($hasPagination) ? $replies->paginate(4) : $replies->get();
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     }
 
     public function lastReply()

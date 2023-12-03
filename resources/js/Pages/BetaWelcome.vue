@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import Navbar from '@/Components/LayoutParts/Navbar.vue';
 import { Head, Link } from '@inertiajs/vue3';
+<<<<<<< HEAD
 import { route, current } from "momentum-trail";
+=======
+//import { route, current } from "momentum-trail";
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
 </script>
 

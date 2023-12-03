@@ -56,8 +56,11 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+<<<<<<< HEAD
     'cache' => true,
 
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
     'ghost_blog_url' => env('GHOST_BLOG_URL', 'https://blog.netisu.com'),
 
@@ -130,8 +133,11 @@ return [
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
+<<<<<<< HEAD
     
     'etag' => true,
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
     /*
     |--------------------------------------------------------------------------

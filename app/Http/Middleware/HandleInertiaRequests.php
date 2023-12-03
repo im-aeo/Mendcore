@@ -3,8 +3,15 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Inertia\Middleware;
 
+=======
+use Inertia\Inertia;
+use Inertia\Middleware;
+use Tightenco\Ziggy\Ziggy;
+use Illuminate\Support\Facades\Auth;
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 class HandleInertiaRequests extends Middleware
 {
     /**
@@ -34,7 +41,11 @@ class HandleInertiaRequests extends Middleware
             'locale' => function () {
                 return app()->getLocale();
             },
+<<<<<<< HEAD
             'locales' => function () {
+=======
+	    'locales' => function () {
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                 return config('ActiveLocales');
             },
             'language' => function () {
@@ -44,6 +55,7 @@ class HandleInertiaRequests extends Middleware
             },
             'auth' => function () use ($request) {
                 return [
+<<<<<<< HEAD
                     'user' => $request->user() ? [
                         'id' => $request->user()->id,
                         'username' => $request->user()->username,
@@ -66,10 +78,44 @@ class HandleInertiaRequests extends Middleware
             'message' => $request->session()->get('message'),
             'error' => $request->session()->get('error'),
 
+=======
+                'user' => $request->user() ? [
+                    'id' => $request->user()->id,
+                    'username' => $request->user()->username,
+                    'display_name' => $request->user()->display_name,
+                    'full_name' => $request->user()->full_name,
+                    'email' => $request->user()->email,
+                    'birthdate' => $request->user()->birthdate,
+                    'coins' => $request->user()->coins,
+                    'bucks' => $request->user()->bucks,
+                    'views' => $request->user()->views,
+                    'status' => $request->user()->status,
+                    'about_me' => $request->user()->about_me,
+		            'following' => $request->user()->following(),
+                ] : null,
+                ];
+        },
+            'site' => config('Values'),
+            'flash' => function () use ($request) {
+                [
+                    'message' => $request->session()->get('message'),
+                    'error' => $request->session()->get('error')
+                ];
+            },
+            'ziggy' => function () use ($request) {
+                return array_merge((new Ziggy)->toArray(), [
+                    'location' => $request->url(),
+                ]);
+            },
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         ]);
     }
     public function handle(Request $request, \Closure $next)
     {
+<<<<<<< HEAD
         return parent::handle($request, $next);
+=======
+	return parent::handle($request, $next);
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     }
 }

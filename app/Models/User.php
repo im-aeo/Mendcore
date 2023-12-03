@@ -9,7 +9,11 @@ use Illuminate\Foundation\Auth\User as AeoAuthenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Avatar;
+<<<<<<< HEAD
 use App\Models\Admin;
+=======
+use App\Models\SiteStaffTeam;
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 use App\Models\Level;
 use App\Models\ForumThread;
 use Illuminate\Support\Facades\Auth;
@@ -24,8 +28,12 @@ class User extends AeoAuthenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+<<<<<<< HEAD
         'username',
         'display_name',
+=======
+        'name',
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         'email',
         'password',
         'birthdate',
@@ -33,7 +41,11 @@ class User extends AeoAuthenticatable
         'social_type',
         'wallet_address',
         'status',
+<<<<<<< HEAD
         'about_me',
+=======
+        'bio',
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     ];
 
     /**
@@ -78,6 +90,7 @@ class User extends AeoAuthenticatable
         return $this->hasMany(ForumThread::class, 'creator_id');
     }
 
+<<<<<<< HEAD
     public function sentMessages()
     {
         return $this->hasMany(UserMessages::class, 'sending_id');
@@ -86,6 +99,11 @@ class User extends AeoAuthenticatable
     public function receivedMessages()
     {
         return $this->hasMany(UserMessages::class, 'receiving_id');
+=======
+    public function messages()
+    {
+        return $this->hasMany(Message::class, 'receiving_id');
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     }
 
     public function following()
@@ -93,6 +111,7 @@ class User extends AeoAuthenticatable
         return $this->belongsToMany(User::class, 'followers', 'follower_id', 'following_id');
     }
 
+<<<<<<< HEAD
     public function ownsItem($id)
     {
         return Inventory::where([
@@ -172,6 +191,8 @@ class User extends AeoAuthenticatable
     }
 
 
+=======
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     public function online()
     {
         // Calculate the expiration time for online status
@@ -183,14 +204,27 @@ class User extends AeoAuthenticatable
 
     public function settings()
     {
+<<<<<<< HEAD
         return $this->belongsTo(UserSettings::class, 'id');
+=======
+    	return $this->hasOne(UserSetting::class);
+    }
+
+    public function staffTeam()
+    {
+        return $this->hasOne(SiteStaffTeam::class);
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     }
 
     public function isStaff()
     {
+<<<<<<< HEAD
         return Admin::where([
             ['user_id', '=', $this->id],
         ])->exists();
+=======
+        return $this->staffTeam !== null;
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     }
 
     public function currentLevel()
@@ -210,6 +244,7 @@ class User extends AeoAuthenticatable
         }
     }
 
+<<<<<<< HEAD
     public function gainExperience(int $experience)
     {
         $curentLevel = $this->settings->current_level;
@@ -229,6 +264,11 @@ class User extends AeoAuthenticatable
         if ($curentLevel !== $resultOfCalculation['level']) {
             $this->settings->current_level + 1;
         }
+=======
+    public function gainExperience($amount)
+    {
+        // Logic to update user's experience and check for level-up
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     }
 
     public function thumbnail()
@@ -240,6 +280,7 @@ class User extends AeoAuthenticatable
     public function headshot()
     {
         $url = config('Values.storage.url');
+<<<<<<< HEAD
         if ($this->settings->profile_picture_enabled != false) {
             $image = ($this->settings->profile_picture_url) || $this->avatar()?->image;
             return "{$url}/thumbnails/pfp/{$image}.png";
@@ -249,6 +290,11 @@ class User extends AeoAuthenticatable
         }
     }
     
+=======
+        $image = ($this->avatar()?->image === 'default') ? config('Values.render.default_avatar') : $this->avatar()?->image;
+        return "{$url}/thumbnails/{$image}_headshot.png";
+    }
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     public function latestStatus()
     {
         return $this->hasOne(Status::class, 'creator_id')->latest();

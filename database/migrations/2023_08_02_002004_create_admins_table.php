@@ -11,9 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
+<<<<<<< HEAD
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+=======
+        Schema::create('site_staff_team', function (Blueprint $table) {
+            $table->id();
+	    $table->integer('user_id');
+            $table->string('username');
+            $table->string('password');
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
             $table->boolean('can_activate_maintenance')->default(false);
             $table->boolean('can_switch_to_roadmap_maintenance')->default(false);
             $table->boolean('can_enable_announcement')->default(false);
@@ -34,10 +42,15 @@ return new class extends Migration
             $table->boolean('can_enable_registration')->default(false);
             $table->rememberToken();
             $table->timestamps();
+<<<<<<< HEAD
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
         });
+=======
+        });
+
+>>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     }
 
     /**
