@@ -1,25 +1,10 @@
 <template>
-<<<<<<< HEAD
-  <Navbar />
-  <Sidebar>
-    <div class="cell medium-7">
-      <div class="card text-center">
-        <div class="card-body">
-          <i class="fas fa-exclamation-triangle text-warning mb-3" style="font-size:80px;"></i>
-          <h3>{{ props.title }}</h3>
-          <p>This feature is currently disabled.</p>
-        </div>
-      </div>
-    </div>
-  </Sidebar>
-  <Footer />
-=======
 <Navbar/>
 <Sidebar>
 <div class="cell medium-7">
-            <div class="card text-center">
+            <div class="text-center card">
                 <div class="card-body">
-                    <i class="fas fa-exclamation-triangle text-warning mb-3" style="font-size:80px;"></i>
+                    <i class="mb-3 fas fa-exclamation-triangle text-warning" style="font-size:80px;"></i>
                     <h3>{{ props.title }}</h3>
                     <p>This feature is currently disabled.</p>
                 </div>
@@ -27,7 +12,6 @@
 </div>
 </Sidebar>
 <Footer/>
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 </template>
 <script setup lang="ts">
 import Navbar from '@/Components/LayoutParts/Navbar.vue';
