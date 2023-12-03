@@ -14,7 +14,6 @@ class Kernel extends AeosKernel
      * @var array<int, class-string|string>
      */
     protected $middleware = [
-<<<<<<< HEAD
         \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
@@ -24,17 +23,6 @@ class Kernel extends AeosKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\Cors::class,
 
-=======
-                \App\Http\Middleware\TrustHosts::class,
-                \App\Http\Middleware\TrustProxies::class,
-                \Illuminate\Http\Middleware\HandleCors::class,
-                \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
-                \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-                \App\Http\Middleware\TrimStrings::class,
-                \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-                \App\Http\Middleware\Cors::class,
-        
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     ];
 
     /**
@@ -57,23 +45,14 @@ class Kernel extends AeosKernel
             \App\Http\Middleware\GiveDailyCurrency::class,
             \App\Http\Middleware\UpdateOnlineStatus::class,
             \App\Http\Middleware\VerifyAccount::class,
-<<<<<<< HEAD
             \App\Http\Middleware\SiteConfigMiddleware::class, // SiteSettings
             \App\Http\Middleware\FeatureFlags::class,
-=======
-	    \App\Http\Middleware\SiteConfigMiddleware::class, // SiteSettings
-	    \App\Http\Middleware\FeatureFlags::class,
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
         ],
 
         'api' => [
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-<<<<<<< HEAD
             \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
-=======
-            \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -85,11 +64,7 @@ class Kernel extends AeosKernel
     *
     * @var array<string, class-string|string>
     */
-<<<<<<< HEAD
     protected $middlewareAliases = [
-=======
-     protected $middlewareAliases = [
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
@@ -100,14 +75,9 @@ class Kernel extends AeosKernel
         'precognitive' => \Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests::class,
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-<<<<<<< HEAD
         'abilities' => \Laravel\Sanctum\Http\Middleware\CheckAbilities::class,
         'ability' => \Laravel\Sanctum\Http\Middleware\CheckForAnyAbility::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-=======
      	'abilities' => \Laravel\Sanctum\Http\Middleware\CheckAbilities::class,
-	'ability' => \Laravel\Sanctum\Http\Middleware\CheckForAnyAbility::class,
-   	'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     ];
 }
