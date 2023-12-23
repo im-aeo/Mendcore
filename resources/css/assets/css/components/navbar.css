@@ -6,11 +6,7 @@
     background: var(--section-bg);
     border-bottom: 1px solid var(--section-border-color);
     padding: 10px 15px;
-<<<<<<< HEAD
     box-shadow: 1px 1px 5px rgb(var(--section-shadow), 0.1);
-=======
-    box-shadow: 0 1px 2px rgb(var(--section-shadow), 0.1);
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 }
 .navbar .navbar-nav {
     list-style: none;

@@ -3,11 +3,7 @@ namespace App\Http\Controllers\Endpoints;
 
 use App\Models\Item;
 use App\Models\User;
-<<<<<<< HEAD
 use App\Models\Space;
-=======
-use App\Models\Spaces;
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,15 +20,9 @@ class SearchSiteController extends Controller
 
         $users = User::where('username', 'LIKE', "%{$search}%")->get();
         $items = Item::where('name', 'LIKE', "%{$search}%")->get();
-<<<<<<< HEAD
         $spaces = Space::where('name', 'LIKE', "%{$search}%")->get();
 
         $results = $users->merge($items)->merge($spaces);
-=======
-        //$spaces = Spaces::where('name', 'LIKE', "%{$search}%")->get();
-
-        $results = $users->merge($items);//->merge($spaces);
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
         if ($results->count() === 0 || !$search) {
             return response()->json([]);
@@ -53,7 +43,6 @@ class SearchSiteController extends Controller
                     $image = $result->thumbnail();
                     $url = route('catalog.item', [$result->id, $result->slug()]);
                     break;
-<<<<<<< HEAD
                     
                 case 'spaces':
                     $name = $result->name;
@@ -61,15 +50,6 @@ class SearchSiteController extends Controller
                     $url = route('spaces.view', [$result->id, $result->slug()]);
                     break;
                    
-=======
-                    /*
-                case 'spaces':
-                    $name = $result->name;
-                    $image = $result->thumbnail();
-                    $url = route('groups.view', [$result->id, $result->slug()]);
-                    break;
-                    */
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                 default:
                     continue 2;
             }

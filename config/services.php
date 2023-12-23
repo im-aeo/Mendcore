@@ -32,11 +32,7 @@ return [
     ],
 
     'discord' => [
-<<<<<<< HEAD
         'client_id' => env('DISCORD_APP_ID'),
-=======
-        'client_id' => env('FACEBOOK_APP_ID'),
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         'client_secret' => env('FACEBOOK_APP_SECRET'),
         'redirect' => env('FACEBOOK_REDIRECT'),
     ],

@@ -17,10 +17,7 @@ return new class extends Migration
             $table->string('creator_type')->default('user');
             $table->string('name');
             $table->text('description')->nullable();
-<<<<<<< HEAD
             $table->string('hash')->nullable();
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
             $table->string('item_type');
             $table->string('status')->default('review'); // review, moderated, accepted
             $table->boolean('public_view')->default(true);

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-<<<<<<< HEAD
 import { defineProps, ref } from 'vue';
 import { route } from 'momentum-trail'; // If you're using the 'route' function from 'momentum-trail'
 
@@ -29,25 +28,13 @@ function pluralType(inputString) {
 
     return modifiedWords.join(" ");
 }
-=======
-import { defineProps } from 'vue';
-//import { route } from 'momentum-trail'; // If you're using the 'route' function from 'momentum-trail'
-
-const { categories } = defineProps([
-  'categories',
-]);
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 </script>
 
 <template>
     <div class="mb-2 align-middle grid-x">
         <div class="cell large-3">
             <div class="mb-2 text-xl fw-semibold">
-<<<<<<< HEAD
                 {{ pluralType(selectedCategory) }}
-=======
-                {{ categories.name }}
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
             </div>
         </div>
         <div class="cell large-9">

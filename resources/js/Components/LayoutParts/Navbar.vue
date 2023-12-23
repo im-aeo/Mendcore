@@ -1,5 +1,4 @@
 <script setup lang="ts">
-<<<<<<< HEAD
 import { ref, onMounted, watch, computed, Suspense } from 'vue';
 import { router, Link, usePage } from '@inertiajs/vue3';
 import axios from 'axios';
@@ -12,18 +11,6 @@ import SearchResultSkeleton from "../SearchResultSkeleton.vue";
 import VLazyImage from "v-lazy-image";
 import PageLoader from '../Loaders/PageLoader.vue';
 
-=======
-import { ref, onMounted, reactive, watch, watchEffect, computed } from 'vue';
-import { Head, router, Link, usePage } from '@inertiajs/vue3';
-import axios from 'axios';
-import { route, current } from "momentum-trail";
-import LanguageModal from "../Modal/LanguageModal.vue";
-
-defineProps({
-    isActive: { type: Boolean, default: false },
-    chat_toggle: { type: Boolean, default: false },
-});
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
 const logout = () => {
     router.post(route('auth.logout'));
@@ -36,30 +23,20 @@ interface SearchResult {
     name: string;
     // Add other properties if needed
 }
-<<<<<<< HEAD
 const SearchLoading = ref(false);
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
 const search = ref('');
 // Update the type of results to be an array of SearchResult
 const results = ref<SearchResult[]>([]);
 
-<<<<<<< HEAD
 const performSearch = async () => {
     if (search.value !== '') {
         SearchLoading.value = true
         await axios
-=======
-const performSearch = () => {
-    if (search.value !== '') {
-        axios
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
             .get(route('api.search', { search: search.value }))
             .then((response) => {
                 // Assuming the response.data is an array of SearchResult
                 results.value = response.data.results;
-<<<<<<< HEAD
                 SearchLoading.value = false;
             })
             .catch((err) => console.log(err));
@@ -75,26 +52,6 @@ const topbar = [
         url: route(`games.page`),
         active_link: "games.*",
         icon: "fas fa-gamepad-modern",
-=======
-            })
-            .catch((err) => console.log(err));
-    } else {
-        results.value = [];
-    }
-};
-watch(
-    () => search.value,
-    () => {
-        performSearch();
-    },
-    { immediate: true }
-);
-// Language stuff
-const topbar = [
-    {
-        url: "#",
-        active_link: "games.*",
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         en: { title: "Games" },
         ru: { title: "Игры" },
         jp: { title: "ゲーム" }
@@ -103,10 +60,7 @@ const topbar = [
     {
         url: route(`store.page`),
         active_link: "store.*",
-<<<<<<< HEAD
         icon: "fas fa-store",
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         en: { title: "Market" },
         ru: { title: "Рынок" },
         jp: { title: "市場" },
@@ -114,30 +68,21 @@ const topbar = [
     {
         url: route(`forum.page`, { id: 1 }),
         active_link: "forum.*",
-<<<<<<< HEAD
         icon: "fas fa-message-code",
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         en: { title: "Discuss" },
         ru: { title: "Обсуждать" },
         jp: { title: "議論" },
     },
     {
         url: "#",
-<<<<<<< HEAD
         active_link: "spaces.*",
         icon: "fas fa-planet-ringed",
         en: { title: "Spaces" },
-=======
-        active_link: "develop.*",
-        en: { title: "Develop" },
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         ru: { title: "Развивать" },
         jp: { title: "発展" }
     },
 
 ];
-<<<<<<< HEAD
 const lang = computed<any>(() => props.locale);
 
 
@@ -166,49 +111,6 @@ const { props } = usePage<any>();
                         :image="result.image" />
                     <SearchResultSkeleton v-else />
 
-=======
-const lang = computed(() => usePage().props.locale);
-
-const auth = computed(() => usePage().props.auth.user);
-
-usePage<any>()
-const { props } = usePage<any>();
-</script>
-<template>
-    <LanguageModal />
-    <nav class="navbar">
-        <ul class="navbar-nav grid-x">
-            <li class="nav-item cell shrink me-2">
-                <Link :href="route('Welcome')" class="nav-link">
-                <img :src="usePage().props.site.logo" class="show-for-medium" width="180" />
-                <img :src="usePage().props.site.icon" class="show-for-small-only" width="43" />
-                </Link>
-            </li>
-            <li class="nav-item cell shrink show-for-large" v-for="topbarlinks in topbar">
-                <li class="side-item">
-                  <Link class="nav-link" :href="topbarlinks.url" :class="[current(topbarlinks.active_link) ? 'active' : '']">
-			<span>{{ topbarlinks[lang].title }}</span>
-		  </Link>
-                </li>
-            </li>
-
-            <li class="mx-1 align-middle nav-item cell auto nav-search mx-md-3">
-                <input v-model="search" type="text" class="form" id="global-search-bar" autocomplete="nope" placeholder="Search..."
-                    @input="performSearch">
-                <ul :class="['dropdown-menu', { 'hide': search === '' }]" id="global-search-results">
-                    <li class="dropdown-title">Quick Results</li>
-                    <li class="dropdown-item" v-for="result in results" :key="result.url">
-                        <Link :href="result.url" class="dropdown-link">
-                        <div class="align-middle flex-container align-justify">
-                            <div class="gap-2 align-middle flex-container">
-                                <img :src="result.image" class="headshot flex-child-grow" alt="headshot" width="40" />
-                                <div>{{ result.name }}</div>
-                            </div>
-                            <i class="px-1 fas fa-chevron-right text-muted"></i>
-                        </div>
-                        </Link>
-                    </li>
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                     <li class="divider"></li>
                     <li class="dropdown-item">
                         <Link href="#" class="dropdown-link">
@@ -229,7 +131,6 @@ const { props } = usePage<any>();
                     <i class="fas fa-search"></i>
                 </button>
             </li>
-<<<<<<< HEAD
             <Button v-if="!props.auth.user" :link="route('auth.register.page')" ColorClass="btn-success"
                 class="nav-item cell shrink me-1">
                 <i class="fas fa-person-to-portal"></i> &nbsp;
@@ -249,22 +150,6 @@ const { props } = usePage<any>();
                 <div class="dropdown show-for-medium position-relative" id="notification_dropdown">
                     <div @click="addActiveClass(`notification_dropdown`)" class="btn-circle squish">
                         <button class="px-2 text-body" v-tippy content="Notifications" data-tooltip-placement="bottom">
-=======
-            <li v-if="!$page.props.auth.user" class="nav-item cell shrink me-1">
-                <Link :href="route('auth.register.page')" class="btn btn-success">Get Started</Link>
-            </li>
-            <li v-if="!$page.props.auth.user" class="nav-item cell shrink ms-1">
-                <Link :href="route('auth.login.page')" class="btn btn-info">Log In</Link>
-            </li>
-            <li v-if="$page.props.auth.user" @click="addActiveClass(`notification_dropdown`)" class="position-relative nav-item cell shrink">
-                <div class="show-for-small-only position-relative">
-                    <a href="#" class="px-2 btn-circle squish text-body"><span class="notification-circle"></span><i
-                            class="text-xl fas fa-bell"></i></a>
-                </div>
-                <div class="dropdown show-for-medium position-relative" id="notification_dropdown" @click="addActiveClass(`notification_dropdown`)">
-                    <div class="btn-circle squish">
-                        <button class="px-2 text-body" data-tooltip-title="Notifications" data-tooltip-placement="bottom">
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             <span class="notification-circle"></span><i class="text-xl fas fa-bell"></i>
                         </button>
                     </div>
@@ -433,7 +318,6 @@ const { props } = usePage<any>();
                     </ul>
                 </div>
             </li>
-<<<<<<< HEAD
             <li v-if="props.auth.user" class="nav-item cell shrink show-for-large">
                 <a href="#" class="text-sm nav-link" style="line-height: 20px" v-tippy
                     :content="props.auth.user.coins + ' Coins & ' + props.auth.user.bucks + ' Bucks'"
@@ -448,35 +332,14 @@ const { props } = usePage<any>();
             </li>
             <li v-if="props.auth.user" @click="addActiveClass(`user_dropdown`)"
                 class="dropdown position-relative nav-item cell shrink ms-1" id="user_dropdown">
-=======
-            <li v-if="$page.props.auth.user" class="nav-item cell shrink show-for-large">
-                <a href="#" class="text-sm nav-link" style="line-height: 20px" data-tooltip-html=""
-                    data-tooltip-title="<div>10 Coins</div> <div>10 Bucks</div>" data-tooltip-placement="bottom">
-                    <div class="text-warning">
-                        <i class="fas fa-coins" style="width: 22px"></i>10
-                    </div>
-                    <div class="text-success">
-                        <i class="fas fa-money-bill-1-wave" style="width: 22px"></i>10
-                    </div>
-                </a>
-            </li>
-            <li v-if="$page.props.auth.user" @click="addActiveClass(`user_dropdown`)" class="dropdown position-relative nav-item cell shrink ms-1" id="user_dropdown">
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                 <button class="gap-2 align-middle flex-container squish">
                     <img src="/assets/img/dummy_headshot.png" class="headshot" alt="headshot" width="40">
                     <div class="text-start show-for-large">
                         <div class="text-sm fw-semibold text-body">
-<<<<<<< HEAD
                             {{ props.auth.user.display_name }}
                         </div>
                         <div class="text-xs text-muted fw-semibold">
                             {{ '@' + props.auth.user.username }} • Lvl. 2
-=======
-                            {{ $page.props.auth.user.display_name }}
-                        </div>
-                        <div class="text-xs text-muted fw-semibold">
-                            {{ '@' + $page.props.auth.user.username }} • Lvl. 2
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                         </div>
                     </div>
                     <i class="text-sm fas fa-chevron-down text-muted show-for-large"></i>
@@ -488,17 +351,10 @@ const { props } = usePage<any>();
                                 width="40">
                             <div class="text-start" style="line-height: 12px">
                                 <div class="text-sm fw-semibold">
-<<<<<<< HEAD
                                     {{ props.auth.user.display_name }}
                                 </div>
                                 <div class="mb-1 text-xs text-muted fw-semibold">
                                     {{ '@' + props.auth.user.username }}
-=======
-                                    {{ $page.props.auth.user.display_name }}
-                                </div>
-                                <div class="mb-1 text-xs text-muted fw-semibold">
-                                    {{ '@' + $page.props.auth.user.username }}
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                 </div>
                                 <div class="text-xs text-muted fw-semibold">
                                     Lvl. 2
@@ -507,7 +363,6 @@ const { props } = usePage<any>();
                         </div>
                         <li class="dropdown-item">
                             <a href="#" class="dropdown-link dropdown-link-has-icon text-warning"><i
-<<<<<<< HEAD
                                     class="fas fa-coins text-warning dropdown-icon"></i>{{ props.auth.user.coins }}
                                 Coins</a>
                         </li>
@@ -515,13 +370,6 @@ const { props } = usePage<any>();
                             <a href="#" class="dropdown-link dropdown-link-has-icon text-success"><i
                                     class="fas fa-money-bill-1-wave text-success dropdown-icon"></i>{{ props.auth.user.bucks
                                     }} Cash</a>
-=======
-                                    class="fas fa-coins text-warning dropdown-icon"></i>{{ usePage().props.auth.user.coins }} Coins</a>
-                        </li>
-                        <li class="dropdown-item">
-                            <a href="#" class="dropdown-link dropdown-link-has-icon text-success"><i
-                                    class="fas fa-money-bill-1-wave text-success dropdown-icon"></i>{{ usePage().props.auth.user.cash }} Cash</a>
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                         </li>
                     </div>
                     <div class="align-middle flex-container">
@@ -529,7 +377,6 @@ const { props } = usePage<any>();
                         <li class="divider flex-child-grow"></li>
                     </div>
                     <li class="dropdown-item">
-<<<<<<< HEAD
                         <Link :href="route(`user.profile`, { username: props.auth.user.username })"
                             class="dropdown-link dropdown-link-has-icon"><i class="fas fa-user dropdown-icon"></i>Profile
                         </Link>
@@ -547,23 +394,6 @@ const { props } = usePage<any>();
                     <li class="dropdown-item">
                         <Link @click="logout" href="#" class="dropdown-link dropdown-link-has-icon text-danger"><i
                             class="fas fa-sign-out text-danger dropdown-icon"></i>Logout</Link>
-=======
-                        <Link :href="route(`user.profile`, { username: $page.props.auth.user.username })" class="dropdown-link dropdown-link-has-icon"><i
-                                class="fas fa-user dropdown-icon"></i>Profile</Link>
-                    </li>
-                    <li class="dropdown-item">
-                        <Link :href="route(`avatar.page`)" class="dropdown-link dropdown-link-has-icon"><i
-                                class="fas fa-edit dropdown-icon"></i>Character</Link>
-                    </li>
-                    <li class="dropdown-item">
-                        <Link :href="route(`user.settings.page`, { category: 'general' })" class="dropdown-link dropdown-link-has-icon"><i
-                                class="fas fa-cogs dropdown-icon"></i>Settings</Link>
-                    </li>
-                    <li class="divider"></li>
-                    <li class="dropdown-item">
-                        <Link  @click="logout" class="dropdown-link dropdown-link-has-icon text-danger"><i
-                                class="fas fa-sign-out text-danger dropdown-icon"></i>Logout</Link>
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                     </li>
                 </ul>
             </li>

@@ -8,11 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
-<<<<<<< HEAD
 use function PHPSTORM_META\elementType;
 
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -34,7 +31,6 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         $this->routes(function () {
-<<<<<<< HEAD
 
         Route::middleware('api')
         ->prefix('api')
@@ -50,21 +46,5 @@ class RouteServiceProvider extends ServiceProvider
         ->group(base_path('routes/web.php'));
         
     });
-=======
-	    Route::domain(config('Values.production.domains.api'))
-            	->middleware('api')
-		->namespace($this->namespace)
-		->as('api.')
-		->group(base_path('routes/api.php'));
-
-	    Route::domain(config('Values.production.domains.careers'))
-                ->middleware('web')
-		->group(base_path('routes/careers.php'));
-
-	    Route::domain(config('Values.production.domains.main'))
-                ->middleware('web')
-                ->group(base_path('routes/web.php'));
-        });
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     }
 }

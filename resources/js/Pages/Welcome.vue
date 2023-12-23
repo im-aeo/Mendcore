@@ -1,5 +1,4 @@
 <script setup lang="ts">
-<<<<<<< HEAD
 import AppHead from '@/Components/AppHead.vue';
 import Navbar from '@/Components/LayoutParts/Navbar.vue';
 import Footer from '@/Components/LayoutParts/Footer.vue';
@@ -25,7 +24,7 @@ defineProps({
                         <div class="text-center text-white">
                             <!-- Page heading-->
                             <h1 class="mb-5"><v-lazy-image :src="site.logo" width="512" /></h1>
-                            <h3 class="mt-3  fw-semibold">Join in on the action today. Buy &amp; sell items, participate
+                            <h3 class="mt-3 fw-semibold">Join in on the action today. Buy &amp; sell items, participate
                                 in groups, make friends, and more.</h3>
                             <h4 class="fw-semibold">Join <strong>{{ UserCount }}</strong> {{ UserCount != "1" ? 'users' : 'user' }} today!</h4>
                         </div>
@@ -127,25 +126,4 @@ defineProps({
     </div>
     <Footer/>
 </Navbar>
-=======
-import Navbar from '@/Components/LayoutParts/Navbar.vue';
-import Sidebar from '@/Components/LayoutParts/Sidebar.vue';
-import Welcome from '@/Components/PageProps/Welcome.vue';
-import Footer from '@/Components/LayoutParts/Footer.vue';
-import AppHead from '@/Components/AppHead.vue';
-import { route, current } from "momentum-trail";
-import "@/Pages/landing.css";
-
-defineProps({
-    UserCount: {type: Number, required: true},
-})
-
-</script>
-<template>
-    <AppHead pageTitle="Welcome" description="Welcome to Vestora." :url="route('auth.login.page')" />
-    <Navbar>
-        <Welcome  :UserCount="UserCount"/>
-        </Navbar>
-    <Footer />
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 </template>

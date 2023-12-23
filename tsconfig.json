@@ -8,14 +8,14 @@
         ],
         "paths": {
             "@/*": [
-               "./resources/js/*"
+                "./resources/js/*"
             ]
         },
-        "moduleResolution": "bundler",
+        "moduleResolution": "NodeNext",
         "baseUrl": "./",
         "strict": true,
-	"isolatedModules": true,
-	"noEmit": true,
+        "isolatedModules": true,
+        "noEmit": true,
         "jsx": "preserve",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true, // Enable strict type-checking options

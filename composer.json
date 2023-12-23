@@ -33,10 +33,7 @@
         "mariuzzo/laravel-js-localization": "^1.10",
         "martinbean/socialite-discord-provider": "^1.2",
         "php-open-source-saver/jwt-auth": "^2.1",
-<<<<<<< HEAD
         "predis/predis": "^2.2",
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         "pusher/pusher-php-server": "^7.2",
         "simplito/elliptic-php": "^1.0",
         "spatie/laravel-responsecache": "^7.4",

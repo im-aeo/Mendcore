@@ -4,7 +4,6 @@ import Sidebar from '@/Components/LayoutParts/Sidebar.vue';
 import Navbar from '@/Components/LayoutParts/Navbar.vue';
 import Footer from '@/Components/LayoutParts/Footer.vue';
 import AppHead from '@/Components/AppHead.vue';
-<<<<<<< HEAD
 import { usePage, router } from '@inertiajs/vue3';
 import { route, current } from 'momentum-trail'
 import axios from 'axios';
@@ -16,19 +15,10 @@ defineProps<{
 }>();
 
 const hasOBJRender = ref(false);
-=======
-import { usePage } from '@inertiajs/vue3';
-import { route, current } from 'momentum-trail'
-
-defineProps({
-    item: Object,
-});
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
 function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
-<<<<<<< HEAD
 const purchaseBucks = () => {
     axios.get(`/sanctum/csrf-cookie`).then(response => {
         axios.post(route(`store.purchase`, { id: usePage<any>().props.item.id, currencyType: 'bucks' }));
@@ -44,12 +34,6 @@ const purchaseCoins = () => {
     <AppHead :pageTitle="usePage<any>().props.item.name" :description="usePage<any>().props.item.description"
         :url="route(`store.item`, { id: item.id })" :item="true" :iid="usePage<any>().props.item.id"
         :itime="usePage<any>().props.item.time_off_sale" :cover="usePage<any>().props.item.thumbnail" />
-=======
-</script>
-<template>
-    <AppHead :pageTitle="item.name" :description="item.description" :url="route('auth.login.page')" :item="true"
-        :iid="item.id" :itime="item.time_off_sale" :ithumbnail_hash="item.thumbnail_hash" />
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     <Navbar />
     <Sidebar>
         <div class="modal" id="sell-modal">
@@ -143,12 +127,8 @@ const purchaseCoins = () => {
                         <div class="text-lg fw-semibold">
                             Information About {crateName}
                         </div>
-<<<<<<< HEAD
                         <button class="btn-circle" data-toggle-modal="#crate-info-modal"
                             @click="showModal('crate-info-modal')" style="margin-right: -10px">
-=======
-                        <button class="btn-circle" data-toggle-modal="#crate-info-modal" style="margin-right: -10px">
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -214,13 +194,8 @@ const purchaseCoins = () => {
                         <div class="text-lg fw-semibold">
                             {crateName}'s Contents
                         </div>
-<<<<<<< HEAD
                         <button class="btn-circle" @click="showModal('view-crate-content-modal')"
                             data-toggle-modal="#view-crate-content-modal" style="margin-right: -10px">
-=======
-                        <button class="btn-circle" data-toggle-modal="#view-crate-content-modal"
-                            style="margin-right: -10px">
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -380,19 +355,13 @@ const purchaseCoins = () => {
                 <div class="section-borderless">
                     <div class="gap-2 align-middle flex-container align-justify">
                         <div class="text-lg fw-semibold">Confirm Purchase</div>
-<<<<<<< HEAD
                         <button class="btn-circle" @click="showModal('purchase-with-bucks-modal')"
                             data-toggle-modal="#purchase-with-bucks-modal" style="margin-right: -10px">
-=======
-                        <button class="btn-circle" data-toggle-modal="#purchase-with-bucks-modal"
-                            style="margin-right: -10px">
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
                 </div>
                 <div class="section-borderless">
-<<<<<<< HEAD
 
                     <div class="text-sm text-muted fw-semibold">
                         Are you sure you want to buy
@@ -412,21 +381,6 @@ const purchaseCoins = () => {
                             Cancel
                         </button>
                     </form>
-=======
-                    <div class="text-sm text-muted fw-semibold">
-                        Are you sure you want to buy
-                        <span class="text-body fw-semibold">{{ item.name }}</span>
-                        for
-                        <span class="text-success"><i class="fas fa-money-bill-1-wave me-1"></i>{{ item.bucks }}
-                            Bucks</span>?
-                    </div>
-                </div>
-                <div class="gap-2 flex-container align-right section-borderless">
-                    <a href="#" class="btn btn-success btn-sm">Buy Now</a>
-                    <button class="btn btn-secondary btn-sm" data-toggle-modal="#purchase-with-bucks-modal">
-                        Cancel
-                    </button>
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                 </div>
             </div>
         </div>
@@ -435,13 +389,8 @@ const purchaseCoins = () => {
                 <div class="section-borderless">
                     <div class="gap-2 align-middle flex-container align-justify">
                         <div class="text-lg fw-semibold">Confirm Purchase</div>
-<<<<<<< HEAD
                         <button class="btn-circle" @click="showModal('purchase-with-coins-modal')"
                             data-toggle-modal="#purchase-with-coins-modal" style="margin-right: -10px">
-=======
-                        <button class="btn-circle" data-toggle-modal="#purchase-with-coins-modal"
-                            style="margin-right: -10px">
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -449,7 +398,6 @@ const purchaseCoins = () => {
                 <div class="section-borderless">
                     <div class="text-sm text-muted fw-semibold">
                         Are you sure you want to buy
-<<<<<<< HEAD
                         <span class="text-body fw-semibold">{{ usePage<any>().props.item.name }}</span>
                         for
                         <span class="text-warning"><i class="fas fa-coins me-1"></i>{{ usePage<any>().props.item.cost_coins
@@ -465,18 +413,6 @@ const purchaseCoins = () => {
                             Cancel
                         </button>
                     </form>
-=======
-                        <span class="text-body fw-semibold">{{ item.name }}</span>
-                        for
-                        <span class="text-warning"><i class="fas fa-coins me-1"></i>{{ item.coins }} Coins</span>?
-                    </div>
-                </div>
-                <div class="gap-2 flex-container align-right section-borderless">
-                    <a href="#" class="btn btn-warning btn-sm">Buy Now</a>
-                    <button class="btn btn-secondary btn-sm" data-toggle-modal="#purchase-with-coins-modal">
-                        Cancel
-                    </button>
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                 </div>
             </div>
         </div>
@@ -515,26 +451,17 @@ const purchaseCoins = () => {
                                 top: 10px;
                                 left: 10px;
                             ">
-<<<<<<< HEAD
                                 <div v-if="item.rare" class="mb-1">
-=======
-                                <div class="mb-1">
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                     <span class="badge badge-witch fw-semibold">
                                         <i class="fas fa-star" style="width: 18px"></i>Rare
                                     </span>
                                 </div>
-<<<<<<< HEAD
                                 <div v-if="isNewItem(item.created_at)" class="mb-1">
-=======
-                                <div class="mb-1">
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                     <span class="badge badge-info fw-semibold">
                                         <i class="fas fa-fire" style="width: 18px"></i>New
                                     </span>
                                 </div>
                                 <div class="mb-1">
-<<<<<<< HEAD
                                     <div v-if="usePage<any>().props.item.sale_ongoing"
                                         class="mb-1 badge badge-danger fw-semibold">
                                         <i class="fas fa-badge-percent" style="width: 18px"></i>{{ usePage<any>
@@ -542,8 +469,6 @@ const purchaseCoins = () => {
                                     </div>
                                 </div>
                                 <div class="mb-1">
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                     <span class="badge badge-danger fw-semibold">
                                         <i class="fas fa-clock" style="width: 18px"></i>Goes offsale in 10:10:12
                                     </span>
@@ -559,55 +484,32 @@ const purchaseCoins = () => {
                                         Preview
                                     </button>
                                 </div>
-<<<<<<< HEAD
                                 <div class="ms-auto" v-if="usePage<any>().props.item.type != 'crate'">
                                     <button class="btn btn-success btn-xs" data-toggle-modal="#view-crate-content-modal"
                                         @click="showModal('view-crate-content-modal')">
-=======
-                                <div class="ms-auto" v-if="item.type == 'crates'">
-                                    <button class="btn btn-success btn-xs" data-toggle-modal="#view-crate-content-modal">
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                         View Contents
                                     </button>
                                 </div>
                             </div>
-<<<<<<< HEAD
                             <img :src="usePage<any>().props.item.thumbnail" class="mx-auto d-block" id="thumbnail"
                                 ref="thumbnail" width="512" height="512">
                         </div>
                         <div v-if="itemOwnership"
-=======
-                            <img v-if="!_3d" src="/assets/img/item_dummy.png" class="mx-auto d-block" id="thumbnail"
-                                ref="thumbnail" width="512" height="512">
-                            <div id="canvas" ref="canvas"
-                                :style="{ width: thumbnailWidth + 'px', height: thumbnailHeight + 'px' }"></div>
-                        </div>
-                        <div
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             class="gap-2 py-2 overflow-hidden text-sm text-center align-middle flex-container align-center bg-success fw-semibold">
                             <i class="text-lg fas fa-party-horn"></i>
                             Yahoo! You own this item.
                         </div>
                     </div>
-<<<<<<< HEAD
                     <div class="gap-3 mb-3 align-middle flex-container" v-if="usePage<any>().props.item.type != 'crate'">
                         <button class="btn btn-info btn-xs w-100" data-toggle-modal="#crate-roll-modal"
                             @click="showModal('crate-roll-modal')">
-=======
-                    <div class="gap-3 mb-3 align-middle flex-container" v-if="item.type == 'crates'">
-                        <button class="btn btn-info btn-xs w-100" data-toggle-modal="#crate-roll-modal">
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             Open Crate
                         </button>
                         <div class="text-xs text-center flex-child-grow text-danger fw-bold text-uppercase">
                             9 Owned
                         </div>
-<<<<<<< HEAD
                         <button class="text-muted" data-toggle-modal="#crate-info-modal"
                             @click="showModal('crate-info-modal')">
-=======
-                        <button class="text-muted" data-toggle-modal="#crate-info-modal">
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             <i class="far fa-question-circle"></i>
                         </button>
                     </div>
@@ -621,11 +523,7 @@ const purchaseCoins = () => {
                                     Date Created
                                 </div>
                                 <div class="fw-semibold text-truncate">
-<<<<<<< HEAD
                                     {{ usePage<any>().props.item.DateHum }}
-=======
-                                    {{ item.DateHum }}
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                 </div>
                             </div>
                             <div class="mb-2 cell large-6">
@@ -633,11 +531,7 @@ const purchaseCoins = () => {
                                     Last Updated
                                 </div>
                                 <div class="fw-semibold text-truncate">
-<<<<<<< HEAD
                                     {{ usePage<any>().props.item.UpdateHum }}
-=======
-                                    {{ item.UpdateHum }}
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                 </div>
                             </div>
                             <div class="mb-2 cell large-6 mb-md-0">
@@ -645,14 +539,9 @@ const purchaseCoins = () => {
                                     Type
                                 </div>
                                 <div class="fw-semibold text-capitalize text-truncate">
-<<<<<<< HEAD
                                     {{ usePage<any>().props.item.item_type !== 'pants' ? capitalizeFirstLetter(usePage<any>
                                         ().props.item.item_type.slice(0, -1)) :
                                         capitalizeFirstLetter(usePage<any>().props.item.item_type) }}
-=======
-                                    {{ item.item_type !== 'pants' ? capitalizeFirstLetter(item.item_type.slice(0, -1)) :
-                                        capitalizeFirstLetter(item.item_type) }}
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                 </div>
                             </div>
                             <div class="cell large-6">
@@ -660,11 +549,7 @@ const purchaseCoins = () => {
                                     Owners
                                 </div>
                                 <div class="fw-semibold text-truncate">
-<<<<<<< HEAD
                                     {{ usePage<any>().props.item.owners }}
-=======
-                                    2
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                 </div>
                             </div>
                         </div>
@@ -757,11 +642,7 @@ const purchaseCoins = () => {
                     <div class="mb-3 card card-body">
                         <div class="gap-2 mb-2 align-middle flex-container align-justify">
                             <div class="text-3xl fw-semibold">
-<<<<<<< HEAD
                                 {{ usePage<any>().props.item.name }}
-=======
-                                {{ item.name }}
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             </div>
                             <div class="position-relative dropdown" style="margin-right: -10px">
                                 <button class="btn-circle" data-tooltip-title="More" data-tooltip-placement="bottom">
@@ -799,7 +680,6 @@ const purchaseCoins = () => {
                             <div class="text-xs text-muted text-uppercase fw-bold">
                                 By
                             </div>
-<<<<<<< HEAD
                             <Link :href="route('user.profile', { username: usePage<any>().props.item.creator.username})" class="gap-2 align-middle flex-container"
                                 :class="{ 'text-danger': usePage<any>().props.item.creator.isStaff }">
                                 <img src="/assets/img/dummy_headshot.png" class="headshot" width="38">
@@ -810,22 +690,10 @@ const purchaseCoins = () => {
                                     </div>
                                 </div>
                             </Link>
-=======
-                            <a href="#" class="gap-2 align-middle flex-container text-danger"><img
-                                    src="/assets/img/dummy_headshot.png" class="headshot" width="38">
-                                <div style="line-height: 17px">
-                                    <div>Nabrious</div>
-                                    <div class="text-xs text-muted text-truncate" style="max-width: 140px">
-                                        @Nabrious
-                                    </div>
-                                </div>
-                            </a>
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             <i class="fas fa-shield-check text-success" data-toggle-modal="#verified-modal"
                                 data-tooltip-title="Verified" data-tooltip-placement="bottom" style="cursor: pointer"></i>
                         </div>
                         <div class="mb-1 text-xs fw-bold text-uppercase text-muted">
-<<<<<<< HEAD
 
                             <span v-if="usePage<any>().props.auth.user && itemOwnership != true">
                                 Purchase With
@@ -840,28 +708,14 @@ const purchaseCoins = () => {
                                 @click="showModal('purchase-with-bucks-modal')">
                                 <i class="fas fa-money-bill-1-wave" style="width: 34px"></i>{{ usePage<any>
                                     ().props.item.cost_bucks }} Bucks
-=======
-                            Purchase With
-                        </div>
-                        <div class="gap-2 align-middle flex-container-lg">
-                            <button class="mb-2 btn btn-success btn-sm w-100"
-                                data-toggle-modal="#purchase-with-bucks-modal">
-                                <i class="fas fa-money-bill-1-wave" style="width: 34px"></i>{{ item.cost_bucks }} Bucks
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             </button>
                             <div class="mb-2 text-xs fw-bold text-uppercase text-muted">
                                 or
                             </div>
-<<<<<<< HEAD
                             <button class="mb-2 btn btn-warning btn-sm w-100" data-toggle-modal="#purchase-with-coins-modal"
                                 @click="showModal('purchase-with-coins-modal')">
                                 <i class="fas fa-coins" style="width: 34px"></i>{{ usePage<any>().props.item.cost_coins }}
                                     Coins
-=======
-                            <button class="mb-2 btn btn-warning btn-sm w-100"
-                                data-toggle-modal="#purchase-with-coins-modal">
-                                <i class="fas fa-coins" style="width: 34px"></i>{{ item.cost_coins }} Coins
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                             </button>
                         </div>
                     </div>
@@ -870,30 +724,20 @@ const purchaseCoins = () => {
                     </div>
                     <div class="mb-3 card card-body">
                         <div class="text-sm fw-semibold">
-<<<<<<< HEAD
                             {{ usePage<any>().props.item.description }}
-=======
-                            {{ item.description }}
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                         </div>
                     </div>
                     <div class="mb-1 text-xl fw-semibold">
                         More From Creator
                     </div>
                     <div class="mb-3 card card-body">
-<<<<<<< HEAD
                         <div v-if="reccomendations" class="grid-x grid-margin-x">
                             <div class="cell large-3 medium-4 small-6" v-for="suggestion in reccomendations">
-=======
-                        <div class="grid-x grid-margin-x">
-                            <div class="cell large-3 medium-4 small-6">
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                                 <a href="#" class="d-block">
                                     <div class="p-2 mb-1 card card-inner position-relative">
                                         <img src="/assets/img/item_dummy_2.png">
                                     </div>
                                     <div class="text-body fw-semibold text-truncate">
-<<<<<<< HEAD
                                         {{ suggestion.name }}
                                     </div>
                                 </a>
@@ -901,42 +745,6 @@ const purchaseCoins = () => {
                         </div>
                         <div v-else class="text-sm fw-bold text-muted">
                             There is no other items from this creator
-=======
-                                        Bowtie
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="cell large-3 medium-4 small-6">
-                                <a href="#" class="d-block">
-                                    <div class="p-2 mb-1 card card-inner position-relative">
-                                        <img src="/assets/img/item_dummy_3.png">
-                                    </div>
-                                    <div class="text-body fw-semibold text-truncate">
-                                        Tree Helmet
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="cell large-3 medium-4 small-6">
-                                <a href="#" class="d-block">
-                                    <div class="p-2 mb-1 card card-inner position-relative">
-                                        <img src="/assets/img/item_dummy_4.png">
-                                    </div>
-                                    <div class="text-body fw-semibold text-truncate">
-                                        Fall Fedora
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="cell large-3 medium-4 small-6">
-                                <a href="#" class="d-block">
-                                    <div class="p-2 mb-1 card card-inner position-relative">
-                                        <img src="/assets/img/item_dummy_5.png">
-                                    </div>
-                                    <div class="text-body fw-semibold text-truncate">
-                                        Astronaut Helmet
-                                    </div>
-                                </a>
-                            </div>
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                         </div>
                     </div>
                     <div class="mb-1 text-xl fw-semibold">
@@ -958,7 +766,6 @@ const purchaseCoins = () => {
 export default {
     name: 'MyComponent',
     methods: {
-<<<<<<< HEAD
         isNewItem(created_at) {
             const currentTime = new Date();
             const itemTime = new Date(created_at);
@@ -967,8 +774,6 @@ export default {
 
             return timeDifference < twoHoursInMillis;
         },
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         showModal(modalId: string): void {
             const modal = document.getElementById(modalId);
             if (modal) {

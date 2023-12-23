@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-<<<<<<< HEAD
 use App\Models\UserSettings;
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 //use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -21,37 +18,24 @@ use Inertia\Response;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Validation\ValidationException;
-<<<<<<< HEAD
 use Predis\Client;
 use App\Models\Avatar;
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
 class AuthController extends Controller
 {
     use AuthenticatesUsers;
 
-<<<<<<< HEAD
     
     public function LoginVal(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
-=======
-   public function LoginVal(Request $request): RedirectResponse
-    {
-	 $credentials = $request->validate([
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
             'username' => 'required',
             'password' => 'required',
         ]);
 
         if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']])) {
             // Authentication passed
-<<<<<<< HEAD
             return redirect()->intended(RouteServiceProvider::HOME)->with('success', 'You have Authenticated.');
-=======
-	  return redirect()->intended(RouteServiceProvider::HOME)->with('success', 'You have Authenticated.');
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         }
 
         // Authentication failed
@@ -75,13 +59,8 @@ class AuthController extends Controller
         return Inertia::render('Authentication/Create');
     }
 
-<<<<<<< HEAD
     /**
      * @OA\Post(
-=======
-/**
-* @OA\Post(
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
      *     path="/auth/register/validate",
      *     summary="Register a new user",
      *     @OA\Parameter(
@@ -109,7 +88,6 @@ class AuthController extends Controller
      *     @OA\Response(response="422", description="Validation errors")
      * )
      */
-<<<<<<< HEAD
     public function registerVal(Request $request)
     {
         $request->validate([
@@ -173,54 +151,6 @@ class AuthController extends Controller
     {
         Auth::guard('web')->logout();
 
-=======
-    public function registerVal(Request $request): RedirectResponse
-    {
-        $validatedData = $request->validate([
-            'username' => 'required|alpha_num|min:3|max:25|unique:users',
-            'displayname' => 'required|alpha_num|min:3|max:25',
-            'birthdate.day' => 'required|numeric|min:1|max:31',
-            'birthdate.month' => 'required|numeric|min:1|max:12',
-            'birthdate.year' => 'required|numeric|min:1900|max:'.date('Y'),
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-
-
-        if (User::where('username', $request->username)->exists()) {
-            return response()->json(['error' => 'username_exists'], 422);
-        }
-
-        $birthdate = sprintf(
-            '%04d/%02d/%02d',
-            $validatedData['birthdate']['year'],
-            $validatedData['birthdate']['month'],
-            $validatedData['birthdate']['day']
-        );
-        $user = User::create([
-            'username' => $validatedData['username'],
-            'email' => $validatedData['email'],
-            'display_name' => $validatedData['displayname'],
-            'password' => Hash::make($validatedData['password']),
-            'birth_date' => $birthdate,
-        ]);
-
-        event(new Registered($user));
-
-        Auth::login($user);
-
-        return redirect()->route('my.dashboard.page');
-    }
-
-
-    public function UserExit(Request $request): RedirectResponse
-    {
-        Auth::guard('web')->logout();
-
-	//$request->session()->invalidate();
-        //$request->session()->regenerateToken();
-
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         return redirect()->back();
     }
 }

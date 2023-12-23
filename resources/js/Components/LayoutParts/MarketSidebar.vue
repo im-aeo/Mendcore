@@ -1,11 +1,7 @@
 <template>
   <div>
     <div class="mb-2 text-xl fw-semibold">Market</div>
-<<<<<<< HEAD
     <Link v-if="usePage<any>().props.auth.user"  class="mb-2 btn btn-success btn-xs btn-block forum-button">
-=======
-    <Link v-if="$page.props.auth.user"  class="mb-2 btn btn-success btn-xs btn-block forum-button">
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
       New Item
     </Link>
     <ul class="tabs flex-dir-column">
@@ -18,11 +14,7 @@
           @click="() => selectCategory(category)"
           :class="{ active: selectedCategory === category }"
         >
-<<<<<<< HEAD
           <i :class="category.icon"></i>&nbsp;{{ pluralType(category.name) }}
-=======
-          <i :class="category.icon"></i>&nbsp;{{ category.name }}
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     </a>
       </li>
     </ul>
@@ -30,7 +22,6 @@
 </template>
 
 <script setup lang="ts">
-<<<<<<< HEAD
 import { usePage } from '@inertiajs/vue3';
 import { defineProps, ref, onMounted, defineEmits } from 'vue';
 
@@ -52,9 +43,6 @@ function pluralType(inputString) {
     return modifiedWords.join(" ");
 }
 
-=======
-import { defineProps, ref, onMounted, defineEmits } from 'vue';
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 interface Category {
   name: string;
   icon: string;

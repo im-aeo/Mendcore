@@ -1,17 +1,8 @@
 <script setup lang="ts">
-<<<<<<< HEAD
-=======
-import Profile from '@/Components/PageProps/Profile.vue';
-import Navbar from '@/Components/LayoutParts/Navbar.vue';
-import Sidebar from '@/Components/LayoutParts/Sidebar.vue';
-import Footer from '@/Components/LayoutParts/Footer.vue';
-
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 import axios from 'axios';
 import { ref } from 'vue';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
 import { route, current } from "momentum-trail";
-<<<<<<< HEAD
 import VLazyImage from "v-lazy-image";
 import Footer from '@/Components/LayoutParts/Footer.vue';
 import Navbar from '@/Components/LayoutParts/Navbar.vue';
@@ -155,12 +146,12 @@ const unfollowUser = (id) => {
         </div>
         <div class="grid-x grid-margin-x grid-padding-y align-center">
             <div class="cell large-11">
-                <div class="card mb-2">
+                <div class="mb-2 card">
                     <img style="background-repeat:no-repeat;background-size:cover;object-fit: cover;border-radius: var(--rounded-lg) var(--rounded-lg) 0px 0px; ;height:100px;"
                         class="w-100 card-img-top" onerror="this.style.backgroundColor='var(--info-600)';" :src="usePage<any>().props.user.settings.banner_url">
-                    <div class="card-body mb-2">
-                        <div class="flex-container align-justify align-middle mb-1">
-                            <div class="flex-container align-middle gap-2">
+                    <div class="mb-2 card-body">
+                        <div class="mb-1 align-middle flex-container align-justify">
+                            <div class="gap-2 align-middle flex-container">
                                 <img src="assets/img/dummy_headshot.png"
                                     class="headshot" width="50" />
                                 <div class="w-100">
@@ -170,17 +161,17 @@ const unfollowUser = (id) => {
                                     <div class="fw-semibold">{{ "@" + usePage<any>().props.user.username  }}</div>
                                 </div>
                             </div>
-                            <div class="flex-container align-middle gap-2">
-                                <a href="#" class="btn btn-danger pl-2 btn-sm btn-circle text-truncate min-w-0"><i
+                            <div class="gap-2 align-middle flex-container">
+                                <a href="#" class="min-w-0 pl-2 btn btn-danger btn-sm btn-circle text-truncate"><i
                                         class="fa-solid fa-ellipsis-vertical"></i></a>
 
-                                <a href="#" class="btn btn-info btn-sm text-truncate min-w-0"><i
+                                <a href="#" class="min-w-0 btn btn-info btn-sm text-truncate"><i
                                         class="fa-solid fa-user-plus"></i></a>
 
-                                <a href="#" class="btn btn-success btn-sm text-truncate min-w-0"><i
+                                <a href="#" class="min-w-0 btn btn-success btn-sm text-truncate"><i
                                         class="fa-solid fa-envelope"></i></a>
 
-                                <a href="#" class="btn btn-danger btn-sm text-truncate min-w-0"><i
+                                <a href="#" class="min-w-0 btn btn-danger btn-sm text-truncate"><i
                                         class="fa-solid fa-repeat"></i></a>
                             </div>
                         </div>
@@ -190,7 +181,7 @@ const unfollowUser = (id) => {
             </div>
 
             <div class="cell medium-3">
-                <div class="card-body mb-2">
+                <div class="mb-2 card-body">
                     <div :class="['card', 'card-body', 'card-status', userStatusClass]"
                         :style="usePage<any>().props.user.settings.calling_card_enabled ? { 'background-image': 'url(' + usePage<any>().props.user.settings.calling_card_url + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover' } : null">
                         <v-lazy-image :src="usePage<any>().props.user.avatar"
@@ -198,15 +189,15 @@ const unfollowUser = (id) => {
                     </div>
 
                     <div class="card-body">
-                        <div class="text-center mt-2">
+                        <div class="mt-2 text-center">
 
-                            <div class="flex-container align-center gap-3 text-sm">
-                                <button class="fw-semibold text-muted text-center text-truncate min-w-0 px-0"
+                            <div class="gap-3 text-sm flex-container align-center">
+                                <button class="min-w-0 px-0 text-center fw-semibold text-muted text-truncate"
                                     @click="showModal('following-modal')">
                                     <span class="text-body">{{ usePage<any>().props.user.following_count }}</span>
                                     Following
                                 </button>
-                                <button class="fw-semibold text-muted text-center text-truncate min-w-0 px-0"
+                                <button class="min-w-0 px-0 text-center fw-semibold text-muted text-truncate"
                                     @click="showModal('followers-modal')">
                                     <span class="text-body">{{ usePage<any>().props.user.followers_count }}</span>
                                     Followers
@@ -218,14 +209,14 @@ const unfollowUser = (id) => {
                         </div>
                     </div>
                 </div>
-                <a class="card p-2  mb-2 card-inner flex-container align-middle gap-2 mt-1">
+                <a class="gap-2 p-2 mt-1 mb-2 align-middle card card-inner flex-container">
                     <img src="assets/img/space_placeholder.png"
                         class="headshot" width="40" />
                     <div class="min-w-0" style="line-height: 14px">
-                        <div class="text-truncate text-xs fw-bold text-muted text-uppercase">
+                        <div class="text-xs text-truncate fw-bold text-muted text-uppercase">
                             Primary Space
                         </div>
-                        <div class="text-truncate fw-semibold text-sm text-body">
+                        <div class="text-sm text-truncate fw-semibold text-body">
                             Namesnipe
                         </div>
                     </div>
@@ -470,43 +461,13 @@ const unfollowUser = (id) => {
     </Sidebar>
     <Footer />
 </template>
-=======
-import AppHead from '@/Components/AppHead.vue';
-
-defineProps({
-    user: { type: Object, required: true },
-});
-</script>
-
-<style scoped>
-.modal .modal.active {
-    z-index: 500;
-}
-
-.modal-card .modal-card-body {
-    z-index: 1000;
-}
-</style>
-<template>
-        <AppHead :pageTitle="user.username" :description="user.description" :cover="user.avatar" :url="route(`user.profile`,{ username: user.username })" />
-        <Navbar/>
-            <Sidebar>
-            <Profile  :user="user"/>
-            </Sidebar>
-        <Footer />
-</template>
-
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 <script lang="ts">
 export default {
     data() {
         return {
             userstat: { // Replace this with your actual user object
                 online: false,
-<<<<<<< HEAD
                 following: false,
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
                 id: this.user.id,
                 fetchingStatus: false,
             },
@@ -537,7 +498,6 @@ export default {
                 this.userstat.fetchingStatus = false;
             }
         },
-<<<<<<< HEAD
         async fetchFollowStatus() {
             this.userstat.fetchingStatus = true;
             const cachedFollowStatus = this.userstat.follow;
@@ -551,8 +511,6 @@ export default {
                 this.userstat.fetchingStatus = false;
             }
         },
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         showModal(modalId: string): void {
             const modal = document.getElementById(modalId);
             if (modal) {

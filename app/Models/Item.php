@@ -4,28 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
 use App\Models\Inventory;
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
 class Item extends Model
 {
     use HasFactory;
-<<<<<<< HEAD
     protected $table = 'items';
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
 
     protected $fillable = [
         'creator_id',
         'creator_type',
         'name',
         'description',
-<<<<<<< HEAD
         'hash',
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         'item_type',
         'status',
         'public_view',
@@ -62,7 +53,6 @@ class Item extends Model
         return $this->updated_at->diffForHumans();
     }
 
-<<<<<<< HEAD
     public function creator()
     {
         return $this->belongsTo('App\Models\User', 'creator_id');
@@ -76,18 +66,5 @@ class Item extends Model
         return Inventory::where([
             ['item_id', '=', $this->id]
         ])->count();
-=======
-    public function creator() {
-
-        if ($this->creator_type == 'space') {
-
-        return $this->belongsTo('App\Models\Space', 'creator_id');
-
-        } else {
-
-            return $this->belongsTo('App\Models\User', 'creator_id');
-
-        }
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
     }
 }

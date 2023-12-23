@@ -27,14 +27,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-<<<<<<< HEAD
       
 //if (env('APP_ENV') === 'production') {
   Url::forceScheme('https');
 //}
 
-=======
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
       Inertia::share([
          'locale' => function () {
             return app()->getLocale();

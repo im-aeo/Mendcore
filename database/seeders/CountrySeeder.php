@@ -266,13 +266,8 @@ class CountrySeeder extends Seeder
             ['name' => 'Zimbabwe', 'code' => 'ZW'],
         ];
 
-<<<<<<< HEAD
         foreach ($countries as $countryData) {
             Country::create($countryData);
-=======
-        foreach ($countries as $key => $value) {
-            Country::create($value);
->>>>>>> 39a8b60fc9187ffe8bbc9f31cd7ca7b112b96018
         }
     }
 }
