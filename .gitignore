@@ -27,8 +27,10 @@ Homestead.json
 storage/debugbar
 
 # Laravel 10x
-storage/framework/cache/data
 storage/framework/
-storage/framework/sessions
-storage/framework/testing
+storage/logs
 storage/framework/views
+storage/framework/testing
+storage/framework/sessions
+storage/framework/cache/data
+
