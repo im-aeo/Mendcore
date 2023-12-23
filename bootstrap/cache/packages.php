@@ -218,6 +218,13 @@
       0 => 'Spatie\\LaravelTypeScriptTransformer\\TypeScriptTransformerServiceProvider',
     ),
   ),
+  'spatie/php-structure-discoverer' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Spatie\\StructureDiscoverer\\StructureDiscovererServiceProvider',
+    ),
+  ),
   'tightenco/ziggy' => 
   array (
     'providers' => 
