@@ -75,7 +75,7 @@ const { props } = usePage<any>();
             class="py-2 mb-2 text-center text-white alert alert-warning">
             <div class="gap-2 align-middle flex-container align-justify">
                 <i class="text-lg far fa-hammer pe-2"></i>
-                <div>You are currently in maintenance mode.
+                <div>You are currently in the Developmental Preview.
                     <Link :href="route('maintenance.exit')" class="text-white fw-semibold">Exit</Link>
                 </div>
                 <i class="text-lg far fa-hammer pe-2"></i>
