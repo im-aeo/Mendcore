@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blank - Eclipse</title>
+    <link rel="stylesheet"
+        href="file:///home/chronos/u-e50922ae901681779a4aeb49416a544f30a9f3cf/MyFiles/Downloads/eclipse-frontend/eclipse-frontend/assets/css/style.css" />
+    <style type='text/css'>
+        .profile-banner {
+            width: 100%;
+            /* Set width to 100% to fill available space */
+            max-width: 100%;
+            /* Ensure width stays within parent container */
+            height: 230px;
+            /* Maintain the specified height */
+            padding: 15px 0;  /* Add top and bottom padding */
+
+        }
+
+        .profile-banner .masoqi {
+            -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            width: 100%;
+            /* Fill available width of parent container */
+            height: 300px;
+            /* Set fixed height */
+            object-fit: cover;
+            /* Maintain aspect ratio while covering area */
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="modal" id="following-modal">
+        <div class="modal-card modal-card-body">
+            <div class="section-borderless">
+                <div class="flex-container align-justify align-middle gap-2">
+                    <div class="text-lg fw-semibold">
+                        Sesuiro's Following
+                    </div>
+                    <button class="btn-circle" data-toggle-modal="#following-modal" style="margin-right: -10px">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="section-borderless">
+                <div class="section">
+                    <div class="flex-container align-justify align-middle gap-2">
+                        <div class="flex-container align-middle gap-2">
+                            <img src="/assets/img/dummy_headshot.png" class="headshot" width="50" />
+                            <div class="w-100">
+                                <div class="fw-semibold">Nabrious</div>
+                                <div class="text-sm fw-semibold text-muted">
+                                    @Nabrious
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-info btn-sm text-truncate min-w-0">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="followers-modal">
+        <div class="modal-card modal-card-body">
+            <div class="section-borderless">
+                <div class="flex-container align-justify align-middle gap-2">
+                    <div class="text-lg fw-semibold">
+                        Sesuiro's Followers
+                    </div>
+                    <button class="btn-circle" data-toggle-modal="#followers-modal" style="margin-right: -10px">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="section-borderless">
+                <div class="section">
+                    <div class="flex-container align-justify align-middle gap-2">
+                        <div class="flex-container align-middle gap-2">
+                            <img src="/assets/img/dummy_headshot.png" class="headshot" width="50" />
+                            <div class="w-100">
+                                <div class="fw-semibold">Nabrious</div>
+                                <div class="text-sm fw-semibold text-muted">
+                                    @Nabrious
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-info btn-sm text-truncate min-w-0">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar">
+        <ul class="navbar-nav grid-x">
+            <li class="nav-item cell shrink show-for-small hide-for-large me-1">
+                <button class="btn-circle squish" id="sidebar-toggler">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </li>
+            <li class="nav-item cell shrink me-2">
+                <a href="#" class="nav-link">
+                    <img src="/assets/img/logo.png" class="show-for-medium" width="180" />
+                    <img src="/assets/img/icon.png" class="show-for-small-only" width="43" />
+                </a>
+            </li>
+            <li class="nav-item cell shrink show-for-large">
+                <a href="#" class="nav-link">Games</a>
+            </li>
+            <li class="nav-item cell shrink show-for-large">
+                <a href="#" class="nav-link">Market</a>
+            </li>
+            <li class="nav-item cell shrink show-for-large">
+                <a href="#" class="nav-link">Discuss</a>
+            </li>
+            <li class="nav-item cell shrink show-for-large">
+                <a href="#" class="nav-link">Develop</a>
+            </li>
+            <li class="nav-item cell auto align-middle nav-search mx-1 mx-md-3">
+                <input type="text" class="form" id="global-search-bar" placeholder="Search..." />
+                <ul class="dropdown-menu hide" id="global-search-results">
+                    <li class="dropdown-title">Quick Results</li>
+                    <li class="dropdown-item">
+                        <a href="#" class="dropdown-link">
+                            <div class="flex-container align-middle align-justify">
+                                <div class="flex-container align-middle gap-2">
+                                    <img src="/assets/img/dummy_headshot.png" class="headshot flex-child-grow"
+                                        alt="headshot" width="38" />
+                                    <div>Sesuiro</div>
+                                </div>
+                                <i class="fas fa-chevron-right text-muted px-1"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="dropdown-item">
+                        <a href="#" class="dropdown-link">
+                            <div class="flex-container align-middle align-justify">
+                                <div class="flex-container align-middle gap-2">
+                                    <i class="fas fa-telescope headshot text-lg text-muted flex-container align-center align-middle flex-child-grow"
+                                        style="height: 38px; width: 38px"></i>
+                                    <div>
+                                        Show all results for "<span class="search-keyword">Sesuiro</span>"
+                                    </div>
+                                </div>
+                                <i class="fas fa-chevron-right text-muted px-1"></i>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <button data-tooltip-title="Search" data-tooltip-placement="bottom">
+                    <i class="fas fa-search"></i>
+                </button>
+            </li>
+            <li class="position-relative nav-item cell shrink">
+                <div class="show-for-small-only position-relative">
+                    <a href="#" class="btn-circle squish px-2 text-body"><span class="notification-circle"></span><i
+                            class="fas fa-bell text-xl"></i></a>
+                </div>
+                <div class="dropdown show-for-medium position-relative">
+                    <div class="btn-circle squish">
+                        <button class="px-2 text-body" data-tooltip-title="Notifications"
+                            data-tooltip-placement="bottom">
+                            <span class="notification-circle"></span><i class="fas fa-bell text-xl"></i>
+                        </button>
+                    </div>
+                    <ul class="dropdown-menu dropdown-menu-end" style="width: 340px">
+                        <div class="flex-container align-middle">
+                            <div class="dropdown-title">Notifications</div>
+                            <li class="divider flex-child-grow"></li>
+                        </div>
+                        <li class="dropdown-item px-2 text-center py-2">
+                            <div class="flex-container flex-dir-column gap-3">
+                                <i class="fas fa-face-sleeping text-5xl text-muted"></i>
+                                <div style="line-height: 16px">
+                                    <div class="fw-bold text-xs text-muted text-uppercase">
+                                        No Notifications
+                                    </div>
+                                    <div class="text-xs text-muted fw-semibold">
+                                        You have not recieved any
+                                        notifications recently.
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--
+                <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                  <div class="flex-container gap-1 align-middle">
+                    <i
+                      class="fas fa-comments-alt text-info text-lg text-center flex-child-grow"
+                      style="width: 38px"
+                    ></i>
+                    <div class="flex-container align-middle gap-2 w-100">
+                      <img
+                        src="/assets/img/dummy_headshot.png"
+                        class="headshot flex-child-shrink"
+                        height="40"
+                        width="40"
+                      />
+                      <div class="min-w-0" style="line-height: 16px">
+                        <div class="text-truncate text-sm">
+                          <span class="search-keyword">Riley</span>
+                          <span class="text-muted text-sm"
+                            >replied to your forum post</span
+                          >
+                        </div>
+                        <div class="text-xs text-muted">8 min ago</div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                  <div class="flex-container gap-1 align-middle">
+                    <i
+                      class="fas fa-users-medical text-success text-lg text-center flex-child-grow"
+                      style="width: 38px"
+                    ></i>
+                    <div class="flex-container align-middle gap-2 w-100">
+                      <img
+                        src="/assets/img/dummy_headshot.png"
+                        class="headshot flex-child-shrink"
+                        height="40"
+                        width="40"
+                      />
+                      <div class="min-w-0" style="line-height: 16px">
+                        <div class="text-truncate text-sm">
+                          <span class="search-keyword">Nabrious</span>
+                          <span class="text-muted text-sm"
+                            >sent you a friend request</span
+                          >
+                        </div>
+                        <div class="text-xs text-muted">8 min ago</div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                  <div class="flex-container gap-1 align-middle">
+                    <i
+                      class="fas fa-message-lines text-warning text-lg text-center flex-child-grow"
+                      style="width: 38px"
+                    ></i>
+                    <div class="flex-container align-middle gap-2 w-100">
+                      <img
+                        src="/assets/img/dummy_headshot.png"
+                        class="headshot flex-child-shrink"
+                        height="40"
+                        width="40"
+                      />
+                      <div class="min-w-0" style="line-height: 16px">
+                        <div class="text-truncate text-sm">
+                          <span class="search-keyword">Squidward</span>
+                          <span class="text-muted text-sm"
+                            >sent you a message</span
+                          >
+                        </div>
+                        <div class="text-xs text-muted">8 min ago</div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                  <div class="flex-container gap-1 align-middle">
+                    <i
+                      class="fas fa-exchange text-danger text-lg text-center flex-child-grow"
+                      style="width: 38px"
+                    ></i>
+                    <div class="flex-container align-middle gap-2 w-100">
+                      <img
+                        src="/assets/img/dummy_headshot.png"
+                        class="headshot flex-child-shrink"
+                        height="40"
+                        width="40"
+                      />
+                      <div class="min-w-0" style="line-height: 16px">
+                        <div class="text-truncate text-sm">
+                          <span class="search-keyword">Hunter</span>
+                          <span class="text-muted text-sm"
+                            >sent you a trade request</span
+                          >
+                        </div>
+                        <div class="text-xs text-muted">8 min ago</div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              -->
+                        <li class="divider"></li>
+                        <!--
+                <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                  <div class="flex-container align-middle align-justify">
+                    <div class="flex-container align-middle gap-2">
+                      <i
+                        class="fas fa-check headshot text-lg text-muted flex-container align-center align-middle flex-child-grow"
+                        style="height: 38px; width: 38px"
+                      ></i>
+                      <div class="text-sm">Mark All As Read</div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              -->
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">
+                                <div class="flex-container align-middle align-justify">
+                                    <div class="flex-container align-middle gap-2">
+                                        <i class="fas fa-bell headshot text-lg text-muted flex-container align-center align-middle flex-child-grow"
+                                            style="
+                                                    height: 38px;
+                                                    width: 38px;
+                                                "></i>
+                                        <div class="text-sm">
+                                            Show All Notifications
+                                        </div>
+                                    </div>
+                                    <i class="fas fa-chevron-right text-muted text-sm px-1"></i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item cell shrink show-for-large">
+                <a href="#" class="nav-link text-sm" style="line-height: 20px" data-tooltip-html
+                    data-tooltip-title="<div>10 Coins</div> <div>10 Bucks</div>" data-tooltip-placement="bottom">
+                    <div class="text-warning">
+                        <i class="fas fa-coins" style="width: 22px"></i>10
+                    </div>
+                    <div class="text-success">
+                        <i class="fas fa-money-bill-1-wave" style="width: 22px"></i>10
+                    </div>
+                </a>
+            </li>
+            <li class="dropdown position-relative nav-item cell shrink ms-1">
+                <button class="flex-container squish align-middle gap-2">
+                    <img src="/assets/img/dummy_headshot.png" class="headshot" alt="headshot" width="40" />
+                    <div class="text-start show-for-large">
+                        <div class="fw-semibold text-sm text-body">
+                            Nabrious
+                        </div>
+                        <div class="text-muted fw-semibold text-xs">
+                            @Nabrious &bullet; Lvl. 2
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-down text-sm text-muted show-for-large"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <div class="show-for-small hide-for-large">
+                        <div class="px-2 py-1 flex-container align-middle gap-2">
+                            <img src="/assets/img/dummy_headshot.png" class="headshot flex-child-shrink" alt="headshot"
+                                width="40" />
+                            <div class="text-start" style="line-height: 12px">
+                                <div class="fw-semibold text-sm">
+                                    Nabrious
+                                </div>
+                                <div class="text-muted fw-semibold text-xs mb-1">
+                                    @Nabrious
+                                </div>
+                                <div class="text-muted fw-semibold text-xs">
+                                    Lvl. 2
+                                </div>
+                            </div>
+                        </div>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link dropdown-link-has-icon text-warning"><i
+                                    class="fas fa-coins text-warning dropdown-icon"></i>10 Coins</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link dropdown-link-has-icon text-success"><i
+                                    class="fas fa-money-bill-1-wave text-success dropdown-icon"></i>10 Cash</a>
+                        </li>
+                    </div>
+                    <div class="flex-container align-middle">
+                        <div class="dropdown-title">Account</div>
+                        <li class="divider flex-child-grow"></li>
+                    </div>
+                    <li class="dropdown-item">
+                        <a href="#" class="dropdown-link dropdown-link-has-icon"><i
+                                class="fas fa-user dropdown-icon"></i>Profile</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="#" class="dropdown-link dropdown-link-has-icon"><i
+                                class="fas fa-edit dropdown-icon"></i>Character</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="#" class="dropdown-link dropdown-link-has-icon"><i
+                                class="fas fa-cogs dropdown-icon"></i>Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="dropdown-item">
+                        <a href="#" class="dropdown-link dropdown-link-has-icon text-danger"><i
+                                class="fas fa-sign-out text-danger dropdown-icon"></i>Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <nav class="sidebar show-for-large">
+        <ul class="sidebar-nav">
+            <li class="side-item side-title">Navigation</li>
+            <li class="side-item">
+                <a href="#" class="side-link active"><i class="fas fa-home side-icon"></i><span>Home</span></a>
+            </li>
+            <div class="hide-for-large">
+                <li class="side-item">
+                    <a href="#" class="side-link"><i class="fas fa-gamepad-alt side-icon"></i><span>Games</span></a>
+                </li>
+                <li class="side-item">
+                    <a href="#" class="side-link"><i
+                            class="fas fa-shopping-basket side-icon"></i><span>Market</span></a>
+                </li>
+                <li class="side-item">
+                    <a href="#" class="side-link"><i class="fas fa-comments-alt side-icon"></i><span>Discuss</span></a>
+                </li>
+                <li class="side-item">
+                    <a href="#" class="side-link"><i class="fas fa-tools side-icon"></i><span>Develop</span></a>
+                </li>
+            </div>
+            <li class="side-item side-title">Social</li>
+            <li class="side-item">
+                <a href="#" class="side-link"><i class="fas fa-users side-icon"></i><span>Players</span></a>
+            </li>
+            <li class="side-item">
+                <a href="#" class="side-link"><i class="fas fa-planet-ringed side-icon"></i><span>Spaces</span></a>
+            </li>
+            <li class="side-item">
+                <a href="#" class="side-link"><i class="fas fa-list-ol side-icon"></i><span>Leaderboard</span></a>
+            </li>
+            <li class="side-item side-title">My Spaces</li>
+            <li class="side-item">
+                <a href="#" class="side-link side-link-has-img"><span class="side-img"><img
+                            src="/assets/img/icon.png" /></span><span>Project Eclipse</span></a>
+            </li>
+            <li class="side-item">
+                <a href="#" class="side-link side-link-has-img"><span class="side-img"><img
+                            src="/assets/img/space_placeholder.png" /></span><span>Namesnipe</span></a>
+            </li>
+            <li class="side-item">
+                <a href="#" class="side-link side-link-has-img"><span class="side-img"><img
+                            src="/assets/img/google.png" /></span><span>Long Space Name To Test Truncate</span></a>
+            </li>
+            <div class="side-item side-title">Boost Your Account</div>
+            <li class="side-item">
+                <a href="#" class="side-link side-upgrade"><i
+                        class="fas fa-rocket-launch side-icon"></i><span>Upgrade</span></a>
+            </li>
+        </ul>
+    </nav>
+    <div class="profile-banner">
+        <img class="masoqi" src='https://i.imgur.com/sLa5gg2.jpg' />
+    </div>
+    <main class="container">
+      <div class="grid-x grid-margin-x grid-padding-y align-center">
+           <div class="cell medium-3">
+            <div class="flex-container align-justify align-middle mb-2">
+                <div class="flex-container align-middle gap-3">
+                    <div class="text-xl" style="line-height: 16px">
+                        <div class="fw-semibold mb-1">{{ usePage<any>().props.user.display_name  }}<img
+                                        src="https://hatscripts.github.io/circle-flags/flags/gy.svg"
+                                        style="width: 26px;height: 16px;"></div>
+                        <div class="text-sm text-muted fw-semibold">
+                            {{ "@" + usePage<any>().props.user.username  }}
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown position-relative" style="margin-right: -14px">
+                    <button class="far fa-ellipsis-vertical text-sm btn-circle" data-tooltip-title="More"
+                        data-tooltip-placement="bottom"></button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link dropdown-link-has-icon">
+                                <i class="fas fa-exchange dropdown-icon"></i>
+                                Send Trade
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link dropdown-link-has-icon">
+                                <i class="fas fa-flag dropdown-icon"></i>
+                                Report
+                            </a>
+                        </li>
+                        <div class="flex-container align-middle">
+                            <div class="dropdown-title">Moderation</div>
+                            <li class="divider flex-child-grow"></li>
+                        </div>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link dropdown-link-has-icon text-danger">
+                                <i class="fas fa-gavel text-danger dropdown-icon"></i>
+                                View in Panel
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div :class="['card', 'card-body', 'mb-3', 'card-status', userStatusClass]" style="usePage<any>().props.user.settings.calling_card_enabled ? { 'background-image': 'url(' + usePage<any>().props.user.settings.calling_card_url + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover' } : null">
+              <v-lazy-image :src="usePage<any>().props.user.avatar" src-placeholder="&" />
+            </div>
+            <div class="mb-2 card-body">
+                    <div class="mt-2 text-center">
+                        <div class="gap-3 text-sm flex-container align-center">
+                            <button class="min-w-0 px-0 text-center fw-semibold text-muted text-truncate"
+                                @click="showModal('following-modal')">
+                                <span class="text-body">{{ usePage<any>().props.user.following_count }}</span>
+                                Following
+                            </button>
+                            <button class="min-w-0 px-0 text-center fw-semibold text-muted text-truncate"
+                                @click="showModal('followers-modal')">
+                                <span class="text-body">{{ usePage<any>().props.user.followers_count }}</span>
+                                Followers
+                            </button>
+                        </div>
+                        <div v-if="usePage<any>().props.user.followsYou" class="text-sm text-info fw-semibold">
+                            Follows you
+                        </div>
+                    </div>
+                </div>
+            <a class="gap-2 p-2 mt-1 mb-2 align-middle card card-inner flex-container">
+                <img src="assets/img/space_placeholder.png"
+                    class="headshot" width="40" />
+                <div class="min-w-0" style="line-height: 14px">
+                    <div class="text-xs text-truncate fw-bold text-muted text-uppercase">
+                        Primary Space
+                    </div>
+                    <div class="text-sm text-truncate fw-semibold text-body">
+                        Namesnipe
+                    </div>
+                </div>
+            </a>
+            <div class="mb-1 text-xl fw-semibold">About Me</div>
+            <div class="mb-3 card card-body">
+                {{ usePage<any>().props.user.about_me }}
+            </div>
+            <div class="mb-1 text-xl fw-semibold">Statistics</div>
+            <div class="mb-3 card card-body">
+                <div class="gap-1 align-middle flex-container flex-dir-column">
+                    <div class="text-sm text-membership fw-semibold w-100">
+                        <i class="text-center fas fa-rocket-launch text-membership" style="width: 26px"></i>
+                        Premium Subscriber
+                    </div>
+                    <div class="text-sm w-100">
+                        <i class="text-center fas fa-medal text-muted" style="width: 26px"></i>
+                        Rank Lvl. 2
+                    </div>
+                    <div class="text-sm w-100">
+                        <i class="text-center fas fa-users-medical text-muted" style="width: 26px"></i>
+                        Joined on {{ usePage<any>().props.user.joindate }}
+                    </div>
+                    <div class="text-sm w-100">
+                        <i class="text-center fas fa-clock text-muted" style="width: 26px"></i>
+                        Last seen {{ usePage<any>().props.user.DateHum }}
+                    </div>
+                    <div class="text-sm w-100">
+                        <i class="text-center fas fa-messages text-muted" style="width: 26px"></i>
+                        {{ usePage<any>().props.user.posts }} Discussion Posts
+                    </div>
+                </div>
+            </div>
+            <div class="mb-1 text-xl fw-semibold">Spaces</div>
+            <div class="mb-3 card card-body">
+                <div class="gap-3 text-center flex-container flex-dir-column">
+                    <i class="text-5xl fas fa-planet-ringed text-muted"></i>
+                    <div style="line-height: 16px">
+                        <div class="text-xs fw-bold text-muted text-uppercase">
+                            No Spaces
+                        </div>
+                        <div class="text-xs text-muted fw-semibold">
+                            {{ usePage<any>().props.user.username }} has not joined any spaces.
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-x grid-margin-x grid-padding-y">
+                    <div class="text-center cell medium-4 small-4">
+                        <a href="#" class="text-body">
+
+                            <img src="/assets/img/space_placeholder.png" class="mb-1" />
+                            <div>
+                                <div class="text-sm fw-semibold text-truncate">
+                                    <i class="mb-1 text-xs text-info fw-bold text-uppercase fas fa-star"></i>&nbsp;
+                                    Namesnipe
+                                </div>
+                                <div class="text-xs text-muted fw-semibold">
+                                    12K Members
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="text-center cell medium-4 small-4">
+                        <a href="#" class="text-body">
+                            <img src="/assets/img/icon.png" class="mb-1" />
+                            <div>
+                                <div class="text-sm fw-semibold text-truncate">
+                                    Project Eclipse
+                                </div>
+                                <div class="text-xs text-muted fw-semibold">4 Members</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell medium-8">
+            <div class="mb-3 text-center alert alert-success fw-semibold">
+                You are now following this user!
+            </div>
+            <div style="height: 6px"></div>
+            <div class="mb-1 align-middle flex-container align-justify">
+                <div class="mb-1 text-xl fw-semibold">Achievements</div>
+                <a href="#" class="btn btn-secondary btn-sm">View All</a>
+            </div>
+            <div class="mb-3 card card-body">
+                <div class="gap-3 text-center flex-container flex-dir-column">
+                    <i class="text-5xl fas fa-award text-muted"></i>
+                    <div style="line-height: 16px">
+                        <div class="text-xs fw-bold text-muted text-uppercase">
+                            No Achievements
+                        </div>
+                        <div class="text-xs text-muted fw-semibold">
+                            {{ usePage<any>().props.user.username }} has not made any achievements.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-wrap gap-3 flex-container align-center">
+                    <div class="min-w-0 text-center" style="width: 80px">
+                        <img src="/assets/img/achievement_dummy.png" />
+                        <div class="text-xs fw-semibold text-truncate">
+                            Adminstrator
+                        </div>
+                    </div>
+                    <div class="min-w-0 text-center" style="width: 80px">
+                        <img src="/assets/img/achievement_dummy.png" />
+                        <div class="text-xs fw-semibold text-truncate">
+                            Adminstrator
+                        </div>
+                    </div>
+                    <div class="min-w-0 text-center" style="width: 80px">
+                        <img src="/assets/img/achievement_dummy.png" />
+                        <div class="text-xs fw-semibold text-truncate">
+                            Adminstrator
+                        </div>
+                    </div>
+                    <div class="min-w-0 text-center" style="width: 80px">
+                        <img src="/assets/img/achievement_dummy.png" />
+                        <div class="text-xs fw-semibold text-truncate">
+                            Adminstrator
+                        </div>
+                    </div>
+                    <div class="min-w-0 text-center" style="width: 80px">
+                        <img src="/assets/img/achievement_dummy.png" />
+                        <div class="text-xs fw-semibold text-truncate">
+                            Adminstrator
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mb-3 card card-body">
+                <div class="section">
+                    <ul class="tabs">
+                        <li class="tab-item">
+                            <a href="#" class="tab-link active squish">Posts</a>
+                        </li>
+                        <li class="tab-item">
+                            <a href="#" class="tab-link squish">Inventory</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <div class="gap-3 text-center flex-container flex-dir-column">
+                        <i class="text-5xl fas fa-face-sleeping text-muted"></i>
+                        <div style="line-height: 16px">
+                            <div class="text-xs fw-bold text-muted text-uppercase">
+                                No Posts
+                            </div>
+                            <div class="text-xs text-muted fw-semibold">
+                                {{ usePage<any>().props.user.username }} has not posted anything to their
+                                    feed.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gap-3 section flex-container flex-dir-column-sm">
+                    <div class="mx-auto flex-child-grow" style="width: 100px">
+                        <a href="#" class="text-sm text-center d-block squish">
+                            <img src="/assets/img/dummy_headshot.png" class="mb-1 headshot" width="60" />
+                            <div style="line-height: 16px">
+                                <div class="text-membership text-truncate">{{ usePage<any>().props.user.display_name
+                                }}</div>
+                                <div class="text-xs text-muted text-truncate">{{ '@' + usePage<any>
+                                    ().props.user.username }}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card card-body card-inner w-100">
+                        <div class="align-middle flex-container align-justify">
+                            <div class="w-100">
+                                <div class="text-xs text-muted">
+                                    <i class="far fa-clock me-1" style="
+      vertical-align: middle;
+      margin-top: -2.5px;
+      font-size: 10px;
+    "></i>Posted 23 minutes ago
+                                </div>
+                                <div>
+                                    {{ usePage<any>().props.user.status }}
+                                </div>
+                                <div class="text-sm" style="margin-left: -6px">
+                                    <button class="btn-like active squish">
+                                        <i class="far fa-heart"></i>1
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="dropdown ms-auto position-relative">
+                                <button class="btn-circle" style="margin-right: -10px">
+                                    <i class="fas fa-ellipsis-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li class="dropdown-item">
+                                        <a href="#" class="dropdown-link dropdown-link-has-icon">
+                                            <i class="fas fa-flag dropdown-icon"></i> Report
+                                        </a>
+                                    </li>
+                                    <div class="align-middle flex-container">
+                                        <div class="dropdown-title">Moderation</div>
+                                        <li class="divider flex-child-grow"></li>
+                                    </div>
+                                    <li class="dropdown-item">
+                                        <a href="#" class="dropdown-link dropdown-link-has-icon text-danger">
+                                            <i class="fas fa-trash text-danger dropdown-icon"></i>
+                                            Delete
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="my-2 align-middle flex-container">
+                            <div class="text-xs fw-bold text-muted text-uppercase">
+                                Comments
+                            </div>
+                            <div class="divider flex-child-grow"></div>
+                        </div>
+                        <div class="gap-2 mb-2 flex-container">
+                            <input type="text" class="form form-sm form-has-section-color"
+                                placeholder="What are your thoughts on this post?" />
+                            <input type="button" class="btn btn-success btn-sm" value="Post" />
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <ul class="pagination flex-container align-center">
+                        <button class="page-link page-disabled">
+                            <i class="fa-regular fa-chevron-left"></i>
+                        </button>
+                        <button class="page-link page-active">1</button>
+                        <button class="page-link">2</button>
+                        <button class="page-link">3</button>
+                        <button class="page-link">
+                            <i class="fa-regular fa-chevron-right"></i>
+                        </button>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    <footer class="footer">
+        <main class="container py-3">
+            <div class="grid-x grid-margin-x align-middle">
+                <div class="cell large-6">
+                    <div class="fw-semibold text-lg mb-1 mb-lg-0">
+                        Copyright &copy; 2023
+                        <img src="/assets/img/icon.png" width="24" style="margin-top: -2px" />
+                        Eclipse. All rights reserved.
+                    </div>
+                    <div class="flex-container-lg mb-2 mb-lg-0">
+                        <a href="#" class="footer-link fw-semibold text-sm">TERMS OF SERVICE</a><a href="#"
+                            class="footer-link fw-semibold text-sm">PRIVACY POLICY</a><a href="#"
+                            class="footer-link fw-semibold text-sm">JOBS</a><a href="#"
+                            class="footer-link fw-semibold text-sm">CONTACT</a>
+                    </div>
+                </div>
+                <div class="cell large-6">
+                    <div class="flex-container gap-3 align-right align-center-sm">
+                        <a href="#" class="footer-media text-2xl text-muted" data-tooltip-title="Join us on Discord"><i
+                                class="fab fa-discord"></i></a>
+                        <a href="#" class="footer-media text-2xl text-muted"
+                            data-tooltip-title="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="footer-media text-2xl text-muted" data-tooltip-title="Follow us on Twitch"><i
+                                class="fab fa-twitch"></i></a>
+                        <a href="#" class="footer-media text-2xl text-muted" data-tooltip-title="Follow us on TikTok"><i
+                                class="fab fa-tiktok"></i></a>
+                        <a href="#" class="footer-media text-2xl text-muted"
+                            data-tooltip-title="Follow us on Facebook"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </footer>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>
