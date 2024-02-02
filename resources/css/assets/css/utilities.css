@@ -29,6 +29,14 @@
     box-shadow: 0 1px 1px rgb(0, 0, 0, 0.2);
 }
 
+.game-thumbnail {
+    border-radius: var(--rounded-md);
+    box-shadow: 0 1px 1px rgb(0, 0, 0, 0.2);
+    height: 160px;
+    width: auto;
+    object-fit: cover;
+}
+
 .vertical-align-middle {
     vertical-align: middle !important;
     margin-top: -2px;
