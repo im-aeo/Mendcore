@@ -145,42 +145,48 @@ const unfollowUser = (id) => {
             </div>
         </div>
         <div class="grid-x grid-margin-x grid-padding-y align-center">
-            <div class="cell large-11">
-                <div class="mb-2 card">
-                    <img style="background-repeat:no-repeat;background-size:cover;object-fit: cover;border-radius: var(--rounded-lg) var(--rounded-lg) 0px 0px; ;height:100px;"
-                        class="w-100 card-img-top" onerror="this.style.backgroundColor='var(--info-600)';" :src="usePage<any>().props.user.settings.banner_url">
-                    <div class="mb-2 card-body">
-                        <div class="mb-1 align-middle flex-container align-justify">
-                            <div class="gap-2 align-middle flex-container">
-                                <img src="assets/img/dummy_headshot.png"
-                                    class="headshot" width="50" />
-                                <div class="w-100">
-                                    <div class="fw-semibold">{{ usePage<any>().props.user.display_name  }}<img
+            <div class="cell medium-3">
+                            <div class="cell medium-3">
+                <div class="flex-container align-justify align-middle mb-2">
+                    <div class="flex-container align-middle gap-3">
+                        <div class="text-xl" style="line-height: 16px">
+                            <div class="fw-semibold mb-1">{{ usePage<any>().props.user.display_name  }}<img
                                             src="https://hatscripts.github.io/circle-flags/flags/gy.svg"
                                             style="width: 26px;height: 16px;"></div>
-                                    <div class="fw-semibold">{{ "@" + usePage<any>().props.user.username  }}</div>
-                                </div>
-                            </div>
-                            <div class="gap-2 align-middle flex-container">
-                                <a href="#" class="min-w-0 pl-2 btn btn-danger btn-sm btn-circle text-truncate"><i
-                                        class="fa-solid fa-ellipsis-vertical"></i></a>
-
-                                <a href="#" class="min-w-0 btn btn-info btn-sm text-truncate"><i
-                                        class="fa-solid fa-user-plus"></i></a>
-
-                                <a href="#" class="min-w-0 btn btn-success btn-sm text-truncate"><i
-                                        class="fa-solid fa-envelope"></i></a>
-
-                                <a href="#" class="min-w-0 btn btn-danger btn-sm text-truncate"><i
-                                        class="fa-solid fa-repeat"></i></a>
+                            <div class="text-sm text-muted fw-semibold">
+                                {{ "@" + usePage<any>().props.user.username  }}
                             </div>
                         </div>
-
+                    </div>
+                    <div class="dropdown position-relative" style="margin-right: -14px">
+                        <button class="far fa-ellipsis-vertical text-sm btn-circle" data-tooltip-title="More"
+                            data-tooltip-placement="bottom"></button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li class="dropdown-item">
+                                <a href="#" class="dropdown-link dropdown-link-has-icon">
+                                    <i class="fas fa-exchange dropdown-icon"></i>
+                                    Send Trade
+                                </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="#" class="dropdown-link dropdown-link-has-icon">
+                                    <i class="fas fa-flag dropdown-icon"></i>
+                                    Report
+                                </a>
+                            </li>
+                            <div class="flex-container align-middle">
+                                <div class="dropdown-title">Moderation</div>
+                                <li class="divider flex-child-grow"></li>
+                            </div>
+                            <li class="dropdown-item">
+                                <a href="#" class="dropdown-link dropdown-link-has-icon text-danger">
+                                    <i class="fas fa-gavel text-danger dropdown-icon"></i>
+                                    View in Panel
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-
-            <div class="cell medium-3">
                 <div class="mb-2 card-body">
                     <div :class="['card', 'card-body', 'card-status', userStatusClass]"
                         :style="usePage<any>().props.user.settings.calling_card_enabled ? { 'background-image': 'url(' + usePage<any>().props.user.settings.calling_card_url + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover' } : null">
