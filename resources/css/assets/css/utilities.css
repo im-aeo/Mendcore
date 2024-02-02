@@ -29,6 +29,29 @@
     box-shadow: 0 1px 1px rgb(0, 0, 0, 0.2);
 }
 
+.profile-banner {
+            width: 100%;
+            /* Set width to 100% to fill available space */
+            max-width: 100%;
+            /* Ensure width stays within parent container */
+            height: 230px;
+            /* Maintain the specified height */
+            padding: 15px 0;  /* Add top and bottom padding */
+
+}
+
+.profile-banner .masoqi {
+            -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            width: 100%;
+            /* Fill available width of parent container */
+            height: 300px;
+            /* Set fixed height */
+            object-fit: cover;
+            /* Maintain aspect ratio while covering area */
+
+}
+
 .game-thumbnail {
     border-radius: var(--rounded-md);
     box-shadow: 0 1px 1px rgb(0, 0, 0, 0.2);
