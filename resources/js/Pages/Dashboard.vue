@@ -11,7 +11,6 @@ import AppHead from '@/Components/AppHead.vue';
 import Footer from '@/Components/LayoutParts/Footer.vue';
 import NewsCard from '@/Components/NewsCard.vue';
 import StatusCard from '@/Components/StatusCard.vue';
-
 import NewsCardSkeleton from '@/Components/NewsCardSkeleton.vue';
 
 const form = useForm({
