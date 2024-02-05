@@ -38,7 +38,7 @@ const slist = ref<StatusObject[]>(props.slist);
 const addStatus = (status: string): void => {
   const StatusUpdate: StatusObject = {
     dname: usePage<any>().props.auth.user.display_name,
-    name: usePage<any>().props.auth.user.display_name,
+    name: usePage<any>().props.auth.user.username,
     message: status,
     DateHum: "Just Now",
   };
