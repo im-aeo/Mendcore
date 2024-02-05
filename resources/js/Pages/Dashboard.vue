@@ -48,10 +48,10 @@ const addStatus = (status: string): void => {
     .post(route(`my.dashboard.validate`), {
       message: status,
     })
-    .then((quote) => {
+    .then((status) => {
       console.log("Success:", quote);
     })
-    .catch((error) => {
+    .catch((status) => {
       console.error("Error:", error);
     });
 };
@@ -148,7 +148,7 @@ const addStatus = (status: string): void => {
                             </div>
                         </div>
                     </div>
-                    <StatusCard v-else v-for="status in slist.data" :DisplayName="status.dname" :name="status.name"
+                    <StatusCard v-else v-for="status in slist" :DisplayName="status.dname" :name="status.name"
                         :message="status.message" :date="status.DateHum" />
                 </div>
                 <AeoPagination v-bind:pagedata="slist" @page-clicked="getStatusList" />
