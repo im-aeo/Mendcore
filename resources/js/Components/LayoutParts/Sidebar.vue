@@ -63,6 +63,9 @@ const { props } = usePage<any>();
             </li>
         </ul>
     </nav>
+     <div v-if="current('user.profile.*')" class="profile-banner">
+        <img class="masoqi" src='https://i.imgur.com/sLa5gg2.jpg' />
+    </div>
     <main class="container">
         <div v-if="adblock" class="py-2 mb-4 text-center alert alert-danger fw-semibold">
             <div class="gap-2 align-middle flex-container align-justify">
