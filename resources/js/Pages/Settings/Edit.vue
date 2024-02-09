@@ -24,7 +24,6 @@ function showModal(modalId: string): void {
 </script>
 
 <template>
-
     <Navbar />
     <Sidebar>
         <div class="modal" id="email-modal">
@@ -35,22 +34,6 @@ function showModal(modalId: string): void {
                         <button @click="showModal('email-modal')" class="btn-circle" data-toggle-modal="#email-modal"
                             style="margin-right: -10px">
 
-   <Navbar/>
-	<Sidebar>
-        <div class="modal" id="email-modal">
-            <div class="modal-card modal-card-body modal-card-sm">
-                <div class="section-borderless">
-                    <div
-                        class="gap-2 align-middle flex-container align-justify"
-                    >
-                        <div class="text-lg fw-semibold">Change Email</div>
-                        <button
-                        @click="showModal('email-modal')"
-                            class="btn-circle"
-                            data-toggle-modal="#email-modal"
-                            style="margin-right: -10px"
-                        >
-
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -60,57 +43,24 @@ function showModal(modalId: string): void {
                         <div class="text-xs fw-bold text-muted text-uppercase">
                             New Email
                         </div>
-
                         <input type="text" class="form" placeholder="New Email..." />
-
-                        <input
-                            type="text"
-                            class="form"
-                            placeholder="New Email..."
-                        />
-
                     </div>
                     <div class="mb-2">
                         <div class="text-xs fw-bold text-muted text-uppercase">
                             Password
                         </div>
-
                         <input type="password" class="form" placeholder="Password..." />
-
-                        <input
-                            type="password"
-                            class="form"
-                            placeholder="Password..."
-                        />
-
                     </div>
                     <div class="text-xs text-muted fw-semibold">
                         After changing your email address, a confirmation email
                         will be sent to your inbox to confirm your identity.
                     </div>
                 </div>
-
                 <div class="flex-wrap gap-2 flex-container justify-content-end section-borderless">
                     <button class="btn btn-secondary" @click="showModal('email-modal')">
                         Cancel
                     </button>
                     <input type="submit" class="btn btn-success" value="Change Email" />
-
-                <div
-                    class="flex-wrap gap-2 flex-container justify-content-end section-borderless"
-                >
-                    <button
-                        class="btn btn-secondary"
-                        @click="showModal('email-modal')"
-                    >
-                        Cancel
-                    </button>
-                    <input
-                        type="submit"
-                        class="btn btn-success"
-                        value="Change Email"
-                    />
-
                 </div>
             </div>
         </div>
@@ -121,52 +71,57 @@ function showModal(modalId: string): void {
                     <div class="gap-2 align-middle flex-container align-justify">
                         <div class="text-lg fw-semibold">Change Username</div>
                         <button @click="showModal('username-modal')" class="btn-circle" data-toggle-modal="#username-modal"
-                            style="margin-right: -10px" />
+                            style="margin-right: -10px"></button>
 
-                    <div
-                        class="gap-2 align-middle flex-container align-justify"
-                    >
-                        <div class="text-lg fw-semibold">Change Username</div>
-                        <button
-                        @click="showModal('username-modal')"
-                            class="btn-circle"
-                            data-toggle-modal="#username-modal"
-                            style="margin-right: -10px"
-                        >
+                        <div class="gap-2 align-middle flex-container align-justify">
+                            <div class="text-lg fw-semibold">Change Username</div>
+                            <button @click="showModal('username-modal')" class="btn-circle"
+                                data-toggle-modal="#username-modal" style="margin-right: -10px">
 
-                            <i class="fas fa-times"></i>
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="section-borderless">
+                        <div class="mb-2">
+                            <div class="text-xs fw-bold text-danger text-uppercase">
+                                Username
+                            </div>
+
+                            <input type="text" class="form" placeholder="New Username..." />
+
+                            <input type="text" class="form" placeholder="New Username..." />
+
+                            <div class="text-xs text-danger fw-semibold">
+                                This username is already taken. Try @Nabrious123
+                                instead.
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="text-xs fw-bold text-muted text-uppercase">
+                                Password
+                            </div>
+
+                            <input type="password" class="form" placeholder="Password..." />
+                        </div>
+                        <div class="text-xs text-muted fw-semibold">
+                            Changing your username costs<span class="mx-1 text-success"><i
+                                    class="fas fa-money-bill-1-wave"></i>
+                                {{ usePage<any>().props.site.price.username }}</span>.
+                        </div>
+                    </div>
+                    <div class="flex-wrap gap-2 flex-container justify-content-end section-borderless">
+                        <button class="btn btn-secondary" @click="showModal('username-modal')">
+                            Cancel
                         </button>
-                    </div>
-                </div>
-                <div class="section-borderless">
-                    <div class="mb-2">
-                        <div class="text-xs fw-bold text-danger text-uppercase">
-                            Username
-                        </div>
-
-                        <input type="text" class="form" placeholder="New Username..." />
-
-                        <input
-                            type="text"
-                            class="form"
-                            placeholder="New Username..."
-                        />
-
-                        <div class="text-xs text-danger fw-semibold">
-                            This username is already taken. Try @Nabrious123
-                            instead.
-                        </div>
-                    </div>
-                    <div class="mb-2">
-                        <div class="text-xs fw-bold text-muted text-uppercase">
-                            Password
-                        </div>
+                        <input type="submit" class="btn btn-success" value="Change Username" />
 
                         <input type="password" class="form" placeholder="Password..." />
                     </div>
                     <div class="text-xs text-muted fw-semibold">
                         Changing your username costs<span class="mx-1 text-success"><i class="fas fa-money-bill-1-wave"></i>
-                            {{usePage<any>().props.site.price.username }}</span>.
+                            {{ usePage<any>
+                                ().props.site.price.username }}</span>.
                     </div>
                 </div>
                 <div class="flex-wrap gap-2 flex-container justify-content-end section-borderless">
@@ -174,34 +129,6 @@ function showModal(modalId: string): void {
                         Cancel
                     </button>
                     <input type="submit" class="btn btn-success" value="Change Username" />
-
-                        <input
-                            type="password"
-                            class="form"
-                            placeholder="Password..."
-                        />
-                    </div>
-                    <div class="text-xs text-muted fw-semibold">
-                        Changing your username costs<span
-                            class="mx-1 text-success"
-                            ><i class="fas fa-money-bill-1-wave"></i> {{$page.props.site.price.username}}</span
-                        >.
-                    </div>
-                </div>
-                <div
-                    class="flex-wrap gap-2 flex-container justify-content-end section-borderless"
-                >
-                    <button
-                        class="btn btn-secondary"
-                        @click="showModal('username-modal')"
-                    >
-                        Cancel
-                    </button>
-                    <input
-                        type="submit"
-                        class="btn btn-success"
-                        value="Change Username"
-                    />
 
                 </div>
             </div>
@@ -216,78 +143,56 @@ function showModal(modalId: string): void {
                         </div>
                         <button class="btn-circle" @click="showModal('displayname-modal')" style="margin-right: -10px" />
 
-                    <div
-                        class="gap-2 align-middle flex-container align-justify"
-                    >
-                        <div class="text-lg fw-semibold">
-                            Change Display Name
+                        <div class="gap-2 align-middle flex-container align-justify">
+                            <div class="text-lg fw-semibold">
+                                Change Display Name
+                            </div>
+                            <button class="btn-circle" @click="showModal('displayname-modal')" style="margin-right: -10px">
+
+                                <i class="fas fa-times"></i>
+                            </button>
                         </div>
-                        <button
-                            class="btn-circle"
-                            @click="showModal('displayname-modal')"
-                            style="margin-right: -10px"
-                        >
+                    </div>
+                    <div class="section-borderless">
+                        <div class="text-xs fw-bold text-muted text-uppercase">
+                            New Display Name
+                        </div>
 
-                            <i class="fas fa-times"></i>
+                        <input type="text" class="mb-2 form" placeholder="New Display Name..." />
+                        <div class="text-xs fw-bold text-muted text-uppercase">
+                            Password
+                        </div>
+                        <input type="password" class="mb-2 form" placeholder="Password..." />
+
+                        <input type="text" class="mb-2 form" placeholder="New Display Name..." />
+                        <div class="text-xs fw-bold text-muted text-uppercase">
+                            Password
+                        </div>
+                        <input type="password" class="mb-2 form" placeholder="Password..." />
+
+                        <div class="text-xs text-muted fw-semibold">
+                            Changing your your display name is free but can only be
+                            done once every two weeks.
+                        </div>
+                    </div>
+
+                    <div class="flex-wrap gap-2 flex-container justify-content-end section-borderless">
+                        <button class="btn btn-secondary" @click="showModal('displayname-modal')">
+                            Cancel
                         </button>
+                        <input type="submit" class="btn btn-success" value="Change Display Name" />
+
+                        <div class="flex-wrap gap-2 flex-container justify-content-end section-borderless">
+                            <button class="btn btn-secondary" @click="showModal('displayname-modal')">
+                                Cancel
+                            </button>
+                            <input type="submit" class="btn btn-success" value="Change Display Name" />
+
+                        </div>
                     </div>
-                </div>
-                <div class="section-borderless">
-                    <div class="text-xs fw-bold text-muted text-uppercase">
-                        New Display Name
-                    </div>
-
-                    <input type="text" class="mb-2 form" placeholder="New Display Name..." />
-                    <div class="text-xs fw-bold text-muted text-uppercase">
-                        Password
-                    </div>
-                    <input type="password" class="mb-2 form" placeholder="Password..." />
-
-                    <input
-                        type="text"
-                        class="mb-2 form"
-                        placeholder="New Display Name..."
-                    />
-                    <div class="text-xs fw-bold text-muted text-uppercase">
-                        Password
-                    </div>
-                    <input
-                        type="password"
-                        class="mb-2 form"
-                        placeholder="Password..."
-                    />
-
-                    <div class="text-xs text-muted fw-semibold">
-                        Changing your your display name is free but can only be
-                        done once every two weeks.
-                    </div>
-                </div>
-
-                <div class="flex-wrap gap-2 flex-container justify-content-end section-borderless">
-                    <button class="btn btn-secondary" @click="showModal('displayname-modal')">
-                        Cancel
-                    </button>
-                    <input type="submit" class="btn btn-success" value="Change Display Name" />
-
-                <div
-                    class="flex-wrap gap-2 flex-container justify-content-end section-borderless"
-                >
-                    <button
-                        class="btn btn-secondary"
-                        @click="showModal('displayname-modal')"
-                    >
-                        Cancel
-                    </button>
-                    <input
-                        type="submit"
-                        class="btn btn-success"
-                        value="Change Display Name"
-                    />
-
                 </div>
             </div>
         </div>
-
 
         <div class="cell medium-3">
             <div class="mb-2 text-xl fw-semibold">Account Settings</div>
@@ -301,23 +206,20 @@ function showModal(modalId: string): void {
             </ul>
         </div>
         <div class="cell medium-8">
-
-            <div v-for="category in categories" :key="category">
+            <div class="cell medium-3">
+                <div class="mb-2 text-xl fw-semibold">Account Settings</div>
+                <ul class="tabs flex-dir-column">
+                    <li class="tab-item" v-for="category in categories">
+                        <Link :href="route(`user.settings.page`, { category: category })"
+                            :class="[current(`settings.page`, { category: category }) ? 'acive' : '']"
+                            class="tab-link active squish">
+                        {{ capitalized(category) }}
+                        </Link>
+                    </li>
+                </ul>
+            </div>
+            <div class="cell medium-8" v-for="category in (categories, index)" :key="index">
                 <div v-if="category === 'general'">
-
-                <div class="cell medium-3">
-                    <div class="mb-2 text-xl fw-semibold">Account Settings</div>
-                    <ul class="tabs flex-dir-column">
-                        <li class="tab-item" v-for="category in categories">
-                            <Link :href="route(`user.settings.page`, { category: category })" :class="[current(`settings.page`, { category: category }) ? 'acive' : '']" class="tab-link active squish">
-			     {{ capitalized(category) }}
-			    </Link>
-                        </li>
-                    </ul>
-                </div>
-                <div class="cell medium-8" v-for="category in categories" :key="category">
-		  <div v-if="category === 'general'">
-
                     <div class="mb-1 text-xl fw-semibold">General</div>
                     <div class="section-borderless">
                         <div class="card card-body">
@@ -328,7 +230,6 @@ function showModal(modalId: string): void {
                                 <div class="grid-x grid-margin-x">
                                     <div class="mb-3 cell medium-6">
                                         <div
-
                                             class="gap-2 align-middle card card-body card-inner flex-container align-justify h-100">
                                             <div class="min-w-0">
                                                 <div class="text-xs text-truncate fw-bold text-muted text-uppercase">
@@ -340,27 +241,10 @@ function showModal(modalId: string): void {
                                             </div>
                                             <DeleteUserForm />
 
-                                            class="gap-2 align-middle card card-body card-inner flex-container align-justify h-100"
-                                        >
-                                            <div class="min-w-0">
-                                                <div
-                                                    class="text-xs text-truncate fw-bold text-muted text-uppercase"
-                                                >
-                                                    User ID
-                                                </div>
-                                                <div
-                                                    class="text-truncate fw-semibold"
-                                                >
-                                                    {{ $page.props.auth.user.id }}
-                                                </div>
-                                            </div>
-                                            <DeleteUserForm/>
-
                                         </div>
                                     </div>
                                     <div class="mb-3 cell medium-6">
                                         <div
-
                                             class="gap-2 align-middle card card-body card-inner flex-container align-justify">
                                             <div class="min-w-0">
                                                 <div class="text-xs text-truncate fw-bold text-muted text-uppercase">
@@ -370,34 +254,13 @@ function showModal(modalId: string): void {
                                                     {{ '@' + usePage<any>().props.auth.user.username }}
                                                 </div>
                                             </div>
-                                            <button class="btn btn-info btn-circle" @click="showModal('username-modal')" />
-
-                                            class="gap-2 align-middle card card-body card-inner flex-container align-justify"
-                                        >
-                                            <div class="min-w-0">
-                                                <div
-                                                    class="text-xs text-truncate fw-bold text-muted text-uppercase"
-                                                >
-                                                    Username
-                                                </div>
-                                                <div
-                                                    class="text-truncate fw-semibold"
-                                                >
-                                                {{ '@' + $page.props.auth.user.username }}
-                                                </div>
-                                            </div>
-                                            <button
-                                                class="btn btn-info btn-circle"
-                                                @click="showModal('username-modal')"
-                                            >
-
+                                            <button class="btn btn-info btn-circle" @click="showModal('username-modal')">
                                                 <i class="fas fa-pencil"></i>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="mb-3 cell medium-6">
                                         <div
-
                                             class="gap-2 align-middle card card-body card-inner flex-container align-justify">
                                             <div class="min-w-0">
                                                 <div class="text-xs text-truncate fw-bold text-muted text-uppercase">
@@ -407,34 +270,13 @@ function showModal(modalId: string): void {
                                                     {{ usePage<any>().props.auth.user.display_name }}
                                                 </div>
                                             </div>
-                                            <button class="btn btn-info btn-circle" @click="showModal('displayname-modal')" />
-
-                                            class="gap-2 align-middle card card-body card-inner flex-container align-justify"
-                                        >
-                                            <div class="min-w-0">
-                                                <div
-                                                    class="text-xs text-truncate fw-bold text-muted text-uppercase"
-                                                >
-                                                    Display Name
-                                                </div>
-                                                <div
-                                                    class="text-truncate fw-semibold"
-                                                >
-                                                {{ $page.props.auth.user.display_name }}
-                                                </div>
-                                            </div>
-                                            <button
-                                                class="btn btn-info btn-circle"
-                                                @click="showModal('displayname-modal')"
-                                            >
-
+                                            <button class="btn btn-info btn-circle" @click="showModal('displayname-modal')">
                                                 <i class="fas fa-pencil"></i>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="mb-3 cell medium-6">
                                         <div
-
                                             class="gap-2 align-middle card card-body card-inner flex-container align-justify">
                                             <div class="min-w-0">
                                                 <div class="text-xs text-truncate fw-bold text-muted text-uppercase">
@@ -446,42 +288,13 @@ function showModal(modalId: string): void {
                                                     {{ usePage<any>().props.auth.user.email }}
                                                 </div>
                                             </div>
-                                            <button class="btn btn-info btn-circle" @click="showModal('email-modal')" />
-
-                                            class="gap-2 align-middle card card-body card-inner flex-container align-justify"
-                                        >
-                                            <div class="min-w-0">
-                                                <div
-                                                    class="text-xs text-truncate fw-bold text-muted text-uppercase"
-                                                >
-                                                    Email Address<span
-                                                        style="font-size: 10px"
-                                                        class="text-success ms-2"
-                                                        ><i
-                                                            class="fas fa-check me-1"
-                                                        ></i
-                                                        >Verified</span
-                                                    >
-                                                    <!-- <span style="font-size: 10px;" class="text-danger ms-2"><i class="fas fa-times me-1"></i>Unverified</span> -->
-                                                </div>
-                                                <div
-                                                    class="text-truncate fw-semibold"
-                                                >
-                                                {{ $page.props.auth.user.email }}
-                                                </div>
-                                            </div>
-                                            <button
-                                                class="btn btn-info btn-circle"
-                                                @click="showModal('email-modal')"
-                                            >
-
+                                            <button class="btn btn-info btn-circle" @click="showModal('email-modal')">
                                                 <i class="fas fa-pencil"></i>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="mb-3 cell medium-6">
                                         <div
-
                                             class="gap-2 align-middle card card-body card-inner flex-container align-justify">
                                             <div class="min-w-0">
                                                 <div class="text-xs text-truncate fw-bold text-muted text-uppercase">
@@ -517,7 +330,7 @@ function showModal(modalId: string): void {
                                 </div>
                                 <div class="gap-2 align-middle flex-container">
                                     <input type="text" class="form form-sm btn-sm"
-                                        :value="$page.props.auth.user.Signature" />
+                                        :value="usePage<any>().props.auth.user.signature" />
                                     <input type="submit" class="btn btn-success btn-sm" value="Update" />
                                 </div>
                             </div>
@@ -531,28 +344,29 @@ function showModal(modalId: string): void {
                             <div id="theme-switcher-container" class="grid-x grid-margin-x grid-padding-y">
                                 <div class="cell large-6" v-for="(theme, index) in themes" :key="index">
                                     <!-- Move v-if inside the loop -->
-                                    <div v-if="theme.available" class="mb-2 theme-selection squish card card-body card-inner mb-lg-0"
-                                         :id="theme.name + '-theme-btn'" @click="setTheme(theme.name)">
+                                    <div v-if="theme.available"
+                                        class="mb-2 theme-selection squish card card-body card-inner mb-lg-0"
+                                        :id="theme.name + '-theme-btn'" @click="setTheme(theme.name)">
                                         <div class="gap-4 align-middle flex-container">
                                             <div class="selection-circle flex-child-grow show-for-large"></div>
-                                            <div class="gap-1 align-middle flex-container flex-dir-column" style="min-width: 0">
+                                            <div class="gap-1 align-middle flex-container flex-dir-column"
+                                                style="min-width: 0">
                                                 <div :class="'theme-circle ' + theme.name"></div>
                                                 <div class="text-lg fw-semibold text-truncate">
                                                     {{ theme.name }} Theme
                                                 </div>
-                                                <div
-                                                    class="selection-circle flex-child-grow show-for-small hide-for-large"
-                                                ></div>
+                                                <div class="selection-circle flex-child-grow show-for-small hide-for-large">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div v-if="category === 'account'">
-			
-		    <div class="text-xl fw-semibold mb-1">
+                    <div class="text-xl fw-semibold mb-1">
                         Account
                     </div>
                     <div class="section-borderless">
@@ -562,46 +376,29 @@ function showModal(modalId: string): void {
                                 <div class="cell medium-12">
                                     <div class="card card-inner card-body">
                                         <div class="mb-2">
-                                            <div
-                                                class="text-xl fw-semibold mb-2"
-                                            >
+                                            <div class="text-xl fw-semibold mb-2">
                                                 Change Password
                                             </div>
                                             <div class="mb-2">
-                                                <div
-                                                    class="text-xs fw-bold text-muted text-uppercase"
-                                                >
+                                                <div class="text-xs fw-bold text-muted text-uppercase">
                                                     Current Password
                                                 </div>
-                                                <input
-                                                    type="password"
-                                                    class="form form-has-section-color"
-                                                    placeholder="Current Password..."
-                                                />
+                                                <input type="password" class="form form-has-section-color"
+                                                    placeholder="Current Password..." />
                                             </div>
                                             <div class="mb-2">
-                                                <div
-                                                    class="text-xs fw-bold text-muted text-uppercase"
-                                                >
+                                                <div class="text-xs fw-bold text-muted text-uppercase">
                                                     New Password
                                                 </div>
-                                                <input
-                                                    type="password"
-                                                    class="form form-has-section-color"
-                                                    placeholder="Current Password..."
-                                                />
+                                                <input type="password" class="form form-has-section-color"
+                                                    placeholder="Current Password..." />
                                             </div>
                                             <div class="mb-2">
-                                                <div
-                                                    class="text-xs fw-bold text-muted text-uppercase"
-                                                >
+                                                <div class="text-xs fw-bold text-muted text-uppercase">
                                                     Confirm Password
                                                 </div>
-                                                <input
-                                                    type="password"
-                                                    class="form form-has-section-color"
-                                                    placeholder="Current Password..."
-                                                />
+                                                <input type="password" class="form form-has-section-color"
+                                                    placeholder="Current Password..." />
                                             </div>
                                         </div>
                                         <button class="btn btn-success">
@@ -620,27 +417,19 @@ function showModal(modalId: string): void {
                                     Privacy
                                 </div>
                                 <div class="mb-2">
-                                    <div
-                                        class="text-xs fw-bold text-muted text-uppercase"
-                                    >
+                                    <div class="text-xs fw-bold text-muted text-uppercase">
                                         Who Can Follow Me
                                     </div>
-                                    <select
-                                        class="form form-select form-has-section-color"
-                                    >
+                                    <select class="form form-select form-has-section-color">
                                         <option value="1">Everyone</option>
                                         <option value="2">No One</option>
                                     </select>
                                 </div>
                                 <div class="mb-2">
-                                    <div
-                                        class="text-xs fw-bold text-muted text-uppercase"
-                                    >
+                                    <div class="text-xs fw-bold text-muted text-uppercase">
                                         Who Can See My Posts?
                                     </div>
-                                    <select
-                                        class="form form-select form-has-section-color"
-                                    >
+                                    <select class="form form-select form-has-section-color">
                                         <option value="1">Everyone</option>
                                         <option value="2">
                                             Followers Only
@@ -648,14 +437,10 @@ function showModal(modalId: string): void {
                                     </select>
                                 </div>
                                 <div class="mb-2">
-                                    <div
-                                        class="text-xs fw-bold text-muted text-uppercase"
-                                    >
+                                    <div class="text-xs fw-bold text-muted text-uppercase">
                                         Who Can Send Me Messages
                                     </div>
-                                    <select
-                                        class="form form-select form-has-section-color"
-                                    >
+                                    <select class="form form-select form-has-section-color">
                                         <option value="1">Everyone</option>
                                         <option value="2">
                                             Followers Only
@@ -664,14 +449,10 @@ function showModal(modalId: string): void {
                                     </select>
                                 </div>
                                 <div class="mb-2">
-                                    <div
-                                        class="text-xs fw-bold text-muted text-uppercase"
-                                    >
+                                    <div class="text-xs fw-bold text-muted text-uppercase">
                                         Who Can Send Me Trade Requests
                                     </div>
-                                    <select
-                                        class="form form-select form-has-section-color"
-                                    >
+                                    <select class="form form-select form-has-section-color">
                                         <option value="1">Everyone</option>
                                         <option value="2">
                                             Followers Only
@@ -687,126 +468,64 @@ function showModal(modalId: string): void {
                                 <div class="text-xl fw-semibold mb-2">
                                     Blocked Players
                                 </div>
-                                <div
-                                    class="text-xs fw-bold text-muted text-uppercase"
-                                >
+                                <div class="text-xs fw-bold text-muted text-uppercase">
                                     Player Username
                                 </div>
                                 <div class="flex-container gap-2 mb-2">
-                                    <input
-                                        type="text"
-                                        class="form form-has-section-color"
-                                        placeholder="Player Username..."
-                                    />
+                                    <input type="text" class="form form-has-section-color"
+                                        placeholder="Player Username..." />
                                     <button class="btn btn-danger">
                                         Block
                                     </button>
                                 </div>
                                 <div class="card card-body">
-                                    <div
-                                        class="flex-container flex-dir-column text-center gap-3"
-                                    >
-                                        <i
-                                            class="fas fa-user-slash text-5xl text-muted"
-                                        ></i>
+                                    <div class="flex-container flex-dir-column text-center gap-3">
+                                        <i class="fas fa-user-slash text-5xl text-muted"></i>
                                         <div style="line-height: 16px">
-                                            <div
-                                                class="fw-bold text-xs text-muted text-uppercase"
-                                            >
+                                            <div class="fw-bold text-xs text-muted text-uppercase">
                                                 No Blocked Players
                                             </div>
-                                            <div
-                                                class="text-xs text-muted fw-semibold"
-                                            >
+                                            <div class="text-xs text-muted fw-semibold">
                                                 Yahoo! You have not blocked any
                                                 players.
                                             </div>
                                         </div>
                                     </div>
-                                    <!--
-                    <div class="section">
-                    <div class="flex-container align-middle align-justify">
-                      <a href="#" class="flex-container align-middle gap-2">
-                        <img
-                          src="/assets/img/dummy_headshot.png"
-                          class="headshot"
-                          width="50"
-                        />
-                        <div style="line-height: 18px">
-                          <div class="text-body fw-semibold">Nabrious</div>
-                          <div class="text-xs fw-semibold text-muted">
-                            @Nabrious
-                          </div>
-                        </div>
-                      </a>
-                      <button class="btn btn-info btn-sm">Unblock</button>
-                    </div>
-                  </div>
-                  <div class="section">
-                    <div class="flex-container align-middle align-justify">
-                      <a href="#" class="flex-container align-middle gap-2">
-                        <img
-                          src="/assets/img/dummy_headshot.png"
-                          class="headshot"
-                          width="50"
-                        />
-                        <div style="line-height: 18px">
-                          <div class="text-body fw-semibold">Nabrious</div>
-                          <div class="text-xs fw-semibold text-muted">
-                            @Nabrious
-                          </div>
-                        </div>
-                      </a>
-                      <button class="btn btn-info btn-sm">Unblock</button>
-                    </div>
-                  </div>
-                  <div class="section">
-                    <div class="flex-container align-middle align-justify">
-                      <a href="#" class="flex-container align-middle gap-2">
-                        <img
-                          src="/assets/img/dummy_headshot.png"
-                          class="headshot"
-                          width="50"
-                        />
-                        <div style="line-height: 18px">
-                          <div class="text-body fw-semibold">Nabrious</div>
-                          <div class="text-xs fw-semibold text-muted">
-                            @Nabrious
-                          </div>
-                        </div>
-                      </a>
-                      <button class="btn btn-info btn-sm">Unblock</button>
-                    </div>
-                  </div>
-                  -->
+
+                                    <div class="section">
+                                        <div class="flex-container align-middle align-justify">
+                                            <a href="#" class="flex-container align-middle gap-2">
+                                                <img src="/assets/img/dummy_headshot.png" class="headshot" width="50" />
+                                                <div style="line-height: 18px">
+                                                    <div class="text-body fw-semibold">Nabrious</div>
+                                                    <div class="text-xs fw-semibold text-muted">
+                                                        @Nabrious
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <button class="btn btn-info btn-sm">Unblock</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-			
+
                 </div>
-		<div v-if="category === 'billing'">
-			<div class="flex-container align-middle align-justify mb-2">
+                <div v-if="category === 'billing'">
+                    <div class="flex-container align-middle align-justify mb-2">
                         <div class="text-xl fw-semibold">Billing</div>
-                        <a href="#" class="btn btn-upgrade btn-sm"
-                            ><i class="fas fa-rocket-launch me-2"></i>Upgrade</a
-                        >
+                        <a href="#" class="btn btn-upgrade btn-sm"><i class="fas fa-rocket-launch me-2"></i>Upgrade</a>
                     </div>
                     <div class="card card-body mb-3">
                         <div class="text-xl fw-semibold mb-2">
                             Active Membership
                         </div>
                         <div class="card card-inner card-body">
-                            <div
-                                class="flex-container flex-dir-column text-center gap-3"
-                            >
-                                <i
-                                    class="fas fa-rocket-launch text-5xl text-muted"
-                                ></i>
+                            <div class="flex-container flex-dir-column text-center gap-3">
+                                <i class="fas fa-rocket-launch text-5xl text-muted"></i>
                                 <div style="line-height: 16px">
-                                    <div
-                                        class="fw-bold text-xs text-muted text-uppercase"
-                                    >
+                                    <div class="fw-bold text-xs text-muted text-uppercase">
                                         No Active Membership
                                     </div>
                                     <div class="text-xs text-muted fw-semibold">
@@ -821,122 +540,104 @@ function showModal(modalId: string): void {
                         <div class="text-xl fw-semibold mb-2">
                             Previous Purchases
                         </div>
-                        <!--
-              <div class="table">
-              <div class="table-header">
-                <div class="grid-x align-middle flex-nowrap">
-                  <div class="cell medium-4">Product</div>
-                  <div class="cell medium-4">Price</div>
-                  <div class="cell medium-4">Payment Method</div>
-                </div>
-              </div>
-              <div class="table-body">
-                <div class="grid-x align-middle flex-nowrap">
-                  <div class="cell medium-4">
-                    <div class="flex-container align-middle text-warning gap-2">
-                      <i
-                        class="fas fa-coins text-xl text-center"
-                        style="width: 30px"
-                      ></i>
-                      <div class="fw-semibold">5000 Coins</div>
-                    </div>
-                  </div>
-                  <div class="cell medium-4">
-                    <div class="fw-semibold">
-                      <span class="text-muted">$</span> 4.99
-                    </div>
-                  </div>
-                  <div class="cell medium-4">
-                    <div class="fw-semibold">
-                      <i class="fab fa-paypal text-muted me-2"></i>PayPal
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="table-body table-body-darker">
-                <div class="grid-x align-middle flex-nowrap">
-                  <div class="cell medium-4">
-                    <div class="flex-container align-middle text-success gap-2">
-                      <i
-                        class="fas fa-money-bill-1-wave text-xl text-center"
-                        style="width: 30px"
-                      ></i>
-                      <div class="fw-semibold">1000 Bucks</div>
-                    </div>
-                  </div>
-                  <div class="cell medium-4">
-                    <div class="fw-semibold">
-                      <span class="text-muted">$</span> 9.99
-                    </div>
-                  </div>
-                  <div class="cell medium-4">
-                    <div class="fw-semibold">
-                      <i class="fas fa-credit-card text-muted me-2"></i>Credit
-                      Card
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="table-body">
-                <div class="grid-x align-middle flex-nowrap">
-                  <div class="cell medium-4">
-                    <div
-                      class="flex-container align-middle text-membership gap-2"
-                    >
-                      <img src="/assets/img/membership_dummy.png" width="30" />
-                      <div class="fw-semibold">Membership</div>
-                    </div>
-                  </div>
-                  <div class="cell medium-4">
-                    <div class="flex-container align-middle text-success gap-2">
-                      <i class="fas fa-money-bill-1-wave text-center"></i>
-                      <div class="fw-semibold">500 Bucks</div>
-                    </div>
-                  </div>
-                  <div class="cell medium-4">
-                    <div class="fw-semibold">
-                      <i class="fas fa-money-bill-1-wave text-muted me-2"></i
-                      >Bucks
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="table-body table-body-darker">
-                <div class="grid-x align-middle flex-nowrap">
-                  <div class="cell medium-4">
-                    <div
-                      class="flex-container align-middle text-membership gap-2"
-                    >
-                      <img src="/assets/img/membership_dummy.png" width="30" />
-                      <div class="fw-semibold">Membership</div>
-                    </div>
-                  </div>
-                  <div class="cell medium-4">
-                    <div class="fw-semibold">
-                      <span class="text-muted">$</span> 9.99
-                    </div>
-                  </div>
-                  <div class="cell medium-4">
-                    <div class="fw-semibold">
-                      <i class="fab fa-bitcoin text-muted me-2"></i>Crypto
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            -->
+
+                        <div class="table">
+                            <div class="table-header">
+                                <div class="grid-x align-middle flex-nowrap">
+                                    <div class="cell medium-4">Product</div>
+                                    <div class="cell medium-4">Price</div>
+                                    <div class="cell medium-4">Payment Method</div>
+                                </div>
+                            </div>
+                            <div class="table-body">
+                                <div class="grid-x align-middle flex-nowrap">
+                                    <div class="cell medium-4">
+                                        <div class="flex-container align-middle text-warning gap-2">
+                                            <i class="fas fa-coins text-xl text-center" style="width: 30px"></i>
+                                            <div class="fw-semibold">5000 Coins</div>
+                                        </div>
+                                    </div>
+                                    <div class="cell medium-4">
+                                        <div class="fw-semibold">
+                                            <span class="text-muted">$</span> 4.99
+                                        </div>
+                                    </div>
+                                    <div class="cell medium-4">
+                                        <div class="fw-semibold">
+                                            <i class="fab fa-paypal text-muted me-2"></i>PayPal
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-body table-body-darker">
+                                <div class="grid-x align-middle flex-nowrap">
+                                    <div class="cell medium-4">
+                                        <div class="flex-container align-middle text-success gap-2">
+                                            <i class="fas fa-money-bill-1-wave text-xl text-center" style="width: 30px"></i>
+                                            <div class="fw-semibold">1000 Bucks</div>
+                                        </div>
+                                    </div>
+                                    <div class="cell medium-4">
+                                        <div class="fw-semibold">
+                                            <span class="text-muted">$</span> 9.99
+                                        </div>
+                                    </div>
+                                    <div class="cell medium-4">
+                                        <div class="fw-semibold">
+                                            <i class="fas fa-credit-card text-muted me-2"></i>Credit
+                                            Card
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-body">
+                                <div class="grid-x align-middle flex-nowrap">
+                                    <div class="cell medium-4">
+                                        <div class="flex-container align-middle text-membership gap-2">
+                                            <img src="/assets/img/membership_dummy.png" width="30" />
+                                            <div class="fw-semibold">Membership</div>
+                                        </div>
+                                    </div>
+                                    <div class="cell medium-4">
+                                        <div class="flex-container align-middle text-success gap-2">
+                                            <i class="fas fa-money-bill-1-wave text-center"></i>
+                                            <div class="fw-semibold">500 Bucks</div>
+                                        </div>
+                                    </div>
+                                    <div class="cell medium-4">
+                                        <div class="fw-semibold">
+                                            <i class="fas fa-money-bill-1-wave text-muted me-2"></i>Bucks
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-body table-body-darker">
+                                <div class="grid-x align-middle flex-nowrap">
+                                    <div class="cell medium-4">
+                                        <div class="flex-container align-middle text-membership gap-2">
+                                            <img src="/assets/img/membership_dummy.png" width="30" />
+                                            <div class="fw-semibold">Membership</div>
+                                        </div>
+                                    </div>
+                                    <div class="cell medium-4">
+                                        <div class="fw-semibold">
+                                            <span class="text-muted">$</span> 9.99
+                                        </div>
+                                    </div>
+                                    <div class="cell medium-4">
+                                        <div class="fw-semibold">
+                                            <i class="fab fa-bitcoin text-muted me-2"></i>Crypto
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="card card-inner card-body">
-                            <div
-                                class="flex-container flex-dir-column text-center gap-3"
-                            >
-                                <i
-                                    class="fas fa-envelope-open-text text-5xl text-muted"
-                                ></i>
+                            <div class="flex-container flex-dir-column text-center gap-3">
+                                <i class="fas fa-envelope-open-text text-5xl text-muted"></i>
                                 <div style="line-height: 16px">
-                                    <div
-                                        class="fw-bold text-xs text-muted text-uppercase"
-                                    >
+                                    <div class="fw-bold text-xs text-muted text-uppercase">
                                         No Previous Purchases
                                     </div>
                                     <div class="text-xs text-muted fw-semibold">
@@ -951,12 +652,6 @@ function showModal(modalId: string): void {
         </div>
     </Sidebar>
     <Footer />
-
-		</div>
-	</div>
-    </Sidebar>
-    <Footer/>
-
 </template>
 
 <script lang="ts">
