@@ -47,7 +47,6 @@ defineProps({
             </div>
             <div class="mx-3 my-3 divider"></div>
         </div>
-
     </Sidebar>
     <Footer />
 </template>
