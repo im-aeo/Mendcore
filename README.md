@@ -1,3 +1,6 @@
+## Mendcore is a learning tool for sandbox development, This Is Version one, if you are looking for version 2 then go to https://github.com/im-aeo/MendcoreV2
+
+
 <br>
 <p align="center"><a href="https://avasquare.com" target="_blank"><img src="logo.png" width="400" alt="Avasquare Logo"></a></p>
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
@@ -8,7 +11,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Project Eclipse Documentation
+## Mendcore Documentation
 - [Setup](/documentation/Setup.md)
 - [Rendering](/documentation/Rendering.md)
 - [Follower Relationships](/documentation/Followers.md)
