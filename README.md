@@ -1,4 +1,4 @@
-## Mendcore is a learning tool for sandbox development, This Is Version one, if you are looking for version 2 then go to https://github.com/im-aeo/MendcoreV2
+## Mendcore is outdated and has been merged into melody https://github.com/netisu/melody
 
 
 <br>
